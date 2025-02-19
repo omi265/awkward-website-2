@@ -6,8 +6,7 @@ import Contact from "@/components/PageSections/contact";
 import Team from "@/components/PageSections/team";
 import Services from "@/components/PageSections/services";
 import React, { useState } from "react";
-import {
-  DesktopTabSelector,
+import DesktopTabSelector, {
   MobileTabSelector,
 } from "@/components/TabSelector";
 
