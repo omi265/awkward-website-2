@@ -82,7 +82,7 @@ const Home = ({ setSelectedTab }: any) => {
             className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2"
           />
         </div>
-        <div className="text-xl mt-10 font-semibold w-full text-center">
+        <div className="text-2xl mt-10 font-semibold w-full text-center">
           Innovation begins outside the comfort zone. Ready to write the next
           chapter in your brand story, awkwardly?
         </div>
