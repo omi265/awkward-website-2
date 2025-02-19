@@ -33,13 +33,13 @@ function Card({ emoji }: CardProps) {
         />
         <motion.div
           variants={cardVariants}
-          className="ml-16 w-[280px] h-[330px] flex justify-center items-center rounded-[20px] bg-[#f5f5f5] shadow-[0_0_1px_rgba(0,0,0,0.075),0_0_2px_rgba(0,0,0,0.075),0_0_4px_rgba(0,0,0,0.075),0_0_8px_rgba(0,0,0,0.075),0_0_16px_rgba(0,0,0,0.075)] origin-[10%_60%] text-[164px]"
+          className="w-[280px] h-[330px] flex justify-center items-center rounded-[20px] bg-[#f5f5f5] shadow-[0_0_1px_rgba(0,0,0,0.075),0_0_2px_rgba(0,0,0,0.075),0_0_4px_rgba(0,0,0,0.075),0_0_8px_rgba(0,0,0,0.075),0_0_16px_rgba(0,0,0,0.075)] origin-[10%_60%] text-[164px]"
         >
           {emoji}
         </motion.div>
       </div>
 
-      <div className="flex flex-col justify-center text-4xl font-extrabold w-full text-left ml-32 mt-20">
+      <div className="flex flex-col justify-center text-4xl font-extrabold w-full text-left ml-10">
         <div>
           <div>First Name Last Name | Designation</div>
         </div>
@@ -78,8 +78,4 @@ const food: [string, number, number][] = [
   ["🍊", 20, 40],
   ["🍋", 60, 90],
   ["🍐", 80, 120],
-  ["🍏", 100, 140],
-  ["🫐", 205, 245],
-  ["🍆", 260, 290],
-  ["🍇", 290, 320],
 ];
