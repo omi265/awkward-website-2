@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`bodyScroll ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`bodyScroll ${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
       >
         <WebWindow children={children} className="w-[80%]" />
       </body>
