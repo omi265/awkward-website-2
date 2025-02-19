@@ -59,8 +59,8 @@ const Home = ({ setSelectedTab }: any) => {
           />
         </div>
       </div>
-      <div className="flex lg:hidden justify-center items-center h-dvh w-full flex-col">
-        <div className="text-3xl font-extrabold text-center">
+      <div className="flex lg:hidden justify-center items-center w-full flex-col mt-[25%]">
+        <div className="text-3xl font-bold text-center">
           <div>The Process of creation</div>
           <div>
             is <span className="italic font-black">Awkward</span>
@@ -82,13 +82,13 @@ const Home = ({ setSelectedTab }: any) => {
             className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2"
           />
         </div>
-        <div className="text-2xl mt-10 font-semibold w-full text-center">
+        <div className="text-xl mt-10 font-semibold w-full text-center">
           Innovation begins outside the comfort zone. Ready to write the next
           chapter in your brand story, awkwardly?
         </div>
-        <div className="flex justify-center space-x-5 items-center w-full mt-10">
+        <div className="flex flex-col justify-center space-y-3 items-center w-full mt-10">
           <motion.div
-            className="text-base font-bold px-4 py-2 border-[6px] rounded-full border-black bg-[#F8C419] shadow-2xl"
+            className="text-base font-bold px-6 py-2 border-[6px] rounded-full border-black bg-[#F8C419] shadow-2xl"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setSelectedTab(4)}
@@ -96,7 +96,7 @@ const Home = ({ setSelectedTab }: any) => {
             Get Started
           </motion.div>
           <motion.div
-            className="text-base font-bold px-4 py-2 border-[6px] rounded-full border-black bg-white shadow-2xl"
+            className="text-base font-bold px-6 py-2 border-[6px] rounded-full border-black bg-white shadow-2xl"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setSelectedTab(1)}
