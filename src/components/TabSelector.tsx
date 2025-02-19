@@ -1,10 +1,12 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
+import logo_wo_text from "../../public/AS_logo_wo_text.svg";
 
 const TabSelector = ({ tabs, selectedTab, setSelectedTab }: any) => {
   return (
-    <div className="sticky top-[9%] justify-center items-center min-h-14 w-full border-r-[10px] border-l-[10px] border-b-[10px] border-black bg-[#D9D9D9] z-10 scroll-mt-1">
+    <div className="sticky top-[9%] justify-center items-center min-h-14 w-full border-r-[0px] border-l-[0px] border-b-[10px] border-black bg-[#D9D9D9] z-10 scroll-mt-1">
       <div className="flex justify-between items-center h-14 divide-x-8 divide-black">
         {tabs.map((tab: any, index: number) => (
           <div
@@ -16,7 +18,27 @@ const TabSelector = ({ tabs, selectedTab, setSelectedTab }: any) => {
             } flex justify-center items-center text-2xl h-full font-black cursor-pointer`}
             onClick={() => setSelectedTab(index)}
           >
-            {tab.tabName}
+            {tab.tabName == "AWKWARD STUDIO" && selectedTab != 0 ? (
+              <>
+                <Image src={logo_wo_text} width={60} height={10} alt="Logo" />
+              </>
+            ) : (
+              <>
+                {tab.tabName == "AWKWARD STUDIO" ? (
+                  <div className="flex space-x-2">
+                    <Image
+                      src={logo_wo_text}
+                      width={40}
+                      height={10}
+                      alt="Logo"
+                    />{" "}
+                    <div>{tab.tabName}</div>
+                  </div>
+                ) : (
+                  <>{tab.tabName}</>
+                )}
+              </>
+            )}
           </div>
         ))}
       </div>

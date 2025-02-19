@@ -9,11 +9,13 @@ import { motion } from "motion/react";
 
 const Contact = () => {
   return (
-    <div className="text-3xl font-black mt-20 w-[70%]">
+    <div className="mt-20 w-[70%]">
       <div className="flex flex-col w-full">
-        <div className="flex flex-col justify-center text-5xl font-extrabold w-full text-left">
+        <div className="flex flex-col justify-center w-full text-left">
           <div>
-            <div>Slide into Our Mailbox!</div>
+            <div className="text-5xl font-extrabold">
+              Slide into Our Mailbox!
+            </div>
           </div>
           <div className="text-2xl mt-4 font-normal w-full">
             Lorem ipsum dolor sit amet consectetur. Turpis dictum mattis
@@ -21,19 +23,20 @@ const Contact = () => {
           </div>
         </div>
         <div className="flex justify-evenly items-center h-full w-full mt-10">
-          <div className="text-5xl font-extrabold w-[60%]">
-            <div className="flex text-4xl font-extrabold w-[80%]">
-              <div className="flex flex-col space-y-8">
+          <div className="w-[60%]">
+            <div className="flex w-[80%]">
+              <div className="flex flex-col space-y-8 font-bold">
                 <div className="flex justify-evenly items-center space-x-5">
                   <Input
                     type="name"
                     placeholder="Name"
-                    className="rounded-full p-5 w-full placeholder:italic placeholder:font-bold placeholder:text-gray-400 border-4 border-black"
+                    // className="text-5xl"
+                    className="rounded-full p-5 w-full placeholder:italic placeholder:font-bold placeholder:text-gray-400 border-4 border-black "
                   />
                   <Input
                     type="phone"
                     placeholder="Phone"
-                    className="rounded-full p-5 w-full placeholder:italic placeholder:font-bold placeholder:text-gray-400 border-4 border-black"
+                    className="rounded-full p-5 w-full placeholder:italic placeholder:font-bold placeholder:text-gray-400 border-4 border-black "
                   />
                 </div>
                 <div className="w-full">
