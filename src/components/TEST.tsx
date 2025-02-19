@@ -25,12 +25,6 @@ function Card({ emoji }: CardProps) {
       viewport={{ amount: 0.5 }}
     >
       <div>
-        <div
-        // style={{
-        //   clipPath: `path("M 0 242.8 C 0 233.9632 7.2 228.08 16 226.8 L 368 175.6 C 376.08 174.4 384 182.7632 384 191.6 L 400 344 C 400 352.8 392.8 360 384 360 L 16 360 C 7.2 360 0 352.8 0 344 Z")`,
-        // }}
-        // className="flex absolute left-0 top-0 right-0 bottom-0 bg-[#F8C419]"
-        />
         <motion.div
           variants={cardVariants}
           className="w-[280px] h-[330px] flex justify-center items-center rounded-[20px] bg-[#f5f5f5] shadow-[0_0_1px_rgba(0,0,0,0.075),0_0_2px_rgba(0,0,0,0.075),0_0_4px_rgba(0,0,0,0.075),0_0_8px_rgba(0,0,0,0.075),0_0_16px_rgba(0,0,0,0.075)] origin-[10%_60%] text-[164px]"
