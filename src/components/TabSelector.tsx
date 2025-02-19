@@ -20,15 +20,15 @@ const TabSelector = ({ tabs, selectedTab, setSelectedTab }: any) => {
           >
             {tab.tabName == "AWKWARD STUDIO" && selectedTab != 0 ? (
               <>
-                <Image src={logo_wo_text} width={60} height={10} alt="Logo" />
+                <Image src={logo_wo_text} width={42} height={10} alt="Logo" />
               </>
             ) : (
               <>
                 {tab.tabName == "AWKWARD STUDIO" ? (
-                  <div className="flex space-x-2">
+                  <div className="flex space-x-3">
                     <Image
                       src={logo_wo_text}
-                      width={40}
+                      width={42}
                       height={10}
                       alt="Logo"
                     />{" "}
