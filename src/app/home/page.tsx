@@ -26,7 +26,7 @@ const HomePage = () => {
         setSelectedTab={setSelectedTab}
       />
       <div className="flex justify-center items-center mt-[1%] w-full">
-        {selectedTab === 0 && <Home />}
+        {selectedTab === 0 && <Home setSelectedTab={setSelectedTab} />}
         {selectedTab === 1 && <About />}
         {selectedTab === 2 && <Team />}
 

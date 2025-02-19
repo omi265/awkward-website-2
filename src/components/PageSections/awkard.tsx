@@ -4,8 +4,11 @@ import placeHolder1 from "../../../public/placeholder1.png";
 import Circles from "../../../public/Circles.svg";
 
 import { Button } from "../ui/button";
+import Link from "next/link";
+import { motion } from "motion/react";
+import { ChevronRight } from "lucide-react";
 
-const Home = () => {
+const Home = ({ setSelectedTab }: any) => {
   return (
     <div className="flex justify-center items-center w-[70%] h-[600px]">
       <div className="flex justify-evenly items-center h-full w-full">
@@ -21,14 +24,23 @@ const Home = () => {
             chapter in your brand story, awkwardly?
           </div>
           <div className="flex justify-start space-x-10 items-center w-full mt-10">
-            <Button className="text-2xl font-extrabold p-5" variant={"awkward"}>
-              Get Started
+            <Button onClick={() => setSelectedTab(4)}>
+              <motion.div
+                className="text-2xl font-extrabold px-4 py-2 border-[6px] rounded-full border-black bg-[#F8C419] shadow-2xl"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                Get Started
+              </motion.div>
             </Button>
-            <Button
-              className="text-2xl font-bold p-5 bg-white"
-              variant={"awkward"}
-            >
-              Not Just Yet!
+            <Button onClick={() => setSelectedTab(1)}>
+              <motion.div
+                className="text-2xl font-extrabold px-4 py-2 border-[6px] rounded-full border-black bg-white shadow-2xl"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                Not Just Yet!
+              </motion.div>
             </Button>
           </div>
         </div>

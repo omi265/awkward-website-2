@@ -52,14 +52,15 @@ const Contact = () => {
               </div>
             </div>
             <div className="flex justify-start space-x-10 items-center w-full mt-10">
-              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                <Button
-                  className="text-2xl font-extrabold p-5"
-                  variant={"awkward"}
+              <Button onClick={() => console.log("Submitted!")}>
+                <motion.div
+                  className="text-2xl font-extrabold px-4 py-2 border-[6px] rounded-full border-black bg-[#F8C419] shadow-2xl"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                 >
                   Ready, Set, Slide!
-                </Button>
-              </motion.div>
+                </motion.div>
+              </Button>
             </div>
           </div>
           <div className="relative w-[40%] h-[400px]">

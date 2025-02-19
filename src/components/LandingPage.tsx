@@ -18,15 +18,15 @@ const LandingPage = () => {
         An innovation-first digital marketing agency.
       </div>
 
-      <motion.div
-        className="flex justify-center items-center h-[70px] w-[70px] border-[6px] rounded-full border-black bg-[#F8C419] shadow-2xl"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-      >
-        <Link className="text-6xl" href={"/home"}>
+      <Link className="text-6xl" href={"/home"}>
+        <motion.div
+          className="flex justify-center items-center h-[70px] w-[70px] border-[6px] rounded-full border-black bg-[#F8C419] shadow-2xl"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
           <ChevronRight size={42} strokeWidth={4} />
-        </Link>
-      </motion.div>
+        </motion.div>
+      </Link>
     </div>
   );
 };
