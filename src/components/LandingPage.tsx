@@ -9,12 +9,17 @@ import Link from "next/link";
 
 const LandingPage = () => {
   return (
-    <div className="flex justify-center items-center flex-col h-full relative mt-32 text-center overflow-hidden pb-20">
-      <div className="text-[72px] font-[600] mb-16">We Are</div>
+    <div className="flex justify-center items-center flex-col h-dvh relative text-center overflow-hidden w-[90%] lg:w-full">
+      <div className="text-4xl lg:text-6xl mb-8 lg:mb-16 font-bold">We Are</div>
       <div className="mb-2">
-        <Image src={logo_with_text} width={450} height={400} alt="Logo" />
+        <div className="hidden lg:flex">
+          <Image src={logo_with_text} width={450} height={400} alt="Logo" />
+        </div>
+        <div className="flex lg:hidden">
+          <Image src={logo_with_text} width={250} height={400} alt="Logo" />
+        </div>
       </div>
-      <div className="text-4xl font-[500] mb-16">
+      <div className="text-3xl lg:text-5xl font-semibold mb-16">
         An innovation-first digital marketing agency.
       </div>
 

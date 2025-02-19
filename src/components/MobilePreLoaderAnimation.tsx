@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 
 type Props = {};
 
-const DeskTopPreLoaderAnimation = (props: Props) => {
+const MobilePreLoaderAnimation = (props: Props) => {
   const [isMaximized, setIsMaximized] = useState(true);
 
   const controls = useAnimation();
@@ -53,14 +53,14 @@ const DeskTopPreLoaderAnimation = (props: Props) => {
   return (
     <motion.div
       initial={{ height: "105%" }}
-      animate={{ height: "9%" }}
+      animate={{ height: "4%" }}
       transition={{
         type: "spring",
         visualDuration: 2,
         stiffness: 50,
         delay: 3,
       }}
-      className="hidden sticky top-0 bg-[#F8C419] rounded-t-xl border-b-[10px] border-black z-30 lg:flex w-full justify-center items-center"
+      className="flex sticky bottom-2 bg-[#F8C419] rounded-b-xl border-t-[10px] border-black z-30 lg:hidden w-full justify-center items-center"
     >
       {isMaximized && (
         <motion.div
@@ -99,23 +99,8 @@ const DeskTopPreLoaderAnimation = (props: Props) => {
           </motion.div>
         </motion.div>
       )}
-
-      {!isMaximized && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            delay: 0.5,
-          }}
-          className="flex items-center space-x-6 w-full h-full pl-5"
-        >
-          <div className="h-10 w-10 border-[12px] rounded-full border-black"></div>
-          <div className="h-10 w-10 border-[12px] rounded-full border-black"></div>
-          <div className="h-10 w-10 border-[12px] rounded-full border-black"></div>
-        </motion.div>
-      )}
     </motion.div>
   );
 };
 
-export default DeskTopPreLoaderAnimation;
+export default MobilePreLoaderAnimation;

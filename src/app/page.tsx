@@ -2,7 +2,7 @@ import LandingPage from "@/components/LandingPage";
 
 export default function Page() {
   return (
-    <div>
+    <div className="flex justify-center items-center h-dvh w-dvw">
       <LandingPage />
     </div>
   );
