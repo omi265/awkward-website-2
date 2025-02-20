@@ -7,7 +7,7 @@
 }
 
 .elementScroll::-webkit-scrollbar {
-  width: 20px;
+  width: 10px;
 }
 
 .elementScroll::-webkit-scrollbar-track {
@@ -19,4 +19,10 @@
   background: rgb(248 196 25);
   border-radius: 10px;
 
+}
+
+@media screen and (min-width: 1024px) {
+  .elementScroll::-webkit-scrollbar {
+    width: 20px;
+  }
 }

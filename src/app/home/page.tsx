@@ -29,7 +29,7 @@ const HomePage = () => {
           setSelectedTab={setSelectedTab}
         />
       </div>
-      <div className="flex lg:hidden">
+      <div className="flex lg:hidden justify-center items-center">
         <MobileTabSelector
           tabs={tabs}
           selectedTab={selectedTab}

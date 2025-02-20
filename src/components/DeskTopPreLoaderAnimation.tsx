@@ -52,7 +52,7 @@ const DeskTopPreLoaderAnimation = (props: Props) => {
 
   return (
     <motion.div
-      initial={{ height: "105%" }}
+      initial={{ height: "100%" }}
       animate={{ height: "9%" }}
       transition={{
         type: "spring",
