@@ -9,23 +9,28 @@ import { motion } from "motion/react";
 
 const Contact = () => {
   return (
-    <div className="mt-20 w-[70%]">
+    <motion.div
+      className="mt-[15%] lg:mt-20 w-[90%] lg:w-[70%] mb-[35%]"
+      initial={{ opacity: 0, scale: 0.7 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, type: "spring" }}
+    >
       <div className="flex flex-col w-full">
-        <div className="flex flex-col justify-center w-full text-left">
+        <div className="flex flex-col justify-center w-full text-center lg:text-left">
           <div>
-            <div className="text-5xl font-extrabold">
+            <div className="text-3xl lg:text-5xl font-extrabold">
               Slide into Our Mailbox!
             </div>
           </div>
-          <div className="text-2xl mt-4 font-normal w-full">
+          <div className="text-lg lg:text-2xl mt-4 font-semibold lg:font-normal w-full text-justify lg:text-left">
             Lorem ipsum dolor sit amet consectetur. Turpis dictum mattis
             suspendisse neque.
           </div>
         </div>
-        <div className="flex justify-evenly items-center h-full w-full mt-10">
-          <div className="w-[60%]">
-            <div className="flex w-[80%]">
-              <div className="flex flex-col space-y-8 font-bold">
+        <div className="flex flex-col-reverse lg:flex-row justify-center lg:justify-evenly items-center h-full w-full mt-10">
+          <div className="w-full lg:w-[60%]">
+            <div className="flex lg:w-[80%] w-full mt-8 lg:mt-0">
+              <div className="flex flex-col space-y-8 font-bold w-full">
                 <div className="flex justify-evenly items-center space-x-5">
                   <Input
                     type="name"
@@ -57,7 +62,7 @@ const Contact = () => {
             <div className="flex justify-start space-x-10 items-center w-full mt-10">
               <Button onClick={() => console.log("Submitted!")}>
                 <motion.div
-                  className="text-2xl font-extrabold px-4 py-2 border-[6px] rounded-full border-black bg-[#F8C419] shadow-2xl"
+                  className="text-base lg:text-2xl font-bold lg:font-extrabold px-6 lg:px-4 py-2 border-[6px] rounded-full border-black bg-[#F8C419] shadow-2xl"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -66,7 +71,7 @@ const Contact = () => {
               </Button>
             </div>
           </div>
-          <div className="relative w-[40%] h-[400px]">
+          <div className="relative w-[80%] lg:w-full">
             <Image
               src={Circles}
               width={450}
@@ -84,7 +89,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,8 +1,14 @@
+import { motion } from "motion/react";
 import React from "react";
 
 const About = () => {
   return (
-    <div className="flex justify-center items-center w-[95%] lg:w-[70%] mt-[10%]">
+    <motion.div
+      className="flex justify-center items-center w-[95%] lg:w-[70%] mt-[10%]"
+      initial={{ opacity: 0, scale: 0.7 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, type: "spring" }}
+    >
       <div className="flex flex-col justify-evenly items-center h-full w-full">
         <div className="elementScroll rounded-2xl w-full h-[600px] space-y-5 lg:space-y-10 lg:overflow-y-scroll lg:snap-y snap-mandatory">
           <div className=" flex flex-col justify-start text-3xl lg:text-5xl font-extrabold lg:h-[550px] lg:snap-center text-left mr-1 lg:mr-5 lg:bg-[#F8C419] lg:border-4 lg:border-black rounded-2xl p-5">
@@ -44,7 +50,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

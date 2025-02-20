@@ -7,7 +7,7 @@
 }
 
 .elementScroll::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 .elementScroll::-webkit-scrollbar-track {

@@ -10,7 +10,12 @@ import { ChevronRight } from "lucide-react";
 
 const Home = ({ setSelectedTab }: any) => {
   return (
-    <div className="flex justify-center items-center w-[90%] lg:w-[70%] lg:h-[600px]">
+    <motion.div
+      className="flex justify-center items-center w-[90%] lg:w-[70%] lg:h-[600px]"
+      initial={{ opacity: 0, scale: 0.7 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, type: "spring" }}
+    >
       <div className="hidden lg:flex justify-evenly items-center h-full w-full">
         <div className="text-3xl lg:text-5xl font-extrabold w-[60%]">
           <div>
@@ -105,7 +110,7 @@ const Home = ({ setSelectedTab }: any) => {
           </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
