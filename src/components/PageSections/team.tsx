@@ -5,12 +5,12 @@ import { motion } from "motion/react";
 const Team = () => {
   return (
     <motion.div
-      className="flex justify-center items-center w-[90%] lg:w-[70%] mt-[10%] lg:mt-[5%]"
+      className="flex justify-center items-center w-[90%] lg:w-[80%] mt-[10%] lg:mt-0"
       initial={{ opacity: 0, scale: 0.7 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, type: "spring" }}
     >
-      <div className="flex flex-col justify-evenly items-center h-full w-full">
+      <div className="flex flex-col justify-center items-center h-full w-full">
         <div className="flex flex-col justify-center text-3xl lg:text-5xl font-extrabold w-full text-left">
           <div>
             <div className="text-center lg:text-left">The Team</div>

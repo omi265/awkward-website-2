@@ -19,16 +19,17 @@ const About = () => {
               </div>
             </div>
             <div className="text-lg lg:text-2xl mt-4 font-normal w-full text-justify lg:text-left">
-              Lorem ipsum dolor sit amet consectetur. Turpis dictum mattis
-              suspendisse neque. Auctor et dignissim elementum sed aliquam
-              porttitor diam. Vitae aliquet fames diam curabitur. Sit suscipit
-              diam eget quis risus mattis turpis mauris. Volutpat egestas enim
-              vulputate cursus scelerisque. Nunc mauris congue sagittis maecenas
-              massa mauris curabitur pharetra vulputate. Elementum id egestas
-              justo at montes. Mattis hac elit id at porta mi aliquet enim.
-              Lectus neque tempor semper rhoncus viverra vulputate. Est velit
-              vitae in imperdiet lacus turpis nunc non adipiscing. Pretium
-              venenatis viverra id imperdiet nibh massa fringilla.
+              Awkward Studio is a digital solutions agency that provides, Tech,
+              Marketing and Content Creation Services. The team specialises in
+              helping brands connect with their audience through original,
+              authentic content that sparks conversations, emotions and
+              eventually drives action. With a team of creative, young and
+              playful individuals, Awkward Studio prides itself on telling brand
+              stories with a fun and innovative twist. Every project the team
+              takes on, is powered by a single-minded core thought and personal
+              motto – stand out by leaning in to what makes you different.
+              Leveraging the power of moment marketing, Awkward Studio turns
+              every hiccup into a win and every quirk into a badge of honour.
             </div>
           </div>
           <div className=" flex flex-col justify-start lg:justify-center text-3xl lg:text-5xl font-extrabold lg:h-[550px] lg:snap-center text-left lg:mr-5 lg:bg-[#F8C419] lg:border-4 lg:border-black rounded-2xl p-5">
@@ -36,16 +37,12 @@ const About = () => {
               <div className="text-center lg:text-left">Core Values</div>
             </div>
             <div className="text-lg lg:text-2xl mt-4 font-normal w-full text-justify lg:text-left">
-              Lorem ipsum dolor sit amet consectetur. Turpis dictum mattis
-              suspendisse neque. Auctor et dignissim elementum sed aliquam
-              porttitor diam. Vitae aliquet fames diam curabitur. Sit suscipit
-              diam eget quis risus mattis turpis mauris. Volutpat egestas enim
-              vulputate cursus scelerisque. Nunc mauris congue sagittis maecenas
-              massa mauris curabitur pharetra vulputate. Elementum id egestas
-              justo at montes. Mattis hac elit id at porta mi aliquet enim.
-              Lectus neque tempor semper rhoncus viverra vulputate. Est velit
-              vitae in imperdiet lacus turpis nunc non adipiscing. Pretium
-              venenatis viverra id imperdiet nibh massa fringilla.
+              While the company name might suggest a bit of Awkwardness, the
+              team embraces the perceived discomfort the name carries, because
+              it shows that one is out of their comfort zone, and that’s where
+              growth and learning take place. Too many brands are too busy
+              trying to be relevant, Awkward Studio, aspires to help brands not
+              just be seen but be remembered.
             </div>
           </div>
         </div>
