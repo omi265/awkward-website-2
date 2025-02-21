@@ -52,7 +52,7 @@ export const MobileTabSelector = ({
   setSelectedTab,
 }: any) => {
   return (
-    <div className="flex fixed bottom-[5%] justify-center items-center border-r-[0px] border-l-[0px] border-t-[10px] border-black bg-[#D9D9D9] h-14 w-[95.8%] sm:w-[98%] z-10 text-sm">
+    <div className="flex fixed bottom-[5%] justify-center items-center border-r-[0px] border-l-[0px] border-t-[10px] border-black bg-[#D9D9D9] h-14 w-[95.8%] sm:w-[98%] z-10 text-xs">
       <div className="flex justify-between items-center h-14 divide-x-8 divide-black w-full">
         {tabs.map((tab: any, index: number) => (
           <div
@@ -60,13 +60,13 @@ export const MobileTabSelector = ({
             className={`${
               selectedTab === index
                 ? "bg-white flex-1 w-[40%] justify-center"
-                : "bg-[#D9D9D9] flex-none w-[15%] justify-start pl-2"
-            } flex items-center h-full font-black cursor-pointer truncate`}
+                : "bg-[#D9D9D9] flex-none w-[15%] justify-start pl-1"
+            } flex items-center h-full font-black cursor-pointer`}
             onClick={() => setSelectedTab(index)}
           >
             {tab.tabName == "AWKWARD STUDIO" && selectedTab != 0 ? (
               <>
-                <Image src={logo_wo_text} width={35} height={10} alt="Logo" />
+                <Image src={logo_wo_text} width={28} height={10} alt="Logo" />
               </>
             ) : (
               <>
@@ -74,13 +74,13 @@ export const MobileTabSelector = ({
                   <div className="flex space-x-3">
                     <Image
                       src={logo_wo_text}
-                      width={35}
+                      width={28}
                       height={10}
                       alt="Logo"
                     />
                   </div>
                 ) : (
-                  <>{tab.tabName}</>
+                  <div className="truncate">{tab.tabName}</div>
                 )}
               </>
             )}

@@ -27,7 +27,7 @@ const Home = ({ setSelectedTab }: any) => {
           </div>
           <div className="flex justify-start space-x-10 items-center w-full mt-10">
             <motion.div
-              className="text-2xl font-extrabold px-4 py-2 border-[6px] rounded-full border-black bg-[#F8C419] shadow-2xl"
+              className="text-2xl font-extrabold px-4 py-2 border-[6px] rounded-full border-black bg-[#F8C419] shadow-2xl w-full"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setSelectedTab(4)}
@@ -35,7 +35,7 @@ const Home = ({ setSelectedTab }: any) => {
               Get Started
             </motion.div>
             <motion.div
-              className="text-2xl font-extrabold px-4 py-2 border-[6px] rounded-full border-black bg-white shadow-2xl"
+              className="text-2xl font-extrabold px-4 py-2 border-[6px] rounded-full border-black bg-white shadow-2xl w-full"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setSelectedTab(1)}
