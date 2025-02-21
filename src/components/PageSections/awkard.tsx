@@ -3,15 +3,12 @@ import Image from "next/image";
 import placeHolder1 from "../../../public/placeholder1.png";
 import Circles from "../../../public/Circles.svg";
 
-import { Button } from "../ui/button";
-import Link from "next/link";
 import { motion } from "motion/react";
-import { ChevronRight } from "lucide-react";
 
 const Home = ({ setSelectedTab }: any) => {
   return (
     <motion.div
-      className="flex justify-center items-center w-[90%] lg:w-[70%] lg:h-[600px]"
+      className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit lg:h-full"
       initial={{ opacity: 0, scale: 0.7 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, type: "spring" }}

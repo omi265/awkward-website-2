@@ -18,12 +18,10 @@ const Team = () => {
           <div className="text-lg lg:text-2xl mt-4 font-semibold w-full text-justify lg:text-left">
             Lorem ipsum dolor sit amet consectetur. Turpis dictum mattis
             suspendisse neque. Auctor et dignissim elementum sed aliquam
-            porttitor diam. Vitae aliquet fames diam curabitur. Sit suscipit
-            diam eget quis risus mattis turpis mauris. Volutpat egestas enim
-            vulputate cursus scelerisque. Nunc mauris
+            porttitor diam. Vitae aliquet fames diam curabitur.
           </div>
         </div>
-        <div className="elementScroll w-full h-[30rem] lg:h-[450px] overflow-y-scroll snap-y snap-mandatory mt-6 lg:mt-8 pr-1 lg:pr-5 mb-[25%] lg:mb-0">
+        <div className="elementScroll w-full h-[55svh] lg:h-[450px] overflow-y-scroll snap-y snap-mandatory pr-1 lg:pr-5 mb-[5%] mt-4 lg:mt-0 lg:mb-0">
           <ScrollTriggered />
         </div>
       </div>

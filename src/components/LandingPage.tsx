@@ -20,7 +20,7 @@ const LandingPage = () => {
         </div>
       </div>
       <div className="text-3xl lg:text-5xl font-semibold mb-16">
-        An innovation-first digital marketing agency.
+        An innovation-first digital solutions agency.
       </div>
 
       <Link className="text-6xl" href={"/home"}>
