@@ -23,7 +23,7 @@ function Card({ member }: any) {
       <div>
         <motion.div
           variants={cardVariants}
-          className="flex justify-center items-center p-3 lg:p-5 rounded-[20px] bg-[#f5f5f5] shadow-[0_0_1px_rgba(0,0,0,0.075),0_0_2px_rgba(0,0,0,0.075),0_0_4px_rgba(0,0,0,0.075),0_0_8px_rgba(0,0,0,0.075),0_0_16px_rgba(0,0,0,0.075)] origin-[10%_60%] -mt-[50%] lg:-mt-0"
+          className="flex justify-center items-center p-3 lg:p-0 rounded-[20px] bg-[#f5f5f5] shadow-[0_0_1px_rgba(0,0,0,0.075),0_0_2px_rgba(0,0,0,0.075),0_0_4px_rgba(0,0,0,0.075),0_0_8px_rgba(0,0,0,0.075),0_0_16px_rgba(0,0,0,0.075)] origin-[10%_60%] -mt-[50%] lg:-mt-0"
         >
           <Image
             src={member.memoji}
@@ -34,10 +34,10 @@ function Card({ member }: any) {
           />
           <Image
             src={member.memoji}
-            width={280}
+            width={350}
             height={400}
             alt={member.firstName}
-            className="hidden lg:inline"
+            className="hidden lg:inline py-[10%]"
           />
         </motion.div>
       </div>
