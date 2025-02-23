@@ -22,8 +22,8 @@ const Contact = () => {
 
   const handleSubmit = async () => {
     // console.log(name, phone, email, message);
-    const isValidEmail = EMAIL_REGEX.test(email);
-    if (!name || !phone || isValidEmail || !message) {
+    // const isValidEmail = EMAIL_REGEX.test(email);
+    if (!name || !phone || !email || !message) {
       alert("Please fill in all the fields!");
       return;
     }
@@ -116,7 +116,7 @@ const Contact = () => {
             <div className="flex flex-col w-full">
               <div className="flex justify-start space-x-10 items-center w-full mt-10">
                 <motion.div
-                  className="text-base lg:text-2xl font-bold lg:font-extrabold px-6 lg:px-4 py-2 border-[6px] rounded-full border-black bg-[#F8C419] shadow-2xl"
+                  className="text-base lg:text-2xl font-bold lg:font-extrabold px-6 lg:px-4 py-2 border-[6px] rounded-full border-black bg-[#F8C419] shadow-2xl cursor-pointer"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={handleSubmit}
@@ -136,7 +136,7 @@ const Contact = () => {
                   </>
                 )}
               </div>
-              {!isSubmitted && (
+              {isSubmitted && (
                 <div className="text-2xl font-bold mt-6 text-center lg:text-left">
                   Thank You for reaching out to us. We will reach out to you
                   shortly!
