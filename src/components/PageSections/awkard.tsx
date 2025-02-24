@@ -61,7 +61,7 @@ const Home = ({ setSelectedTab }: any) => {
           />
         </div>
       </div>
-      <div className="flex lg:hidden justify-center items-center w-full flex-col mt-[25%] mb-[30%]">
+      <div className="flex lg:hidden justify-center items-center w-full flex-col mt-[10%] mb-[30%]">
         <div className="text-3xl font-bold text-center">
           <div>The Process of creation</div>
           <div>
