@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function ScrollTriggered() {
   return (
-    <div className="flex flex-col w-full items-center space-y-32 lg:space-y-16 pt-[20%]">
+    <div className="flex flex-col w-full items-center space-y-32 lg:space-y-16 pt-[25%]">
       {Team.map((member: any, i: number) => (
         <Card i={i} member={member} key={i} />
       ))}
@@ -15,15 +15,15 @@ export default function ScrollTriggered() {
 function Card({ member }: any) {
   return (
     <motion.div
-      className="relative flex flex-col lg:flex-row items-center w-full snap-start lg:snap-center h-fit lg:h-[430px] lg:overflow-hidden bg-[#F8C419] rounded-2xl p-3 lg:p-10 border-4 border-black scroll-mt-32 lg:scroll-mt-0"
+      className="relative flex flex-col lg:flex-row items-center w-full snap-center h-fit lg:overflow-hidden bg-[#F8C419] rounded-2xl p-4 lg:p-10 border-4 border-black scroll-mt-32 lg:scroll-mt-0 snap-mandatory"
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ amount: 0.5 }}
+      viewport={{ amount: 0.45 }}
     >
       <div>
         <motion.div
           variants={cardVariants}
-          className="flex justify-center items-center p-3 lg:p-0 rounded-[20px] bg-[#f5f5f5] shadow-[0_0_1px_rgba(0,0,0,0.075),0_0_2px_rgba(0,0,0,0.075),0_0_4px_rgba(0,0,0,0.075),0_0_8px_rgba(0,0,0,0.075),0_0_16px_rgba(0,0,0,0.075)] origin-[10%_60%] -mt-[50%] lg:-mt-0"
+          className="flex justify-center items-center pb-0 pt-2 px-2 rounded-[20px] bg-[#f5f5f5] shadow-[0_0_1px_rgba(0,0,0,0.075),0_0_2px_rgba(0,0,0,0.075),0_0_4px_rgba(0,0,0,0.075),0_0_8px_rgba(0,0,0,0.075),0_0_16px_rgba(0,0,0,0.075)] origin-[10%_60%] -mt-[50%] lg:-mt-0"
         >
           <Image
             src={member.memoji}
@@ -64,7 +64,7 @@ const cardVariants: Variants = {
     y: 100,
   },
   onscreen: {
-    y: 0,
+    y: -10,
     // rotate: -10,
     transition: {
       type: "spring",

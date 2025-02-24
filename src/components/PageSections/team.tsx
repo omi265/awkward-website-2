@@ -21,7 +21,7 @@ const Team = () => {
             porttitor diam. Vitae aliquet fames diam curabitur.
           </div>
         </div>
-        <div className="elementScroll w-full h-[55svh] lg:h-[450px] overflow-y-scroll snap-y snap-mandatory pr-1 lg:pr-5 mb-[5%] mt-4 lg:mt-8 lg:mb-0">
+        <div className="elementScroll w-full h-[55svh] lg:h-[50svh] overflow-y-scroll snap-y snap-mandatory pr-1 lg:pr-5 mb-[5%] mt-4 lg:mt-8 lg:mb-0">
           <ScrollTriggered />
         </div>
       </div>

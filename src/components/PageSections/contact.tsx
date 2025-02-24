@@ -53,7 +53,7 @@ const Contact = () => {
 
   return (
     <motion.div
-      className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit lg:h-full mt-[10%] lg:mt-[5%] pb-[35%] lg:pb-0"
+      className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit mt-[10%] lg:mt-[5%] pb-[35%] lg:pb-0"
       initial={{ opacity: 0, scale: 0.7 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, type: "spring" }}
@@ -144,7 +144,7 @@ const Contact = () => {
               )}
             </div>
           </div>
-          <div className="relative w-[60%] lg:w-[70%]">
+          <div className="relative w-[60%] lg:w-[60%]">
             <Image
               src={Circles}
               width={450}
@@ -157,7 +157,7 @@ const Contact = () => {
               width={450}
               height={400}
               alt="Logo"
-              className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2"
+              className="absolute top-[40%] left-[50%] transform -translate-x-1/2 -translate-y-1/2"
             />
           </div>
         </div>
