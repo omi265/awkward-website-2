@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import placeHolder1 from "../../../public/placeholder1.png";
+import rohit_2 from "../../../public/rohit_2.png";
 import Circles from "../../../public/Circles.svg";
 
 import { motion } from "motion/react";
@@ -53,7 +53,7 @@ const Home = ({ setSelectedTab }: any) => {
             className="object-cover"
           />
           <Image
-            src={placeHolder1}
+            src={rohit_2}
             width={450}
             height={400}
             alt="Logo"
@@ -77,7 +77,7 @@ const Home = ({ setSelectedTab }: any) => {
             className="object-cover"
           />
           <Image
-            src={placeHolder1}
+            src={rohit_2}
             width={250}
             height={400}
             alt="Logo"

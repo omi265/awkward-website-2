@@ -30,9 +30,15 @@ const About = () => {
               motto – stand out by leaning in to what makes you different.
               Leveraging the power of moment marketing, Awkward Studio turns
               every hiccup into a win and every quirk into a badge of honour.
+              While the company name might suggest a bit of Awkwardness, the
+              team embraces the perceived discomfort the name carries, because
+              it shows that one is out of their comfort zone, and that’s where
+              growth and learning take place. Too many brands are too busy
+              trying to be relevant, Awkward Studio, aspires to help brands not
+              just be seen but be remembered.
             </div>
           </div>
-          <div className=" flex flex-col justify-start lg:justify-center text-3xl lg:text-5xl font-extrabold lg:h-[550px] lg:snap-center text-left lg:mr-5 lg:bg-[#F8C419] lg:border-4 lg:border-black rounded-2xl p-5">
+          {/* <div className=" flex flex-col justify-start lg:justify-center text-3xl lg:text-5xl font-extrabold lg:h-[550px] lg:snap-center text-left lg:mr-5 lg:bg-[#F8C419] lg:border-4 lg:border-black rounded-2xl p-5">
             <div>
               <div className="text-center lg:text-left">Core Values</div>
             </div>
@@ -44,7 +50,7 @@ const About = () => {
               trying to be relevant, Awkward Studio, aspires to help brands not
               just be seen but be remembered.
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </motion.div>

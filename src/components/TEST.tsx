@@ -37,7 +37,7 @@ function Card({ member }: any) {
             width={350}
             height={400}
             alt={member.firstName}
-            className="hidden lg:inline py-[10%]"
+            className="hidden lg:inline"
           />
         </motion.div>
       </div>
