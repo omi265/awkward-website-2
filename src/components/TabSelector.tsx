@@ -60,7 +60,7 @@ export const MobileTabSelector = ({
             className={`${
               selectedTab === index
                 ? "bg-white flex-1 w-[40%] justify-center"
-                : "bg-[#D9D9D9] flex-none w-[15%] justify-start pl-1"
+                : "bg-[#D9D9D9] flex-none w-[15%] justify-start pl-2"
             } flex items-center h-full font-black cursor-pointer`}
             onClick={() => setSelectedTab(index)}
           >
