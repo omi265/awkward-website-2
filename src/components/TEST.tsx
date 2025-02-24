@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function ScrollTriggered() {
   return (
-    <div className="flex flex-col w-full items-center space-y-32 lg:space-y-16 pt-[25%]">
+    <div className="flex flex-col w-full items-center space-y-32 lg:space-y-16 py-[25%]">
       {Team.map((member: any, i: number) => (
         <Card i={i} member={member} key={i} />
       ))}
