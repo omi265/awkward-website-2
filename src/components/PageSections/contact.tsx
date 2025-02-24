@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import placeHolder1 from "../../../public/placeholder1.png";
+import omkar_2 from "../../../public/omkar_2.png";
 import Circles from "../../../public/Circles.svg";
 import loader from "../../../public/t3-loader.gif";
 import { Input } from "../ui/input";
@@ -153,7 +153,7 @@ const Contact = () => {
               className="object-cover"
             />
             <Image
-              src={placeHolder1}
+              src={omkar_2}
               width={450}
               height={400}
               alt="Logo"
