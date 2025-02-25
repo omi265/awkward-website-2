@@ -2,11 +2,18 @@
 
 import { motion, useAnimation } from "motion/react";
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 
 type Props = {};
 
 const DeskTopPreLoaderAnimation = (props: Props) => {
   const [isMaximized, setIsMaximized] = useState(true);
+  const [isFullScreen, setIsFullScreen] = useState(false);
 
   const controls = useAnimation();
 
@@ -28,6 +35,53 @@ const DeskTopPreLoaderAnimation = (props: Props) => {
     runEyeSequence();
   }, [controls]);
 
+  const handleFullScreen = () => {
+    setIsFullScreen(true);
+    const element = document.documentElement;
+    if (element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if ((element as any).webkitRequestFullscreen) {
+      // Safari
+      (element as any).webkitRequestFullscreen();
+    }
+  };
+
+  const handleExitFullScreen = () => {
+    setIsFullScreen(false);
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if ((document as any).webkitExitFullscreen) {
+      // Safari
+      (document as any).webkitExitFullscreen();
+    } else if ((document as any).msExitFullscreen) {
+      // IE11
+      (document as any).msExitFullscreen();
+    }
+  };
+
+  useEffect(() => {
+    const onFullScreenChange = () => {
+      if (!document.fullscreenElement) {
+        setIsFullScreen(false);
+      }
+    };
+
+    document.addEventListener("fullscreenchange", onFullScreenChange);
+    document.addEventListener("webkitfullscreenchange", onFullScreenChange);
+    document.addEventListener("mozfullscreenchange", onFullScreenChange);
+    document.addEventListener("MSFullscreenChange", onFullScreenChange);
+
+    return () => {
+      document.removeEventListener("fullscreenchange", onFullScreenChange);
+      document.removeEventListener(
+        "webkitfullscreenchange",
+        onFullScreenChange
+      );
+      document.removeEventListener("mozfullscreenchange", onFullScreenChange);
+      document.removeEventListener("MSFullscreenChange", onFullScreenChange);
+    };
+  }, []);
+
   const eyesPreLoaderAnimations = {
     initial: { opacity: 0, scale: 0 },
     eyesEnter: { opacity: 1, scale: 1 },
@@ -43,7 +97,7 @@ const DeskTopPreLoaderAnimation = (props: Props) => {
   const mouthPreLoaderAnimations = {
     initial: { opacity: 0, scale: 0 },
     mouthEnter: { opacity: 1, scale: 1 },
-    mouthRotate: { rotate: -80, x: "45%", y: "-60%" },
+    mouthRotate: { rotate: -80, x: "50%", y: "-65%", scale: 1.1 },
   };
 
   const preloaderAnimationsExit = {
@@ -111,7 +165,36 @@ const DeskTopPreLoaderAnimation = (props: Props) => {
         >
           <div className="h-10 w-10 border-[12px] rounded-full border-black"></div>
           <div className="h-10 w-10 border-[12px] rounded-full border-black"></div>
-          <div className="h-10 w-10 border-[12px] rounded-full border-black"></div>
+          {/* <div
+            className="h-10 w-10 border-[12px] rounded-full border-black"
+            onClick={isFullScreen ? handleExitFullScreen : handleFullScreen}
+          ></div> */}
+          <HoverCard>
+            <HoverCardTrigger
+              className="h-10 w-10 border-[12px] rounded-full border-black"
+              onClick={isFullScreen ? handleExitFullScreen : handleFullScreen}
+            ></HoverCardTrigger>
+            <HoverCardContent className="p-4 bg-[#F5C802] text-black font-bold border-4 border-black rounded-2xl text-center cursor-pointer">
+              <div className="flex space-x-5 justify-center items-center">
+                <div className="relative">
+                  <Image
+                    src={
+                      isFullScreen
+                        ? "/fullscreen_sad.png"
+                        : "/fullscreen_happy.png"
+                    }
+                    width={100}
+                    height={100}
+                    alt="fullscreen"
+                  />
+                </div>
+                <div>
+                  {" "}
+                  {isFullScreen ? "No! Okay." : "Fullscreen Mode, Baby!"}
+                </div>
+              </div>
+            </HoverCardContent>
+          </HoverCard>
         </motion.div>
       )}
     </motion.div>
