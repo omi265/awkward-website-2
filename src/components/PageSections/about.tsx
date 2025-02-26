@@ -4,7 +4,7 @@ import React from "react";
 const About = () => {
   return (
     <motion.div
-      className="flex justify-center items-center w-[80%] lg:w-[80%] h-fit lg:h-full pb-[25%] lg:pb-0 pt-[10%] lg:pt-0"
+      className="flex justify-center items-center w-[80%] lg:w-[80%] h-fit lg:h-full pb-[25%] lg:pb-0 pt-[10%] lg:pt-[5%]"
       initial={{ opacity: 0, scale: 0.7 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, type: "spring" }}
