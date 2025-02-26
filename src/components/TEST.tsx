@@ -45,14 +45,14 @@ function Card({ member }: any) {
       <div className="flex flex-col justify-center text-lg lg:text-3xl font-bold lg:font-extrabold w-full text-left lg:ml-10 mt-3 lg:mt-0">
         <div>
           <div>
-            {member.firstName} {member.lastName} | {member.designation}
+            {member.firstName} {member.lastName}, {member.designation} |{" "}
+            <span className="italic font-semibold lg:font-bold">
+              {member.tagline}
+            </span>
           </div>
         </div>
         <div className="text-base lg:text-2xl mt-2 lg:mt-8 font-normal w-full">
-          Lorem ipsum dolor sit amet consectetur. Turpis dictum mattis
-          suspendisse neque. Auctor et dignissim elementum sed aliquam porttitor
-          diam. Vitae aliquet fames diam curabitur. Sit suscipit diam eget quis
-          risus mattis turpis mauris. Volutpat egestas enim vulputate cursus
+          {member.description}
         </div>
       </div>
     </motion.div>
@@ -84,23 +84,35 @@ const Team: any[] = [
     firstName: "Rajan",
     lastName: "Sharma",
     designation: "Director and Founder",
+    tagline: "The Foundation of Awkward",
+    description:
+      "With over 27 years in the automotive retail industry, Rajan has built and led successful ventures across multiple brands, including General Motors, Maruti, Volvo Eicher, and Hyundai. A strategic visionary with deep market expertise, he continues to drive business growth through exceptional leadership and industry insight.",
   },
   {
     memoji: "/rohit_1.png",
     firstName: "Rohit",
     lastName: "Mariwalla",
     designation: "Director",
+    tagline: "The Backbone of Awkward",
+    description:
+      "A tech enthusiast since childhood, Rohit’s journey spans software engineering, business development, and entrepreneurship. With experience at Google, Searce, and Workplace by Facebook, he brings a unique blend of technology and strategy to Awkward Studio. His entrepreneurial spirit also led to the success of Cinnamon Stick, a premium dessert brand. Now, he’s focused on pushing creative and technological boundaries at Awkward.",
   },
   {
     memoji: "/omkar_1.png",
     firstName: "Omkar",
     lastName: "Mishra",
     designation: "Lead Software Engineer",
+    tagline: "Turning Awkward Ideas into Seamless Code",
+    description:
+      "The youngest innovator in the Awkward squad, Omkar specializes in high-performing websites, automation, and AI-powered solutions. He’s helped businesses worldwide create seamless, intelligent digital experiences that work smarter, not harder. Whether optimizing workflows or experimenting with AI/ML, he’s always pushing boundaries to make bussinesses run faster, smoother, and way cooler.",
   },
   {
     memoji: "/jeanna_1.png",
     firstName: "Jeanna",
     lastName: "Udhwani",
-    designation: "Design Lead, and Marketing Head",
+    designation: "Design Lead & Marketing Head",
+    tagline: "Making Awkward look Effortlessly Brilliant for Brands",
+    description:
+      "With 8+ years of experience in branding, design, and storytelling, Jeanna crafts compelling narratives that help brands connect and grow. Whether through visuals or words, she ensures every brand’s identity stands out and speaks volumes.",
   },
 ];

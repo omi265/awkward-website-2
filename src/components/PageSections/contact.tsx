@@ -42,7 +42,7 @@ const Contact = () => {
         setIsSubmitting(false);
         setTimeout(() => {
           setIsSubmitted(false);
-        }, 3000);
+        }, 5000);
       });
 
     setName("");
@@ -53,7 +53,7 @@ const Contact = () => {
 
   return (
     <motion.div
-      className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit mt-[10%] lg:mt-[10%] pb-[35%] lg:pb-0"
+      className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit mt-[10%] lg:mt-[10%] pb-[35%] lg:pb-[20%]"
       initial={{ opacity: 0, scale: 0.7 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, type: "spring" }}
@@ -69,8 +69,9 @@ const Contact = () => {
             className="text-lg lg:text-2xl mt-4 font-semibold lg:font-normal w-full text-center
            lg:text-left"
           >
-            Lorem ipsum dolor sit amet consectetur. Turpis dictum mattis
-            suspendisse neque.
+            We’d love to hear from you! whether it’s a service request, a wild
+            idea, or just your thoughts on this delightfully awkward website.
+            Drop us a message, and let’s create something amazing together!
           </div>
         </div>
         <div className="flex flex-col-reverse lg:flex-row justify-center lg:justify-around items-center h-full w-full mt-10">
@@ -136,12 +137,6 @@ const Contact = () => {
                   </>
                 )}
               </div>
-              {isSubmitted && (
-                <div className="text-2xl font-bold mt-6 text-center lg:text-left">
-                  Thank You for reaching out to us. We will reach out to you
-                  shortly!
-                </div>
-              )}
             </div>
           </div>
           <div className="relative w-[60%] lg:w-[60%]">
@@ -168,6 +163,14 @@ const Contact = () => {
             />
           </div>
         </div>
+        {isSubmitted && (
+          <div className="text-xl font-semibold mt-6 text-center lg:text-left">
+            "You Did It! 🎉 Your Message Has Landed in Our Awkward Inbox!"
+            Thanks for reaching out! We’ll get back to you soon—until then, feel
+            free to keep exploring our delightfully awkward corner of the
+            internet. Talk soon!
+          </div>
+        )}
       </div>
     </motion.div>
   );
