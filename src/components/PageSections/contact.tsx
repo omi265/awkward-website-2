@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import omkar_2 from "../../../public/omkar_2.png";
+import omkar_contactUs from "../../../public/omkar_contactUs.png";
 import Circles from "../../../public/Circles.svg";
 import loader from "../../../public/t3-loader.gif";
 import { Input } from "../ui/input";
@@ -53,7 +53,7 @@ const Contact = () => {
 
   return (
     <motion.div
-      className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit mt-[10%] lg:mt-[5%] pb-[35%] lg:pb-0"
+      className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit mt-[10%] lg:mt-[8%] pb-[35%] lg:pb-0"
       initial={{ opacity: 0, scale: 0.7 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, type: "spring" }}
@@ -153,11 +153,11 @@ const Contact = () => {
               className="object-cover"
             />
             <Image
-              src={omkar_2}
-              width={450}
+              src={omkar_contactUs}
+              width={300}
               height={400}
               alt="Logo"
-              className="absolute top-[40%] left-[50%] transform -translate-x-1/2 -translate-y-1/2"
+              className="absolute top-[35%] left-[52%] lg:top-[50%] lg:left-[50%] transform -translate-x-1/2 -translate-y-1/2"
             />
           </div>
         </div>

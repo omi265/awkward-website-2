@@ -23,7 +23,7 @@ function Card({ member }: any) {
       <div>
         <motion.div
           variants={cardVariants}
-          className="flex justify-center items-center pb-0 pt-2 px-2 rounded-[20px] bg-[#f5f5f5] shadow-[0_0_1px_rgba(0,0,0,0.075),0_0_2px_rgba(0,0,0,0.075),0_0_4px_rgba(0,0,0,0.075),0_0_8px_rgba(0,0,0,0.075),0_0_16px_rgba(0,0,0,0.075)] origin-[10%_60%] -mt-[50%] lg:-mt-0"
+          className="flex justify-center items-center pb-0 pt-2 px-2 rounded-[20px] bg-white shadow-[0_0_1px_rgba(0,0,0,0.075),0_0_2px_rgba(0,0,0,0.075),0_0_4px_rgba(0,0,0,0.075),0_0_8px_rgba(0,0,0,0.075),0_0_16px_rgba(0,0,0,0.075)] origin-[10%_60%] -mt-[50%] lg:-mt-0"
         >
           <Image
             src={member.memoji}
@@ -80,7 +80,7 @@ const cardVariants: Variants = {
 
 const Team: any[] = [
   {
-    memoji: "/placeholder1.png",
+    memoji: "/rajan_sir_1.png",
     firstName: "Rajan",
     lastName: "Sharma",
     designation: "Director and Founder",

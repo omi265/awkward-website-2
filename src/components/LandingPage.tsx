@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const LandingPage = () => {
   return (
-    <div className="flex justify-center items-center flex-col h-dvh relative text-center overflow-hidden w-[90%] lg:w-full">
+    <div className="flex justify-center items-center flex-col h-full min-h-[20vh] relative text-center overflow-hidden w-[90%] lg:w-[80%]">
       <div className="text-4xl lg:text-5xl mb-8 lg:mb-8 font-bold">We Are</div>
       <div className="mb-2">
         <div className="hidden lg:flex">
