@@ -7,7 +7,7 @@ import { MobileTabSelector } from "./TabSelector";
 const WebWindow = ({ children }: any) => {
   return (
     <div className="h-dvh w-dvw bg-black justify-center items-center p-2 z-50">
-      <div className="bg-white text-black h-full w-full overflow-scroll overscroll-none rounded-2xl">
+      <div className="bg-white text-black h-[97%] w-full overflow-scroll overscroll-none rounded-2xl">
         <DeskTopPreLoaderAnimation />
         <div>{children}</div>
       </div>
