@@ -20,12 +20,12 @@ const LandingPage = () => {
         </div>
       </div>
       <div className="text-xl lg:text-2xl font-semibold mb-8 lg:mb-16 text-slate-500">
-        <div className="font-bold mb-8 text-black text-2xl lg:text-4xl">
-          <span className="italic">Awkwardly</span> unique and{" "}
-          <span className="italic">Brilliantly</span> effective.
+        <div className="font-medium mb-8 text-black text-2xl lg:text-4xl">
+          <span className="italic font-bold">Awkwardly</span> unique and{" "}
+          <span className="italic font-bold">Brilliantly</span> effective.
         </div>
         Crafting Digital Solutions that don’t just work, they{" "}
-        <span className="font-extrabold">Stand Out</span>.
+        <span className="font-black">Stand Out</span>.
       </div>
 
       <Link className=" text-3xl lg:text-6xl" href={"/home"}>
