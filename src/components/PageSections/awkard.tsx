@@ -22,8 +22,9 @@ const Home = ({ setSelectedTab }: any) => {
             </div>
           </div>
           <div className="text-lg lg:text-2xl mt-4 font-normal w-[60%]">
-            Innovation begins outside the comfort zone. Ready to write the next
-            chapter in your brand story, awkwardly?
+            True innovation happens outside the comfort zone. Ready to embrace
+            the awkward and craft the next chapter of your brand’s story? Let’s
+            make something unforgettable.
           </div>
           <div className="flex justify-start space-x-10 items-center w-full mt-10">
             <motion.div
