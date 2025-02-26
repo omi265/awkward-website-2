@@ -18,7 +18,7 @@ function Card({ member }: any) {
       className="relative flex flex-col lg:flex-row items-center w-full snap-center h-fit lg:overflow-hidden bg-[#F8C419] rounded-2xl p-4 lg:p-10 border-4 border-black scroll-mt-32 lg:scroll-mt-0 snap-mandatory"
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ amount: 0.45 }}
+      viewport={{ amount: 0.2 }}
     >
       <div>
         <motion.div

@@ -1,8 +1,10 @@
 import React from "react";
+import Image from "next/image";
+import Tech from "../../../public/tech_services.png";
 
 const Services = () => {
   return (
-    <div className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit mt-[10%] pb-[30%] lg:mt-[10%] lg:pb-0">
+    <div className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit mt-[10%] pb-[30%] lg:mt-[8%] lg:pb-[10%]">
       <div className="flex flex-col w-full">
         <div className="flex flex-col justify-center text-3xl lg:text-5xl font-extrabold w-full text-center lg:text-left">
           <div>
@@ -14,9 +16,16 @@ const Services = () => {
             digital space.
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row items-start justify-evenly mt-16 w-full space-x-0 lg:space-x-10 space-y-10 lg:space-y-0 ">
+        <div className="flex flex-col lg:flex-row items-start justify-evenly mt-8 w-full space-x-0 lg:space-x-10 space-y-10 lg:space-y-0 ">
           <div className="flex flex-col justify-center items-center space-y-4">
-            <div className="h-20 lg:h-24 w-20 lg:w-24 bg-slate-300 rounded-full border-4 border-black"></div>
+            <div className="">
+              <Image
+                src={"/tech_services.png"}
+                width={220}
+                height={400}
+                alt={"Software Development"}
+              />
+            </div>
             <div className="text-2xl lg:text-3xl font-bold text-center mb-4 lg:mb-8 ">
               Software Development
             </div>
@@ -29,7 +38,14 @@ const Services = () => {
             </div>
           </div>
           <div className="flex flex-col justify-center items-center space-y-4">
-            <div className="h-20 lg:h-24 w-20 lg:w-24 bg-slate-300 rounded-full border-4 border-black"></div>
+            <div className="">
+              <Image
+                src={"/design_services.png"}
+                width={220}
+                height={400}
+                alt={"Software Development"}
+              />
+            </div>
             <div className="text-2xl lg:text-3xl font-bold text-center mb-4 lg:mb-8 ">
               Graphic Design
             </div>
@@ -41,7 +57,14 @@ const Services = () => {
             </div>
           </div>
           <div className="flex flex-col justify-center items-center space-y-4">
-            <div className="h-20 lg:h-24 w-20 lg:w-24 bg-slate-300 rounded-full border-4 border-black"></div>
+            <div className="">
+              <Image
+                src={"/marketing_services.png"}
+                width={220}
+                height={400}
+                alt={"Software Development"}
+              />
+            </div>
             <div className="text-2xl lg:text-3xl font-bold text-center mb-4 lg:mb-8 ">
               Digital Marketing
             </div>
