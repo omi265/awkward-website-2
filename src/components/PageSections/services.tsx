@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import Tech from "../../../public/tech_services.png";
+import tech from "../../../public/tech_services.png";
+import marketing from "../../../public/marketing_services.png";
+import design from "../../../public/design_services.png";
 
 const Services = () => {
   return (
@@ -20,7 +22,7 @@ const Services = () => {
           <div className="flex flex-col justify-center items-center space-y-4">
             <div className="">
               <Image
-                src={"/tech_services.png"}
+                src={tech}
                 width={220}
                 height={400}
                 alt={"Software Development"}
@@ -40,10 +42,10 @@ const Services = () => {
           <div className="flex flex-col justify-center items-center space-y-4">
             <div className="">
               <Image
-                src={"/design_services.png"}
+                src={design}
                 width={220}
                 height={400}
-                alt={"Software Development"}
+                alt={"Graphic Design"}
               />
             </div>
             <div className="text-2xl lg:text-3xl font-bold text-center mb-4 lg:mb-8 ">
@@ -59,10 +61,10 @@ const Services = () => {
           <div className="flex flex-col justify-center items-center space-y-4">
             <div className="">
               <Image
-                src={"/marketing_services.png"}
+                src={marketing}
                 width={220}
                 height={400}
-                alt={"Software Development"}
+                alt={"Digital Marketing"}
               />
             </div>
             <div className="text-2xl lg:text-3xl font-bold text-center mb-4 lg:mb-8 ">

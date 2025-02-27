@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import omkar_contactUs from "../../../public/omkar_contactUs.png";
+import omkar_2 from "../../../public/omkar_2.png";
 import Circles from "../../../public/Circles.svg";
 import loader from "../../../public/t3-loader.gif";
 import { Input } from "../ui/input";
@@ -141,25 +141,11 @@ const Contact = () => {
           </div>
           <div className="relative w-[60%] lg:w-[60%]">
             <Image
-              src={Circles}
-              width={450}
+              src={omkar_2}
+              width={400}
               height={400}
               alt="Logo"
               className="object-cover"
-            />
-            <Image
-              src={omkar_contactUs}
-              width={300}
-              height={400}
-              alt="Logo"
-              className="absolute lg:hidden flex top-[35%] left-[52%] lg:top-[50%] lg:left-[50%] transform -translate-x-1/2 -translate-y-1/2"
-            />
-            <Image
-              src={omkar_contactUs}
-              width={380}
-              height={400}
-              alt="Logo"
-              className="absolute hidden lg:flex top-[35%] left-[50%] lg:top-[50%] lg:left-[42%] transform -translate-x-1/2 -translate-y-1/2"
             />
           </div>
         </div>
