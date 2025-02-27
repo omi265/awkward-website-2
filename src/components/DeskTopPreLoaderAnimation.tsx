@@ -165,15 +165,15 @@ const DeskTopPreLoaderAnimation = (props: Props) => {
           }}
           className="flex items-center space-x-6 w-full h-full pl-5"
         >
-          <div className="h-[5dvh] max-h-12 min-h-8 aspect-square border-[11px] rounded-full border-black"></div>
-          <div className="h-[5dvh] max-h-12 min-h-8 aspect-square border-[11px] rounded-full border-black"></div>
+          <div className="h-[5dvh] max-h-10 min-h-8 aspect-square border-[11px] rounded-full border-black"></div>
+          <div className="h-[5dvh] max-h-10 min-h-8 aspect-square border-[11px] rounded-full border-black"></div>
           {/* <div
             className="h-10 w-10 border-[12px] rounded-full border-black"
             onClick={isFullScreen ? handleExitFullScreen : handleFullScreen}
           ></div> */}
           <HoverCard>
             <HoverCardTrigger
-              className="h-[5dvh] max-h-12 min-h-8 aspect-square border-[11px] rounded-full border-black"
+              className="h-[5dvh] max-h-10 min-h-8 aspect-square border-[11px] rounded-full border-black"
               onClick={isFullScreen ? handleExitFullScreen : handleFullScreen}
             ></HoverCardTrigger>
             <HoverCardContent className="flex bg-[#F5C802] text-black font-bold border-4 border-black rounded-2xl text-center cursor-pointer h-8 w-fit">
