@@ -8,6 +8,8 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import fullscreen_sad from "../../public/fullscreen_sad.png";
+import fullscreen_happy from "../../public/fullscreen_happy.png";
 
 type Props = {};
 
@@ -174,15 +176,11 @@ const DeskTopPreLoaderAnimation = (props: Props) => {
               className="h-10 w-10 border-[12px] rounded-full border-black"
               onClick={isFullScreen ? handleExitFullScreen : handleFullScreen}
             ></HoverCardTrigger>
-            <HoverCardContent className="p-4 bg-[#F5C802] text-black font-bold border-4 border-black rounded-2xl text-center cursor-pointer">
-              <div className="flex space-x-5 justify-center items-center">
-                <div className="relative">
+            <HoverCardContent className="flex bg-[#F5C802] text-black font-bold border-4 border-black rounded-2xl text-center cursor-pointer h-8 w-fit">
+              <div className="flex justify-center items-center">
+                <div className="relative -mt-4">
                   <Image
-                    src={
-                      isFullScreen
-                        ? "/fullscreen_sad.png"
-                        : "/fullscreen_happy.png"
-                    }
+                    src={isFullScreen ? fullscreen_sad : fullscreen_happy}
                     width={100}
                     height={100}
                     alt="fullscreen"
