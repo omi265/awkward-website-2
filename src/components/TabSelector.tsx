@@ -6,7 +6,7 @@ import logo_wo_text from "../../public/AS_logo_wo_text.svg";
 
 const DesktopTabSelector = ({ tabs, selectedTab, setSelectedTab }: any) => {
   return (
-    <div className="fixed top-[9%] justify-center items-center min-h-14 lg:w-[98.5%] xl:w-[99.1%] border-r-[0px] border-l-[0px] border-b-[10px] border-black bg-[#D9D9D9] z-10">
+    <div className="fixed top-[9%] justify-center items-center min-h-14 lg:w-[98.7%] xl:w-[98.9%] 2xl:w-[99.1%]  border-r-[0px] border-l-[0px] border-b-[10px] border-black bg-[#D9D9D9] z-10">
       <div className="flex justify-between items-center h-14 divide-x-8 divide-black">
         {tabs.map((tab: any, index: number) => (
           <div
@@ -15,7 +15,9 @@ const DesktopTabSelector = ({ tabs, selectedTab, setSelectedTab }: any) => {
               selectedTab === index
                 ? "bg-white flex-1 w-[40%]"
                 : "bg-[#D9D9D9] flex-none w-[15%]"
-            } flex justify-center items-center text-2xl h-full font-black cursor-pointer`}
+            } flex justify-center items-center text-2xl h-full font-black cursor-pointer ${
+              tab.tabName === "CONTACT US" ? "border-r-[10PX] border-black" : ""
+            }`}
             onClick={() => setSelectedTab(index)}
           >
             {tab.tabName == "AWKWARD STUDIO" && selectedTab != 0 ? (
@@ -61,7 +63,7 @@ export const MobileTabSelector = ({
               selectedTab === index
                 ? "bg-white flex-1 w-[40%] justify-center"
                 : "bg-[#D9D9D9] flex-none w-[15%] justify-start pl-2"
-            } flex items-center h-full font-black cursor-pointer`}
+            } flex items-center h-full font-black cursor-pointer `}
             onClick={() => setSelectedTab(index)}
           >
             {tab.tabName == "AWKWARD STUDIO" && selectedTab != 0 ? (
