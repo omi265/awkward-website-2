@@ -8,7 +8,7 @@ import { motion } from "motion/react";
 const Home = ({ setSelectedTab }: any) => {
   return (
     <motion.div
-      className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit lg:h-full"
+      className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit lg:h-full lg:min-h-[700px] xl:min-h-[600px]"
       initial={{ opacity: 0, scale: 0.7 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, type: "spring" }}
