@@ -19,23 +19,21 @@ const About = () => {
               </div>
             </div>
             <div className="text-lg lg:text-2xl mt-4 font-normal w-full text-justify lg:text-left">
-              Awkward Studio is a digital solutions agency that provides, Tech,
-              Marketing and Content Creation Services. The team specialises in
-              helping brands connect with their audience through original,
-              authentic content that sparks conversations, emotions and
-              eventually drives action. With a team of creative, young and
-              playful individuals, Awkward Studio prides itself on telling brand
-              stories with a fun and innovative twist. Every project the team
-              takes on, is powered by a single-minded core thought and personal
-              motto – stand out by leaning in to what makes you different.
-              Leveraging the power of moment marketing, Awkward Studio turns
-              every hiccup into a win and every quirk into a badge of honour.
-              While the company name might suggest a bit of Awkwardness, the
-              team embraces the perceived discomfort the name carries, because
-              it shows that one is out of their comfort zone, and that’s where
-              growth and learning take place. Too many brands are too busy
-              trying to be relevant, Awkward Studio, aspires to help brands not
-              just be seen but be remembered.
+              Awkward Studio is a digital solutions agency specializing in Tech,
+              Marketing, and Content Creation. We help brands connect with their
+              audience through original, authentic content that sparks
+              conversations, stirs emotions, and ultimately drives action.
+              Fueled by a team of creative, young, and playfully innovative
+              minds, we pride ourselves on telling brand stories with a fresh
+              and unexpected twist. Every project we take on is guided by one
+              core belief: stand out by embracing what makes you different.
+              Leveraging the power of moment marketing, we turn hiccups into
+              wins and quirks into strengths. And while our name might suggest a
+              touch of awkwardness, we see it differently—it’s about stepping
+              outside the comfort zone, because that’s where real growth
+              happens. Too many brands focus on just being relevant. At Awkward
+              Studio, we don’t just help brands get noticed—we make them
+              unforgettable.
             </div>
           </div>
         </div>

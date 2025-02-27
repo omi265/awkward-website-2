@@ -19,7 +19,7 @@ const LandingPage = () => {
           <Image src={logo_with_text} width={200} height={400} alt="Logo" />
         </div>
       </div>
-      <div className="text-xl lg:text-2xl font-semibold mb-8 lg:mb-16 text-slate-500">
+      <div className="text-xl lg:text-2xl font-semibold mb-5 lg:mb-8 text-slate-500">
         <div className="font-medium mb-8 text-black text-2xl lg:text-4xl">
           <span className="italic font-bold">Awkwardly</span> unique and{" "}
           <span className="italic font-bold">Brilliantly</span> effective.
