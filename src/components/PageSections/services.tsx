@@ -23,7 +23,7 @@ const Services = () => {
             <div className="">
               <Image
                 src={tech}
-                width={220}
+                width={180}
                 height={400}
                 alt={"Software Development"}
               />
@@ -31,7 +31,7 @@ const Services = () => {
             <div className="text-2xl lg:text-3xl font-bold text-center mb-4 lg:mb-8 ">
               Software Development
             </div>
-            <div className="text-lg lg:text-2xl font-normal text-center w-full lg:w-[85%]">
+            <div className="text-lg lg:text-2xl font-normal text-justify w-full lg:w-[85%]">
               We specialize in building robust software solutions, crafting
               websites and applications that are both functional and visually
               stunning. From automation software to AI and machine
@@ -43,7 +43,7 @@ const Services = () => {
             <div className="">
               <Image
                 src={design}
-                width={220}
+                width={180}
                 height={400}
                 alt={"Graphic Design"}
               />
@@ -51,7 +51,7 @@ const Services = () => {
             <div className="text-2xl lg:text-3xl font-bold text-center mb-4 lg:mb-8 ">
               Graphic Design
             </div>
-            <div className="text-lg lg:text-2xl font-normal text-center w-full lg:w-[85%]">
+            <div className="text-lg lg:text-2xl font-normal text-justify w-full lg:w-[85%]">
               We offer comprehensive branding solutions that seamlessly
               integrate across both online and offline platforms. Whether you
               need a striking logo or a complete brand identity, our design
@@ -62,7 +62,7 @@ const Services = () => {
             <div className="">
               <Image
                 src={marketing}
-                width={220}
+                width={180}
                 height={400}
                 alt={"Digital Marketing"}
               />
@@ -70,7 +70,7 @@ const Services = () => {
             <div className="text-2xl lg:text-3xl font-bold text-center mb-4 lg:mb-8 ">
               Digital Marketing
             </div>
-            <div className="text-lg lg:text-2xl font-normal text-center w-full lg:w-[85%]">
+            <div className="text-lg lg:text-2xl font-normal text-justify w-full lg:w-[85%]">
               We help businesses build a strong digital presence through
               strategic brand positioning and targeted marketing. Our approach
               focuses on enhancing brand awareness, driving lead generation, and
