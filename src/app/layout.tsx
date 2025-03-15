@@ -26,6 +26,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="icon"
+          type="image/ico"
+          sizes="48x48"
+          href="./favicon.ico"
+        ></link>
+      </head>
       <body
         className={`bodyScroll ${geistSans.variable} ${geistMono.variable} antialiased bg-black overscroll-none`}
       >
