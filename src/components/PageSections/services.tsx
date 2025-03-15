@@ -6,7 +6,7 @@ import design from "../../../public/design_services.png";
 
 const Services = () => {
   return (
-    <div className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit mt-[10%] pb-[30%] lg:mt-[8%] lg:pb-[10%]">
+    <div className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit mt-[10%] pb-[30%] lg:mt-[12%] lg:pb-[5%]">
       <div className="flex flex-col w-full">
         <div className="flex flex-col justify-center text-3xl lg:text-5xl font-extrabold w-full text-center lg:text-left">
           <div>
@@ -21,7 +21,7 @@ const Services = () => {
         <div className="flex flex-col items-start justify-evenly mt-20 w-full space-y-16">
           <div className="flex flex-col lg:flex-row space-x-0 space-y-5 lg:space-y-0 lg:space-x-10 items-center lg:items-start">
             <div className="">
-              <div className="flex justify-center items-center w-[200px] pb-0 pt-2 px-2 rounded-[20px] bg-[#F8C419] shadow-[0_0_1px_rgba(0,0,0,0.075),0_0_2px_rgba(0,0,0,0.075),0_0_4px_rgba(0,0,0,0.075),0_0_8px_rgba(0,0,0,0.075),0_0_16px_rgba(0,0,0,0.075)] ">
+              <div className="flex justify-center items-center w-[200px] pb-0 pt-2 px-2 rounded-[20px] bg-[#F8C419] shadow-[0_0_1px_rgba(0,0,0,0.075),0_0_2px_rgba(0,0,0,0.075),0_0_4px_rgba(0,0,0,0.075),0_0_8px_rgba(0,0,0,0.075),0_0_16px_rgba(0,0,0,0.075)]  border-4 boder-black">
                 <Image
                   src={tech}
                   width={128}
@@ -53,7 +53,7 @@ const Services = () => {
           </div>
           <div className="flex flex-col lg:flex-row space-x-0 space-y-5 lg:space-y-0 lg:space-x-10 items-center lg:items-start">
             <div className="">
-              <div className="flex justify-center items-center w-[200px] pb-0 pt-2 px-2 rounded-[20px] bg-[#F8C419] shadow-[0_0_1px_rgba(0,0,0,0.075),0_0_2px_rgba(0,0,0,0.075),0_0_4px_rgba(0,0,0,0.075),0_0_8px_rgba(0,0,0,0.075),0_0_16px_rgba(0,0,0,0.075)] ">
+              <div className="flex justify-center items-center w-[200px] pb-0 pt-2 px-2 rounded-[20px] bg-[#F8C419] shadow-[0_0_1px_rgba(0,0,0,0.075),0_0_2px_rgba(0,0,0,0.075),0_0_4px_rgba(0,0,0,0.075),0_0_8px_rgba(0,0,0,0.075),0_0_16px_rgba(0,0,0,0.075)]  border-4 boder-black">
                 <Image
                   src={design}
                   width={128}
@@ -70,7 +70,7 @@ const Services = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col justify-between">
               <div className="text-2xl lg:text-3xl font-bold text-center lg:text-left mb-4 lg:mb-8 ">
                 Graphic Design
               </div>
@@ -84,7 +84,7 @@ const Services = () => {
           </div>
           <div className="flex flex-col lg:flex-row space-x-0 space-y-5 lg:space-y-0 lg:space-x-10 items-center lg:items-start">
             <div className="">
-              <div className="flex justify-center items-center w-[200px] pb-0 pt-2 px-2 rounded-[20px] bg-[#F8C419] shadow-[0_0_1px_rgba(0,0,0,0.075),0_0_2px_rgba(0,0,0,0.075),0_0_4px_rgba(0,0,0,0.075),0_0_8px_rgba(0,0,0,0.075),0_0_16px_rgba(0,0,0,0.075)]">
+              <div className="flex justify-center items-center w-[200px] pb-0 pt-2 px-2 rounded-[20px] bg-[#F8C419] shadow-[0_0_1px_rgba(0,0,0,0.075),0_0_2px_rgba(0,0,0,0.075),0_0_4px_rgba(0,0,0,0.075),0_0_8px_rgba(0,0,0,0.075),0_0_16px_rgba(0,0,0,0.075)] border-4 boder-black">
                 <Image
                   src={marketing}
                   width={128}
