@@ -115,4 +115,13 @@ const Team: any[] = [
     description:
       "With 8+ years of experience in branding, design, and storytelling, Jeanna crafts compelling narratives that help brands connect and grow. Whether through visuals or words, she ensures every brand’s identity stands out and speaks volumes.",
   },
+  {
+    memoji: "/atique.png",
+    firstName: "Atique",
+    lastName: "Khan",
+    designation: "Software Engineer",
+    tagline: "Turning Awkward Challenges into Elegant Solutions",
+    description:
+      "From Backend magic to DevOps wizardry, he creates and transforms awkward workflows into streamlined systems that scale. With experience spanning healthcare, big data and automotive industries, he thrives on solving the unsolvable and optimizing the unoptimized. Hands-on at every stage of development, Fueled by curiosity and caffeine.",
+  },
 ];
