@@ -157,6 +157,27 @@ const Contact = () => {
             internet. Talk soon!
           </div>
         )}
+        <div className="flex flex-col space-y-5 mt-10">
+          <div className="text-2xl font-bold">
+            Or you can drop by our office(s) at:
+          </div>
+          <div className="flex space-x-10 items-center">
+            <div className="flex flex-col space-y-3 max-w-xs">
+              <div className="text-2xl font-bold">Andheri</div>
+              <div className="text-lg font-medium">
+                102, The Meadows, Sahar Plaza, Andheri - Kurla Road, J.B. Nagar,
+                Andheri (East) Mumbai – 400 059.
+              </div>
+            </div>
+            <div className="flex flex-col space-y-3 max-w-xs">
+              <div className="text-2xl font-bold">Mira Road</div>
+              <div className="text-lg font-medium">
+                Fida Hussain Compound, Off Western Express Highway, Mira Road
+                (East), Mumbai - 401 104.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </motion.div>
   );
