@@ -45,13 +45,15 @@ const Portfolio = (props: Props) => {
             truly unique.
           </div>
         </div>
-        <div className="flex space-x-12 flex-wrap space-y-10 items-center">
+        <div className="flex flex-col lg:flex-row lg:space-x-12 flex-wrap lg:space-y-0 space-y-4 items-center justify-center">
           {logos.map((logo) => (
             <div
               key={logo}
               className={`relative ${
-                logo == "maruti" ? "min-w-96" : "min-w-48"
-              } h-48`}
+                logo == "maruti" || logo == "index_hyundai"
+                  ? "w-full lg:w-96 h-20 lg:h-48"
+                  : "min-w-48 h-32 lg:h-48"
+              } `}
             >
               <Image
                 src={`/client_logos/${logo}.svg`}
