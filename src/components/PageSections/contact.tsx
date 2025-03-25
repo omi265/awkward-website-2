@@ -53,7 +53,7 @@ const Contact = () => {
 
   return (
     <motion.div
-      className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit mt-[10%] lg:mt-[10%] pb-[35%] lg:pb-[20%]"
+      className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit mt-[10%] lg:mt-[13%] pb-[35%] lg:pb-[20%]"
       initial={{ opacity: 0, scale: 0.7 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, type: "spring" }}
@@ -157,7 +157,7 @@ const Contact = () => {
             internet. Talk soon!
           </div>
         )}
-        <div className="flex flex-col space-y-5 mt-10">
+        <motion.div layout className="flex flex-col space-y-5 mt-10">
           <div className="text-2xl font-bold">
             Or you can drop by our office(s) at:
           </div>
@@ -177,7 +177,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   );

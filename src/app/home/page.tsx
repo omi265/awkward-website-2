@@ -10,11 +10,13 @@ import DesktopTabSelector, {
   MobileTabSelector,
 } from "@/components/TabSelector";
 import { useRouter } from "next/navigation"; // For pages directory
+import Portfolio from "@/components/PageSections/portfolio";
 const tabs = [
   { tabName: "AWKWARD STUDIO", tabUrl: "/home#awkward" },
   { tabName: "ABOUT US", tabUrl: "/home#about" },
   { tabName: "TEAM", tabUrl: "/home#team" },
   { tabName: "SERVICES", tabUrl: "/home#services" },
+  { tabName: "PORTFOLIO", tabUrl: "/home#portfolio" },
   { tabName: "CONTACT US", tabUrl: "/home#contact" },
 ];
 
@@ -47,7 +49,8 @@ const HomePage = () => {
         {selectedTab === 2 && <Team />}
 
         {selectedTab === 3 && <Services />}
-        {selectedTab === 4 && <Contact />}
+        {selectedTab === 4 && <Portfolio />}
+        {selectedTab === 5 && <Contact />}
       </div>
     </div>
   );
