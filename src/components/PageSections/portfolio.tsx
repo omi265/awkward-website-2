@@ -47,7 +47,12 @@ const Portfolio = (props: Props) => {
         </div>
         <div className="flex space-x-12 flex-wrap space-y-10 items-center">
           {logos.map((logo) => (
-            <div key={logo} className="relative min-w-48 h-48">
+            <div
+              key={logo}
+              className={`relative ${
+                logo == "maruti" ? "min-w-96" : "min-w-48"
+              } h-48`}
+            >
               <Image
                 src={`/client_logos/${logo}.svg`}
                 alt="Client Logo"
