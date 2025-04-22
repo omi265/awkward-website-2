@@ -104,7 +104,7 @@ export default function LogoCarousel({ logos }: { logos: string[] }) {
               className={`relative ${
                 logo === "maruti" || logo === "index_hyundai"
                   ? "w-full h-20"
-                  : "w-48 h-20"
+                  : "w-[80%] h-28"
               }`}
             >
               <Image
