@@ -15,6 +15,7 @@ const Portfolio = (props: Props) => {
     "cinnamon_stick",
     "rafa_collection",
     "best_dental",
+    "ida",
   ];
 
   return (

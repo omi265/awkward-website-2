@@ -8,8 +8,11 @@ import loader from "../../../public/t3-loader.gif";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { motion } from "motion/react";
+import SocialIcons from "../SocialIcons";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const SOCIALS = ["FB", "IG", "LI"];
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -53,7 +56,7 @@ const Contact = () => {
 
   return (
     <motion.div
-      className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit mt-[10%] lg:mt-[13%] pb-[35%] lg:pb-[20%]"
+      className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit mt-[10%] lg:mt-[10%] pb-[35%] lg:pb-[20%]"
       initial={{ opacity: 0, scale: 0.7 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, type: "spring" }}
@@ -115,48 +118,68 @@ const Contact = () => {
               </div>
             </div>
             <div className="flex flex-col w-full">
-              <div className="flex justify-start space-x-10 items-center w-full mt-10">
-                <motion.div
-                  className="text-base lg:text-2xl font-bold lg:font-extrabold px-6 lg:px-4 py-2 border-[6px] rounded-full border-black bg-[#F8C419] shadow-2xl cursor-pointer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={handleSubmit}
-                >
-                  Ready, Set, Slide!
-                </motion.div>
-
-                {isSubmitting && (
-                  <>
-                    <Image
-                      src={loader}
-                      width={60}
-                      height={60}
-                      alt="Logo"
-                      className="object-cover"
-                    />
-                  </>
-                )}
+              <div className="flex justify-between space-x-10 items-center w-full mt-10">
+                <div>
+                  {isSubmitted ? (
+                    <div className="text-base font-bold mt-6 text-center lg:text-left">
+                      "You Did It! 🎉 Your Message Has Landed in Our Awkward
+                      Inbox!" Thanks for reaching out! We’ll get back to you
+                      soon—until then, feel free to keep exploring our
+                      delightfully awkward corner of the internet. Talk soon!
+                    </div>
+                  ) : (
+                    <div className="flex">
+                      <motion.div
+                        className="text-base lg:text-2xl font-bold lg:font-extrabold px-6 lg:px-4 py-2 border-[6px] rounded-full border-black bg-[#F8C419] shadow-2xl cursor-pointer"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        onClick={handleSubmit}
+                      >
+                        Ready, Set, Slide!
+                      </motion.div>
+                      {isSubmitting && (
+                        <>
+                          <Image
+                            src={loader}
+                            width={60}
+                            height={60}
+                            alt="Logo"
+                            className="object-cover"
+                          />
+                        </>
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
-          <div className="relative w-[60%] lg:w-[60%]">
-            <Image
-              src={omkar_2}
-              width={400}
-              height={400}
-              alt="Logo"
-              className="object-cover"
-            />
+          <div className="flex flex-col w-full h-full justify-between items-center">
+            <div className="relative w-[60%] ">
+              <Image
+                src={omkar_2}
+                width={400}
+                height={400}
+                alt="Logo"
+                className="object-cover"
+              />
+            </div>
+            <div className="flex justify-between w-full mt-10 items-center">
+              <div className="flex  space-x-5">
+                <SocialIcons />
+              </div>
+              <div>
+                <Image
+                  src={"/Yellow_Diagonals.svg"}
+                  width={200}
+                  height={40}
+                  alt="Logo"
+                />
+              </div>
+            </div>
           </div>
         </div>
-        {isSubmitted && (
-          <div className="text-xl font-semibold mt-6 text-center lg:text-left">
-            "You Did It! 🎉 Your Message Has Landed in Our Awkward Inbox!"
-            Thanks for reaching out! We’ll get back to you soon—until then, feel
-            free to keep exploring our delightfully awkward corner of the
-            internet. Talk soon!
-          </div>
-        )}
+
         <motion.div layout className="flex flex-col space-y-5 mt-10">
           <div className="text-2xl font-bold">
             Or you can drop by our office(s) at:
