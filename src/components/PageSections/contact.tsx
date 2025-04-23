@@ -56,7 +56,7 @@ const Contact = () => {
 
   return (
     <motion.div
-      className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit mt-[10%] lg:mt-[12.5%] pb-[35%] lg:pb-[20%]"
+      className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit mt-[10%] lg:mt-[11%] pb-[35%] lg:pb-[20%]"
       initial={{ opacity: 0, scale: 0.7 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, type: "spring" }}

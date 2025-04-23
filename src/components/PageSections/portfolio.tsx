@@ -36,7 +36,7 @@ const Portfolio = (props: Props) => {
           </div>
           <div
             className="text-lg lg:text-2xl mt-4 font-semibold lg:font-normal w-full text-center
-       lg:text-left mb-10"
+       lg:text-left mb-12 lg:mb-2"
           >
             At Awkward Studio, our portfolio is more than a collection of
             logos—it's a visual narrative of digital transformation. Each
@@ -54,7 +54,7 @@ const Portfolio = (props: Props) => {
               key={logo}
               className={`relative ${
                 logo == "maruti" || logo == "index_hyundai"
-                  ? "w-[75%] lg:w-96 h-20 lg:h-48"
+                  ? "w-[75%] lg:w-96 h-20 lg:h-48 max-w-96"
                   : "min-w-48 h-32 lg:h-48"
               } `}
             >
