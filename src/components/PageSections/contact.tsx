@@ -56,20 +56,15 @@ const Contact = () => {
 
   return (
     <motion.div
-      className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit mt-[10%] lg:mt-[10%] pb-[35%] lg:pb-[20%]"
+      className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit mt-[10%] lg:mt-[12.5%] pb-[35%] lg:pb-[20%]"
       initial={{ opacity: 0, scale: 0.7 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, type: "spring" }}
     >
       <div className="flex flex-col w-full">
         <div className="flex flex-col justify-center w-full text-center lg:text-left">
-          <div>
-            <div className="text-3xl lg:text-5xl font-extrabold">
-              Slide into Our Mailbox!
-            </div>
-          </div>
           <div
-            className="text-lg lg:text-2xl mt-4 font-semibold lg:font-normal w-full text-center
+            className="text-lg lg:text-2xl font-semibold lg:font-normal w-full text-center
            lg:text-left"
           >
             We’d love to hear from you! whether it’s a service request, a wild
@@ -77,10 +72,15 @@ const Contact = () => {
             Drop us a message, and let’s create something amazing together!
           </div>
         </div>
-        <div className="flex flex-col-reverse lg:flex-row justify-center lg:justify-around items-center h-full w-full mt-10">
+        <div className="flex flex-col-reverse lg:flex-row justify-center lg:justify-around items-center h-full w-full mt-4">
           <div className="w-full">
-            <div className="flex lg:w-[80%] w-full mt-8 lg:mt-0">
-              <div className="flex flex-col space-y-8 font-bold w-full">
+            <div>
+              <div className="text-xl lg:text-2xl font-extrabold">
+                Slide into Our Mailbox!
+              </div>
+            </div>
+            <div className="flex w-full mt-8 lg:mt-4">
+              <div className="flex flex-col space-y-4 font-bold w-full">
                 <div className="flex justify-evenly items-center space-x-5">
                   <Input
                     type="name"
@@ -98,7 +98,7 @@ const Contact = () => {
                     onChange={(e) => setPhone(e.target.value)}
                   />
                 </div>
-                <div className="w-full">
+                <div className="flex justify-evenly items-center space-x-5">
                   <Input
                     type="email"
                     placeholder="Email"
@@ -106,19 +106,26 @@ const Contact = () => {
                     className="rounded-full p-5 w-full placeholder:italic placeholder:font-bold placeholder:text-gray-400 border-4 border-black"
                     onChange={(e) => setEmail(e.target.value)}
                   />
+                  <Input
+                    type="text"
+                    placeholder="Short Description"
+                    value={message}
+                    className="rounded-full p-5 w-full placeholder:italic placeholder:font-bold placeholder:text-gray-400 border-4 border-black"
+                    onChange={(e) => setMessage(e.target.value)}
+                  />
                 </div>
-                <div className="w-full">
+                {/* <div className="w-full">
                   <Textarea
                     placeholder="Type your message here."
                     value={message}
                     className="rounded-3xl h-32 p-5 w-full placeholder:italic placeholder:font-bold placeholder:text-gray-400 border-4 border-black"
                     onChange={(e) => setMessage(e.target.value)}
                   />
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="flex flex-col w-full">
-              <div className="flex justify-between space-x-10 items-center w-full mt-10">
+              <div className="flex justify-between space-x-5 items-center w-full mt-8">
                 <div>
                   {isSubmitted ? (
                     <div className="text-base font-bold mt-6 text-center lg:text-left">
@@ -130,7 +137,7 @@ const Contact = () => {
                   ) : (
                     <div className="flex">
                       <motion.div
-                        className="text-base lg:text-2xl font-bold lg:font-extrabold px-6 lg:px-4 py-2 border-[6px] rounded-full border-black bg-[#F8C419] shadow-2xl cursor-pointer"
+                        className="text-base lg:text-xl font-bold lg:font-extrabold px-6 lg:px-4 py-2 border-[6px] rounded-full border-black bg-[#F8C419] shadow-2xl cursor-pointer"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         onClick={handleSubmit}
@@ -153,18 +160,28 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="flex flex-col w-full h-full justify-between items-center">
-            <div className="relative w-[60%] ">
-              <Image
-                src={omkar_2}
-                width={400}
-                height={400}
-                alt="Logo"
-                className="object-cover"
-              />
-            </div>
-            <div className="flex justify-between w-full mt-10 items-center">
+            <motion.div layout className="flex flex-col space-y-5 mt-6">
+              <div className="text-2xl font-bold">
+                Or you can drop by our office(s) at:
+              </div>
+              <div className="flex space-x-10 items-center">
+                <div className="flex flex-col space-y-3 max-w-xs">
+                  <div className="text-2xl font-bold">Andheri</div>
+                  <div className="text-lg font-medium">
+                    102, The Meadows, Sahar Plaza, Andheri - Kurla Road, J.B.
+                    Nagar, Andheri (East) Mumbai – 400 059.
+                  </div>
+                </div>
+                <div className="flex flex-col space-y-3 max-w-xs">
+                  <div className="text-2xl font-bold">Mira Road</div>
+                  <div className="text-lg font-medium">
+                    Fida Hussain Compound, Off Western Express Highway, Mira
+                    Road (East), Mumbai - 401 104.
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+            <div className="flex justify-between w-full mt-8 items-center">
               <div className="flex  space-x-5">
                 <SocialIcons />
               </div>
@@ -178,29 +195,19 @@ const Contact = () => {
               </div>
             </div>
           </div>
-        </div>
 
-        <motion.div layout className="flex flex-col space-y-5 mt-10">
-          <div className="text-2xl font-bold">
-            Or you can drop by our office(s) at:
-          </div>
-          <div className="flex space-x-10 items-center">
-            <div className="flex flex-col space-y-3 max-w-xs">
-              <div className="text-2xl font-bold">Andheri</div>
-              <div className="text-lg font-medium">
-                102, The Meadows, Sahar Plaza, Andheri - Kurla Road, J.B. Nagar,
-                Andheri (East) Mumbai – 400 059.
-              </div>
-            </div>
-            <div className="flex flex-col space-y-3 max-w-xs">
-              <div className="text-2xl font-bold">Mira Road</div>
-              <div className="text-lg font-medium">
-                Fida Hussain Compound, Off Western Express Highway, Mira Road
-                (East), Mumbai - 401 104.
-              </div>
+          <div className="flex flex-col w-full h-full justify-between items-center">
+            <div className="flex relative w-full justify-center items-center">
+              <Image
+                src={omkar_2}
+                width={500}
+                height={400}
+                alt="Logo"
+                className="object-cover"
+              />
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </motion.div>
   );

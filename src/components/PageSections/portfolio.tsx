@@ -22,7 +22,7 @@ const Portfolio = (props: Props) => {
 
   return (
     <motion.div
-      className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit mt-[10%] lg:mt-[15%] pb-[35%] lg:pb-[20%]"
+      className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit mt-[10%] lg:mt-[10%] pb-[35%] lg:pb-[20%]"
       initial={{ opacity: 0, scale: 0.7 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, type: "spring" }}
@@ -48,7 +48,7 @@ const Portfolio = (props: Props) => {
             truly unique.
           </div>
         </div>
-        {/* <div className="flex flex-col lg:flex-row lg:space-x-12 flex-wrap lg:space-y-0 space-y-4 items-center justify-center">
+        <div className="flex flex-col lg:flex-row lg:space-x-12 flex-wrap lg:space-y-0 space-y-4 items-center justify-center">
           {logos.map((logo) => (
             <div
               key={logo}
@@ -66,8 +66,8 @@ const Portfolio = (props: Props) => {
               />
             </div>
           ))}
-        </div> */}
-        <LogoCarousel logos={logos} />
+        </div>
+        {/* <LogoCarousel logos={logos} /> */}
       </div>
     </motion.div>
   );
