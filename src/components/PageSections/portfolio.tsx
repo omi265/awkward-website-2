@@ -22,7 +22,7 @@ const Portfolio = (props: Props) => {
 
   return (
     <motion.div
-      className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit mt-[10%] lg:mt-[1%] pb-[35%] lg:pb-[20%]"
+      className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit mt-[10%] lg:mt-[10%] pb-[35%] lg:pb-[20%]"
       initial={{ opacity: 0, scale: 0.7 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, type: "spring" }}
@@ -36,7 +36,7 @@ const Portfolio = (props: Props) => {
           </div>
           <div
             className="text-lg lg:text-2xl mt-4 font-semibold lg:font-normal w-full text-center
-       lg:text-left mb-16"
+       lg:text-left mb-10"
           >
             At Awkward Studio, our portfolio is more than a collection of
             logos—it's a visual narrative of digital transformation. Each
