@@ -185,7 +185,15 @@ const Contact = () => {
               <div className="flex  space-x-5">
                 <SocialIcons />
               </div>
-              <div>
+              <div className="lg:hidden flex">
+                <Image
+                  src={"/Yellow_Diagonals.svg"}
+                  width={140}
+                  height={40}
+                  alt="Logo"
+                />
+              </div>
+              <div className="lg:flex hidden">
                 <Image
                   src={"/Yellow_Diagonals.svg"}
                   width={200}
@@ -197,7 +205,7 @@ const Contact = () => {
           </div>
 
           <div className="flex flex-col w-full h-full justify-between items-center">
-            <div className="flex relative w-full justify-center items-center">
+            <div className="flex relative w-[70%] lg:w-full justify-center items-center mb-6 lg:mb-0">
               <Image
                 src={omkar_2}
                 width={500}
