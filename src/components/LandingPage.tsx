@@ -269,17 +269,19 @@ const LandingPage = () => {
         {/* Concentric Circles - Far Right */}
         {isVisible(8) && (
           <motion.div
-            className="absolute right-[-12%] top-[25%] lg:bottom-[30%] lg:right-[2%]"
+            className="absolute right-[-12%] bottom-[25%] lg:bottom-[30%] lg:right-[2%]"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
           >
             <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
+              animate={{
+                scale: [1, 1.05, 1], // Slight scale change for smoother transition
+              }}
               transition={{
                 repeat: Infinity,
-                duration: 4,
-                ease: "easeInOut",
+                duration: 2, // Shorter duration for smoother effect
+                ease: "easeInOut", // Keep the smooth ease function
               }}
             >
               <Image
