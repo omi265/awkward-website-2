@@ -399,8 +399,26 @@ const LandingPage = () => {
           Crafting Digital Solutions that don't just work, they{" "}
           <span className="font-black">Stand Out</span>.
         </div>
+        <Link className="hidden lg:flex text-3xl lg:text-6xl" href={"/home"}>
+          <motion.div
+            className="flex justify-center items-center h-[55px] w-[55px] lg:h-[70px] lg:w-[70px] border-[6px] rounded-full border-black bg-[#F8C419] shadow-2xl"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <ChevronRight
+              size={42}
+              strokeWidth={4}
+              className="hidden lg:flex"
+            />
+            <ChevronRight
+              size={32}
+              strokeWidth={4}
+              className="flex lg:hidden"
+            />
+          </motion.div>
+        </Link>
       </div>
-      <Link className="text-3xl lg:text-6xl" href={"/home"}>
+      <Link className="lg:hidden text-3xl lg:text-6xl" href={"/home"}>
         <motion.div
           className="flex justify-center items-center h-[55px] w-[55px] lg:h-[70px] lg:w-[70px] border-[6px] rounded-full border-black bg-[#F8C419] shadow-2xl"
           whileHover={{ scale: 1.1 }}
