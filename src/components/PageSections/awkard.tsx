@@ -59,14 +59,14 @@ const Home = ({ setSelectedTab }: any) => {
         </motion.div>
 
         {/* Grey Triangle -  center */}
-        {/* <motion.div
+        <motion.div
           animate={{ rotate: [0, 360] }}
           transition={{
             repeat: Infinity,
             duration: 10,
             ease: "easeInOut",
           }}
-          className="absolute top-[65%] right-[80%] lg:top-[60%] lg:right-[48%]"
+          className="absolute top-[65%] right-[80%] lg:top-[60%] lg:right-[48%] hidden sm:flex"
         >
           <Image
             src={"/landing_vectors/Light_Grey_Triangle.svg"}
@@ -75,7 +75,7 @@ const Home = ({ setSelectedTab }: any) => {
             alt="Logo"
             className="lg:w-[68px]"
           />
-        </motion.div> */}
+        </motion.div>
 
         {/* Yellow Triangle -  Top Right */}
         <motion.div
@@ -104,7 +104,7 @@ const Home = ({ setSelectedTab }: any) => {
             duration: 10,
             ease: "easeInOut",
           }}
-          className="absolute top-[20%] right-[10%] lg:bottom-[12%] lg:right-[8%]"
+          className="absolute bottom-[60%] right-[10%] lg:bottom-[12%] lg:right-[8%]"
         >
           <Image
             src={"/landing_vectors/Light_Grey_Hollow_Box.svg"}
