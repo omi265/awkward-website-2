@@ -4,12 +4,12 @@ import React from "react";
 const About = () => {
   return (
     <motion.div
-      className="flex justify-center items-center w-[80%] lg:w-[80%] h-fit lg:h-full pb-[25%] lg:pb-0 pt-[10%] lg:pt-[5%]"
+      className="flex justify-center items-center w-[80%] lg:w-[80%] h-fit lg:h-screen"
       initial={{ opacity: 0, scale: 0.7 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, type: "spring" }}
     >
-      <div className="flex flex-col justify-start lg:justify-evenly items-center h-full w-full">
+      <div className="flex flex-col justify-start lg:justify-evenly items-center h-full w-full mt-[10%] lg:mt-0 mb-[35%] lg:mb-0 ">
         <div className="elementScroll rounded-2xl w-full lg:h-fit space-y-5 ">
           <div className=" flex flex-col justify-start lg:justify-center text-3xl lg:text-5xl font-extrabold lg:h-[550px] lg:snap-center text-left">
             <div>

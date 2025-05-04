@@ -22,12 +22,12 @@ const Portfolio = (props: Props) => {
 
   return (
     <motion.div
-      className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit mt-[10%] lg:mt-[10%] pb-[35%] lg:pb-[20%]"
+      className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit lg:my-[15%]"
       initial={{ opacity: 0, scale: 0.7 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, type: "spring" }}
     >
-      <div className="flex flex-col w-full">
+      <div className="flex flex-col w-full mt-[10%] lg:mt-0 mb-[35%] lg:mb-0">
         <div className="flex flex-col justify-center w-full text-center lg:text-left">
           <div>
             <div className="text-3xl lg:text-5xl font-extrabold">

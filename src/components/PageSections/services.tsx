@@ -6,8 +6,8 @@ import design from "../../../public/design_services.png";
 
 const Services = () => {
   return (
-    <div className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit mt-[10%] pb-[30%] lg:mt-[12%] lg:pb-[5%]">
-      <div className="flex flex-col w-full">
+    <div className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit lg:my-[13%]">
+      <div className="flex flex-col w-full mt-[10%] lg:mt-0 mb-[35%] lg:mb-0">
         <div className="flex flex-col justify-center text-3xl lg:text-5xl font-extrabold w-full text-center lg:text-left">
           <div>
             <div>Our Services</div>

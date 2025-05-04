@@ -7,116 +7,9 @@ import { motion } from "motion/react";
 
 const Home = ({ setSelectedTab }: any) => {
   return (
-    <div className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit lg:h-full lg:min-h-[700px] xl:min-h-[600px]">
+    <div className="flex justify-center items-center w-[90%] lg:w-[80%]">
       <motion.div
-        className="absolute inset-0 w-full h-full pointer-events-none z-0"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        {/* Yellow Concentrics - Top Left */}
-        <motion.div
-          animate={{
-            opacity: [0.5, 1, 0.5],
-            // scale: [1, 0.95, 1],
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: 2,
-            ease: "easeInOut",
-          }}
-          className="absolute top-[65%] right-[5%] lg:top-[8%] lg:left-[5%]"
-        >
-          <Image
-            src={"/awkward_vectors/Yellow_Concentrics.svg"}
-            width={50}
-            height={94}
-            alt="Logo"
-            className="lg:w-[164px]"
-          />
-        </motion.div>
-
-        {/* Yellow Diagnals - Bottom Left */}
-        <motion.div
-          animate={{
-            opacity: [0.7, 1, 0.7],
-            x: [-20, 0, -20],
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: 3,
-            ease: "easeInOut",
-          }}
-          className="absolute bottom-[95%]  left-[50%] lg:bottom-[15%] lg:left-[10%] hidden lg:flex"
-        >
-          <Image
-            src={"/awkward_vectors/Yellow_Diagonals.svg"}
-            width={400}
-            height={53}
-            alt="Logo"
-            // className="lg:hidden"
-          />
-        </motion.div>
-
-        {/* Grey Triangle -  center */}
-        <motion.div
-          animate={{ rotate: [0, 360] }}
-          transition={{
-            repeat: Infinity,
-            duration: 10,
-            ease: "easeInOut",
-          }}
-          className="absolute top-[65%] right-[80%] lg:top-[60%] lg:right-[48%] hidden sm:flex"
-        >
-          <Image
-            src={"/landing_vectors/Light_Grey_Triangle.svg"}
-            width={24}
-            height={53}
-            alt="Logo"
-            className="lg:w-[68px]"
-          />
-        </motion.div>
-
-        {/* Yellow Triangle -  Top Right */}
-        <motion.div
-          animate={{ rotate: [0, 360] }}
-          transition={{
-            repeat: Infinity,
-            duration: 10,
-            ease: "easeInOut",
-          }}
-          className="absolute top-[25%] right-[88%] lg:top-[20%] lg:right-[10%]"
-        >
-          <Image
-            src={"/awkward_vectors/Yellow_Triangle.svg"}
-            width={24}
-            height={53}
-            alt="Logo"
-            className="lg:w-[68px]"
-          />
-        </motion.div>
-
-        {/* Grey Box -  Bpttom Right */}
-        <motion.div
-          animate={{ rotate: [0, 360] }}
-          transition={{
-            repeat: Infinity,
-            duration: 10,
-            ease: "easeInOut",
-          }}
-          className="absolute bottom-[60%] right-[10%] lg:bottom-[12%] lg:right-[8%]"
-        >
-          <Image
-            src={"/landing_vectors/Light_Grey_Hollow_Box.svg"}
-            width={34}
-            height={53}
-            alt="Logo"
-            className="lg:w-[68px]"
-          />
-        </motion.div>
-      </motion.div>
-      <motion.div
-        className="hidden lg:flex justify-evenly items-center h-full w-full z-20 lg:z-20"
+        className="lg:flex justify-center items-center hidden h-screen"
         initial={{ opacity: 0, scale: 0.7 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, type: "spring" }}
@@ -169,13 +62,13 @@ const Home = ({ setSelectedTab }: any) => {
           />
         </div>
       </motion.div>
-      <div className="flex lg:hidden justify-center items-center w-full flex-col mt-[15%] mb-[30%]">
+      <div className="flex lg:hidden justify-center items-center w-full flex-col min-h-screen h-fit my-24">
         <div className="text-3xl font-bold text-center">
           <div>The Process of creation</div>
           <div>
             is <span className="italic font-black">Awkward</span>
           </div>
-          <motion.div
+          {/* <motion.div
             animate={{
               opacity: [0.7, 1, 0.7],
               x: [-20, 0, -20],
@@ -194,7 +87,7 @@ const Home = ({ setSelectedTab }: any) => {
               alt="Logo"
               className="lg:hidden"
             />
-          </motion.div>
+          </motion.div> */}
         </div>
         <div className="relative mt-10">
           <Image

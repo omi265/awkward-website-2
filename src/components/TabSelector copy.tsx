@@ -1,11 +1,12 @@
 "use client";
+
 import React from "react";
 import Image from "next/image";
 import logo_wo_text from "../../public/AS_logo_wo_text.svg";
 
 const DesktopTabSelector = ({ tabs, selectedTab, setSelectedTab }: any) => {
   return (
-    <div className="fixed top-[9%] justify-center items-center min-h-14 lg:w-[98.7%] xl:w-[98.9%] 2xl:w-[99.1%] border-r-[0px] border-l-[0px] border-b-[10px] border-black bg-[#D9D9D9] z-10">
+    <div className="fixed top-[9%] justify-center items-center min-h-14 lg:w-[98.7%] xl:w-[98.9%] 2xl:w-[99.1%]  border-r-[0px] border-l-[0px] border-b-[10px] border-black bg-[#D9D9D9] z-10">
       <div className="flex justify-between items-center h-14 divide-x-8 divide-black">
         {tabs.map((tab: any, index: number) => (
           <div
