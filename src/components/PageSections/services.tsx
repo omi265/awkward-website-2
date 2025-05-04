@@ -3,10 +3,120 @@ import Image from "next/image";
 import tech from "../../../public/tech_services.png";
 import marketing from "../../../public/marketing_services.png";
 import design from "../../../public/design_services.png";
+import { motion } from "motion/react";
 
 const Services = () => {
   return (
-    <div className="flex justify-center items-center w-[90%] lg:w-[80%] h-fit lg:my-[13%]">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.7 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, type: "spring" }}
+      className="relative flex justify-center items-center w-[90%] lg:w-[80%] h-fit lg:my-[13%]"
+    >
+      <motion.div
+        className="absolute inset-0 w-full h-full pointer-events-none z-0"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        {/* Yellow Elipses */}
+        <motion.div
+          animate={{
+            opacity: [0.7, 1, 0.7],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            repeat: Infinity,
+            duration: 10,
+            ease: "easeInOut",
+          }}
+          className="absolute hidden lg:flex  top-[-2%] right-[-8.6%]"
+        >
+          <Image
+            src={"/awkward_vectors/Yellow_Ellipses.svg"}
+            width={33}
+            height={53}
+            alt="Logo"
+            className="lg:w-[38px]"
+          />
+        </motion.div>
+
+        {/* Light Grey Straights */}
+        <motion.div
+          animate={{ y: [0, 20, 0] }}
+          transition={{
+            repeat: Infinity,
+            duration: 3,
+            ease: "easeInOut",
+          }}
+          className="absolute hidden lg:flex  top-[60%] left-[-8%]"
+        >
+          <Image
+            src={"/awkward_vectors/Grey_Straights.svg"}
+            width={160}
+            height={53}
+            alt="Logo"
+            className="lg:w-[40px]"
+          />
+        </motion.div>
+
+        {/* Light Grey Triangle */}
+        <motion.div
+          animate={{ rotate: [0, 45, 0, -45, 0] }}
+          transition={{
+            repeat: Infinity,
+            duration: 10,
+            ease: "easeInOut",
+          }}
+          className="absolute hidden lg:flex  top-[8%] left-[-8%]"
+        >
+          <Image
+            src={"/awkward_vectors/Light_Grey_Triangle.svg"}
+            width={38}
+            height={53}
+            alt="Logo"
+          />
+        </motion.div>
+
+        {/* Yellow Triangle */}
+        <motion.div
+          animate={{ rotate: [0, 180, 360] }}
+          transition={{
+            repeat: Infinity,
+            duration: 5,
+            ease: "easeInOut",
+          }}
+          className="absolute hidden lg:flex  top-[-3%] left-[30%]"
+        >
+          <Image
+            src={"/awkward_vectors/Yellow_Triangle.svg"}
+            width={38}
+            height={53}
+            alt="Logo"
+          />
+        </motion.div>
+
+        {/* Yellow Concentrics */}
+        <motion.div
+          animate={{
+            opacity: [0.7, 1, 0.7],
+            scale: [1, 0.95, 1],
+          }}
+          transition={{
+            repeat: Infinity,
+            duration: 2,
+            ease: "easeInOut",
+          }}
+          className="absolute hidden lg:flex  top-[75%] right-[-10%]"
+        >
+          <Image
+            src={"/awkward_vectors/Yellow_Concentrics.svg"}
+            width={100}
+            height={94}
+            alt="Logo"
+          />
+        </motion.div>
+      </motion.div>
       <div className="flex flex-col w-full mt-[10%] lg:mt-0 mb-[35%] lg:mb-0">
         <div className="flex flex-col justify-center text-3xl lg:text-5xl font-extrabold w-full text-center lg:text-left">
           <div>
@@ -116,7 +226,7 @@ const Services = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
