@@ -7,7 +7,112 @@ import { motion } from "motion/react";
 
 const Home = ({ setSelectedTab }: any) => {
   return (
-    <div className="flex justify-center items-center w-[90%] lg:w-[80%]">
+    <div className="relative flex justify-center items-center w-[90%] lg:w-[80%]">
+      <motion.div
+        className="absolute inset-0 w-full h-full pointer-events-none z-0"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        {/* Yellow Concentrics */}
+        <motion.div
+          animate={{
+            opacity: [0.7, 1, 0.7],
+            scale: [1, 0.95, 1],
+          }}
+          transition={{
+            repeat: Infinity,
+            duration: 2,
+            ease: "easeInOut",
+          }}
+          className="absolute hidden lg:flex  top-[6%] left-[-2%]"
+        >
+          <Image
+            src={"/awkward_vectors/Yellow_Concentrics.svg"}
+            width={164}
+            height={94}
+            alt="Logo"
+          />
+        </motion.div>
+
+        {/* Yellow Triangle */}
+        <motion.div
+          animate={{ rotate: [0, 180, 360] }}
+          transition={{
+            repeat: Infinity,
+            duration: 5,
+            ease: "easeInOut",
+          }}
+          className="absolute hidden lg:flex  top-[22%] right-[-5%]"
+        >
+          <Image
+            src={"/awkward_vectors/Yellow_Triangle.svg"}
+            width={68}
+            height={53}
+            alt="Logo"
+          />
+        </motion.div>
+
+        {/* Light Grey Triangle */}
+        <motion.div
+          animate={{ rotate: [0, 45, 0, -45, 0] }}
+          transition={{
+            repeat: Infinity,
+            duration: 10,
+            ease: "easeInOut",
+          }}
+          className="absolute hidden lg:flex  top-[57%] left-[50%]"
+        >
+          <Image
+            src={"/awkward_vectors/Light_Grey_Triangle.svg"}
+            width={53}
+            height={53}
+            alt="Logo"
+          />
+        </motion.div>
+
+        {/* Light Grey Hollow Box */}
+        <motion.div
+          animate={{ rotate: [0, 180, 360] }}
+          transition={{
+            repeat: Infinity,
+            duration: 5,
+            ease: "easeInOut",
+          }}
+          className="absolute hidden lg:flex  top-[72%] right-[-5%]"
+        >
+          <Image
+            src={"/awkward_vectors/Light_Grey_Hollow_Box.svg"}
+            width={68}
+            height={53}
+            alt="Logo"
+          />
+        </motion.div>
+
+        {/* Yellow Diagonals */}
+        <motion.div
+          animate={{
+            opacity: [0.7, 1, 0.7],
+            x: [-20, 0, -20],
+          }}
+          transition={{
+            repeat: Infinity,
+            duration: 3,
+            ease: "easeInOut",
+          }}
+          className="absolute hidden lg:flex  top-[77%] left-[5%]"
+        >
+          <Image
+            src={"/awkward_vectors/Yellow_Diagonals.svg"}
+            width={160}
+            height={53}
+            alt="Logo"
+            className="lg:w-[400px]"
+          />
+        </motion.div>
+      </motion.div>
+
+      {/* Content */}
       <motion.div
         className="lg:flex justify-center items-center hidden h-screen"
         initial={{ opacity: 0, scale: 0.7 }}

@@ -21,7 +21,7 @@ const LandingPage = () => {
     const timeouts: NodeJS.Timeout[] = [];
 
     // Initial delay of 5 seconds before starting the animation sequence
-    const initialDelay = 3500;
+    const initialDelay = 3000;
 
     // Create a timeout for each element to make them appear sequentially
     for (let i = 0; i < totalElements; i++) {
