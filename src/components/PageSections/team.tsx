@@ -118,8 +118,8 @@ const Team = () => {
           />
         </motion.div>
       </motion.div>
-      <div className="flex flex-col justify-between lg:justify-center items-center h-full w-full lg:space-y-16 lg:mt-[10%]">
-        <div className="flex flex-col justify-center text-3xl lg:text-5xl font-extrabold w-full text-left mt-6 lg:mt-0">
+      <div className="flex flex-col justify-center items-center h-full w-full lg:space-y-16 lg:mt-[10%]">
+        <div className="flex flex-col justify-center text-3xl lg:text-5xl font-extrabold w-full text-left lg:mt-0">
           <div>
             <div className="text-center lg:text-left">
               Meet the Awkward Geniuses
