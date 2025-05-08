@@ -79,15 +79,15 @@ const cardVariants: Variants = {
  */
 
 const Team: any[] = [
-  {
-    memoji: "/rajan_sir_1.png",
-    firstName: "Rajan",
-    lastName: "Sharma",
-    designation: "Director and Founder",
-    tagline: "The Foundation of Awkward",
-    description:
-      "With over 27 years in the automotive retail industry, Rajan has built and led successful ventures across multiple brands, including General Motors, Maruti, Volvo Eicher, and Hyundai. A strategic visionary with deep market expertise, he continues to drive business growth through exceptional leadership and industry insight.",
-  },
+  // {
+  //   memoji: "/rajan_sir_1.png",
+  //   firstName: "Rajan",
+  //   lastName: "Sharma",
+  //   designation: "Director and Founder",
+  //   tagline: "The Foundation of Awkward",
+  //   description:
+  //     "With over 27 years in the automotive retail industry, Rajan has built and led successful ventures across multiple brands, including General Motors, Maruti, Volvo Eicher, and Hyundai. A strategic visionary with deep market expertise, he continues to drive business growth through exceptional leadership and industry insight.",
+  // },
   {
     memoji: "/rohit_1.png",
     firstName: "Rohit",
