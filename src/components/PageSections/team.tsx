@@ -1,6 +1,6 @@
 import React from "react";
 import ScrollTriggered from "../TEST";
-import { motion } from "motion/react";
+import { motion } from "framer-motion"; // Correct import for motion
 import Image from "next/image";
 
 const Team = () => {
@@ -28,7 +28,7 @@ const Team = () => {
             duration: 10,
             ease: "easeInOut",
           }}
-          className="absolute hidden lg:flex  top-[20%] right-[-8%]"
+          className="absolute hidden lg:flex top-[20%] right-[-8%]"
         >
           <Image
             src={"/landing_vectors/Dark_Grey_Box_Straight.svg"}
@@ -50,7 +50,7 @@ const Team = () => {
             duration: 10,
             ease: "easeInOut",
           }}
-          className="absolute hidden lg:flex  top-[19%] right-[-8.6%]"
+          className="absolute hidden lg:flex top-[19%] right-[-8.6%]"
         >
           <Image
             src={"/awkward_vectors/Light_Grey_Hollow_Box_Straight.svg"}
@@ -69,7 +69,7 @@ const Team = () => {
             duration: 3,
             ease: "easeInOut",
           }}
-          className="absolute hidden lg:flex  top-[50%] left-[-8%]"
+          className="absolute hidden lg:flex top-[50%] left-[-8%]"
         >
           <Image
             src={"/awkward_vectors/Grey_Straights.svg"}
@@ -88,7 +88,7 @@ const Team = () => {
             duration: 10,
             ease: "easeInOut",
           }}
-          className="absolute hidden lg:flex  top-[20%] right-[-2%]"
+          className="absolute hidden lg:flex top-[20%] right-[-2%]"
         >
           <Image
             src={"/awkward_vectors/Yellow_Box_Straight.svg"}
@@ -107,7 +107,7 @@ const Team = () => {
             duration: 10,
             ease: "easeInOut",
           }}
-          className="absolute hidden lg:flex  top-[28%] right-[-7%]"
+          className="absolute hidden lg:flex top-[28%] right-[-7%]"
         >
           <Image
             src={"/awkward_vectors/Yellow_Box_Straight.svg"}
@@ -131,7 +131,11 @@ const Team = () => {
             unconventional thinking into extraordinary solutions.
           </div>
         </div>
-        <div className="elementScroll w-full h-[55svh] lg:h-[50svh] overflow-y-scroll snap-y snap-mandatory pr-1 lg:pr-5 mb-24 lg:mb-0">
+        <div
+          className="elementScroll w-full h-[55svh] lg:h-[50svh] overflow-y-scroll snap-y snap-mandatory pr-1 lg:pr-5 mb-24 lg:mb-0"
+          // Add this CSS property
+          style={{ overscrollBehaviorY: "auto" }} // Explicitly setting it, though it's often the default
+        >
           <ScrollTriggered />
         </div>
       </div>
