@@ -2,17 +2,18 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+// Adjust these import paths based on their actual location relative to this file
 import omkar_2 from "../../../public/omkar_2.png";
 import Circles from "../../../public/Circles.svg";
 import loader from "../../../public/t3-loader.gif";
-import { Input } from "../ui/input";
-import { Textarea } from "../ui/textarea";
-import { motion } from "motion/react";
-import SocialIcons from "../SocialIcons";
+import { Input } from "@/components/ui/input"; // Assuming @/components/ui/input
+import { Textarea } from "@/components/ui/textarea"; // Assuming @/components/ui/textarea, and if you plan to use it
+import { motion } from "framer-motion"; // Corrected import for framer-motion
+import SocialIcons from "@/components/SocialIcons"; // Assuming @/components/SocialIcons
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const SOCIALS = ["FB", "IG", "LI"];
+const SOCIALS = ["FB", "IG", "LI"]; // Still unused, consider removing if not needed
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -24,34 +25,58 @@ const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = async () => {
-    // console.log(name, phone, email, message);
-    // const isValidEmail = EMAIL_REGEX.test(email);
     if (!name || !phone || !email || !message) {
       alert("Please fill in all the fields!");
       return;
     }
-    setIsSubmitting(true);
-    await fetch(
-      "https://script.google.com/macros/s/AKfycbxDW9WqZ3M2BG064lMRqMb7qDmySoM3pY_5eNXVIoyqzWtInDKlQapLPJ9AQDWGOv5Q/exec",
-      {
-        method: "POST",
-        body: JSON.stringify({ data: [name, phone, email, message] }),
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data, "Data sent successfully!");
-        setIsSubmitted(true);
-        setIsSubmitting(false);
-        setTimeout(() => {
-          setIsSubmitted(false);
-        }, 5000);
-      });
 
-    setName("");
-    setPhone("");
-    setEmail("");
-    setMessage("");
+    // Basic email validation (optional, but good practice)
+    if (!EMAIL_REGEX.test(email)) {
+      alert("Please enter a valid email address!");
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const res = await fetch(
+        "https://script.google.com/macros/s/AKfycbxDW9WqZ3M2BG064lMRqMb7qDmySoM3pY_5eNXVIoyqzWtInDKlQapLPJ9AQDWGOv5Q/exec",
+        {
+          method: "POST",
+          body: JSON.stringify({ data: [name, phone, email, message] }),
+        }
+      );
+
+      // Check if the response is OK before parsing JSON
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+
+      const data = await res.json();
+      console.log(data, "Data sent successfully!");
+      setIsSubmitted(true);
+
+      // Call the gtag_report_conversion function here
+      // It's globally available because you added it to layout.tsx and attached to window
+      if (
+        typeof window !== "undefined" &&
+        typeof (window as any).gtag_report_conversion === "function"
+      ) {
+        (window as any).gtag_report_conversion(); // Call without a URL if you don't want redirection
+      }
+
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 5000); // Message disappears after 5 seconds
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("There was an error submitting your message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+      setName("");
+      setPhone("");
+      setEmail("");
+      setMessage("");
+    }
   };
 
   return (
@@ -65,7 +90,7 @@ const Contact = () => {
         <div className="flex flex-col justify-center w-full text-center lg:text-left">
           <div
             className="text-lg lg:text-2xl font-semibold lg:font-normal w-full text-center
-           lg:text-left"
+            lg:text-left"
           >
             We’d love to hear from you! whether it’s a service request, a wild
             idea, or just your thoughts on this delightfully awkward website.
@@ -86,7 +111,6 @@ const Contact = () => {
                     type="name"
                     placeholder="Name"
                     value={name}
-                    // className="text-5xl"
                     className="rounded-full p-5 w-full placeholder:italic placeholder:font-bold placeholder:text-gray-400 border-4 border-black "
                     onChange={(e) => setName(e.target.value)}
                   />
@@ -114,14 +138,7 @@ const Contact = () => {
                     onChange={(e) => setMessage(e.target.value)}
                   />
                 </div>
-                {/* <div className="w-full">
-                  <Textarea
-                    placeholder="Type your message here."
-                    value={message}
-                    className="rounded-3xl h-32 p-5 w-full placeholder:italic placeholder:font-bold placeholder:text-gray-400 border-4 border-black"
-                    onChange={(e) => setMessage(e.target.value)}
-                  />
-                </div> */}
+                {/* Your commented out Textarea code */}
               </div>
             </div>
             <div className="flex flex-col w-full">
@@ -150,7 +167,7 @@ const Contact = () => {
                             src={loader}
                             width={60}
                             height={60}
-                            alt="Logo"
+                            alt="Loader"
                             className="object-cover"
                           />
                         </>
@@ -168,7 +185,7 @@ const Contact = () => {
                 <div className="flex flex-col space-y-3 max-w-xs">
                   <div className="text-2xl font-bold">Andheri</div>
                   <div className="text-lg font-medium">
-                    102, The Meadows, Sahar Plaza, Andheri - Kurla Road, J.B.
+                    102, The Meadows, Sahar Plaza, Andheri - Kurla Road, J.B.
                     Nagar, Andheri (East) Mumbai – 400 059.
                   </div>
                 </div>
@@ -182,7 +199,7 @@ const Contact = () => {
               </div>
             </motion.div>
             <div className="flex justify-between w-full mt-8 items-center">
-              <div className="flex  space-x-5">
+              <div className="flex space-x-5">
                 <SocialIcons />
               </div>
               <div className="lg:hidden flex">
@@ -190,7 +207,7 @@ const Contact = () => {
                   src={"/Yellow_Diagonals.svg"}
                   width={140}
                   height={40}
-                  alt="Logo"
+                  alt="Diagonals"
                 />
               </div>
               <div className="lg:flex hidden">
@@ -198,7 +215,7 @@ const Contact = () => {
                   src={"/Yellow_Diagonals.svg"}
                   width={200}
                   height={40}
-                  alt="Logo"
+                  alt="Diagonals"
                 />
               </div>
             </div>

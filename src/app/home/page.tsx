@@ -1,6 +1,6 @@
 "use client";
 import About from "@/components/PageSections/about";
-import Home from "@/components/PageSections/awkard";
+import Home from "@/components/PageSections/awkard"; // Assuming this is your "AWKWARD STUDIO" section
 import Contact from "@/components/PageSections/contact";
 import Team from "@/components/PageSections/team";
 import Services from "@/components/PageSections/services";
@@ -26,24 +26,35 @@ const HomePage = () => {
   );
   const [isScrolling, setIsScrolling] = useState(false);
 
-  // Update URL without triggering navigation
+  // Effect to handle initial hash in URL and scroll to it
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    const initialIndex = tabs.findIndex((tab) => tab.id === hash);
+
+    if (initialIndex !== -1) {
+      setSelectedTab(initialIndex);
+      // Use requestAnimationFrame to ensure DOM is ready for scroll
+      requestAnimationFrame(() => {
+        sectionRefs.current[initialIndex]?.scrollIntoView({
+          behavior: "instant",
+        }); // Use instant for initial load
+      });
+    } else {
+      // If no valid hash, or hash corresponds to "awkward", ensure "awkward" is selected and scrolled to.
+      // This implicitly handles the case where the URL is just /home.
+      setSelectedTab(0);
+      requestAnimationFrame(() => {
+        sectionRefs.current[0]?.scrollIntoView({ behavior: "instant" });
+      });
+    }
+  }, []); // Run only once on component mount
+
+  // Update URL without triggering navigation when selectedTab changes (after scroll or click)
   useEffect(() => {
     if (!isScrolling) {
       window.history.replaceState(null, "", tabs[selectedTab].tabUrl);
     }
   }, [selectedTab, isScrolling]);
-
-  // Handle initial hash in URL
-  useEffect(() => {
-    const hash = window.location.hash.replace("#", "");
-    const index = tabs.findIndex((tab) => tab.id === hash);
-    if (index !== -1) {
-      setSelectedTab(index);
-      setTimeout(() => {
-        sectionRefs.current[index]?.scrollIntoView({ behavior: "smooth" });
-      }, 100);
-    }
-  }, []);
 
   // Handle tab clicking
   const handleTabClick = (index: number) => {
@@ -54,6 +65,7 @@ const HomePage = () => {
     sectionRefs.current[index]?.scrollIntoView({ behavior: "smooth" });
 
     // Reset scrolling flag after animation completes
+    // The duration here should ideally match your scroll-behavior: smooth duration
     setTimeout(() => {
       setIsScrolling(false);
     }, 1000);
@@ -68,7 +80,7 @@ const HomePage = () => {
     };
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      if (isScrolling) return;
+      if (isScrolling) return; // Prevent observer from updating tab while a smooth scroll is in progress
 
       for (const entry of entries) {
         if (entry.isIntersecting) {
@@ -78,7 +90,7 @@ const HomePage = () => {
           if (index !== -1 && selectedTab !== index) {
             setSelectedTab(index);
           }
-          break;
+          break; // Only update for the first intersecting entry
         }
       }
     };
@@ -95,19 +107,7 @@ const HomePage = () => {
     return () => {
       observer.disconnect();
     };
-  }, [selectedTab, isScrolling]);
-
-  // Handle scroll events
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!isScrolling) {
-        // Optional: Add additional scroll handling if needed
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isScrolling]);
+  }, [selectedTab, isScrolling]); // Dependencies: selectedTab and isScrolling for observer re-creation
 
   return (
     <div className="flex flex-col-reverse lg:flex-col h-full w-full justify-center">
@@ -126,7 +126,6 @@ const HomePage = () => {
         />
       </div>
       <div className="flex flex-col w-full h-screen overflow-y-scroll scroll-smooth snap-y snap-mandatory">
-        {" "}
         <div
           ref={(el) => {
             sectionRefs.current[0] = el;

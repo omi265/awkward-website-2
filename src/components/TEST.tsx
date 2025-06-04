@@ -104,7 +104,7 @@ const Team: any[] = [
     designation: "Lead Software Engineer",
     tagline: "Turning Awkward Ideas into Seamless Code",
     description:
-      "The youngest innovator in the Awkward squad, Omkar specializes in high-performing websites, automation, and AI-powered solutions. He’s helped businesses worldwide create seamless, intelligent digital experiences that work smarter, not harder. Whether optimizing workflows or experimenting with AI/ML, he’s always pushing boundaries to make bussinesses run faster, smoother, and way cooler.",
+      "The youngest innovator in the Awkward squad, Omkar specializes in high-performing websites, automation, and AI-powered solutions. He’s helped businesses worldwide create seamless, intelligent digital experiences that work smarter, not harder. Whether optimizing workflows or experimenting with AI/ML, he’s always pushing boundaries to make businesses run faster, smoother, and way cooler.",
   },
   {
     memoji: "/jeanna_1.png",
