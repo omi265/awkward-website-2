@@ -67,6 +67,21 @@ export default function RootLayout({
           `,
         }}
       />
+
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=AW-17193759007"
+      ></Script>
+      <Script
+        dangerouslySetInnerHTML={{
+          __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-17193759007');
+            `,
+        }}
+      />
       {/* End Google Tag (gtag.js) scripts */}
       <body
         className={`bodyScroll ${geistSans.variable} ${geistMono.variable} antialiased bg-black overscroll-none`}
