@@ -68,18 +68,23 @@ export default function RootLayout({
         }}
       />
 
+      {/* Load gtag.js script */}
       <Script
-        async
         src="https://www.googletagmanager.com/gtag/js?id=AW-17193759007"
-      ></Script>
+        strategy="afterInteractive"
+      />
+
+      {/* Initialize Google Ads */}
       <Script
+        id="google-ads-init"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'AW-17193759007');
-            `,
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17193759007');
+          `,
         }}
       />
       {/* End Google Tag (gtag.js) scripts */}
