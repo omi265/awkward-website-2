@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input"; // Assuming @/components/ui/input
 import { Textarea } from "@/components/ui/textarea"; // Assuming @/components/ui/textarea, and if you plan to use it
 import { motion } from "framer-motion"; // Corrected import for framer-motion
 import SocialIcons from "@/components/SocialIcons"; // Assuming @/components/SocialIcons
+import Script from "next/script";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -86,6 +87,19 @@ const Contact = () => {
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, type: "spring" }}
     >
+      <Script
+        id="google-ads-conversion"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            gtag('event', 'conversion', {
+              send_to: 'AW-17193759007/78L_CMrqoNkaEJ_iz4ZA',
+              value: 1.0,
+              currency: 'INR'
+            });
+          `,
+        }}
+      />
       <div className="flex flex-col w-full h-full mt-[10%] lg:mt-0 mb-[35%] lg:mb-0">
         <div className="flex flex-col justify-center w-full text-center lg:text-left">
           <div
