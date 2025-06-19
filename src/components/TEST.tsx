@@ -124,4 +124,13 @@ const Team: any[] = [
     description:
       "From Backend magic to DevOps wizardry, he creates and transforms awkward workflows into streamlined systems that scale. With experience spanning healthcare, big data and automotive industries, he thrives on solving the unsolvable and optimizing the unoptimized. Hands-on at every stage of development, Fueled by curiosity and caffeine.",
   },
+  {
+    memoji: "/asmat.png",
+    firstName: "Asmat",
+    lastName: "Rizvi",
+    designation: "Social Media Manager",
+    tagline: "Mastering trends with a dash of Awkward Charm",
+    description:
+      "With over 2 years in social media management and content creation, She awkwardly pieces together strategies that somehow turn into scroll-stopping content, helping brands stay relevant. Always trend-savvy, always a little awkward - that’s the magic.",
+  },
 ];
