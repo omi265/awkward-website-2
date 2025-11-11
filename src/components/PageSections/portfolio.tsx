@@ -18,6 +18,7 @@ const Portfolio = (props: Props) => {
     "best_dental",
     "ida",
     "index_fleet",
+    "ank_logo_orange",
   ];
 
   return (
@@ -59,7 +60,11 @@ const Portfolio = (props: Props) => {
               } `}
             >
               <Image
-                src={`/client_logos/${logo}.svg`}
+                src={`${
+                  logo == "ank_logo_orange"
+                    ? `/client_logos/${logo}.png`
+                    : `/client_logos/${logo}.svg`
+                }`}
                 alt="Client Logo"
                 layout="fill"
                 objectFit="contain"
