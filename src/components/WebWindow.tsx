@@ -12,7 +12,8 @@ const WebWindow = ({ children }: any) => {
         <div>{children}</div>
       </div>
       <div className="hidden fixed bottom-2 right-2 z-0 rounded-2xl bg-white lg:flex text-black px-2 py-1 text-xs">
-        © Designed by AwkwardStudio , Memoji by Apple Inc.
+        © Designed by AwkwardStudio ( Brand name of Mindise Private Limited ) ,
+        Memoji by Apple Inc.
       </div>
       <MobilePreLoaderAnimation />
     </div>
