@@ -207,7 +207,7 @@ const Contact = () => {
                   <div className="text-2xl font-bold">Mira Road</div>
                   <div className="text-lg font-medium">
                     Fida Hussain Compound, Off Western Express Highway, Mira
-                    Road (East), Mumbai - 401 104.
+                    Road (East), Mumbai - 401 107.
                   </div>
                 </div>
               </div>

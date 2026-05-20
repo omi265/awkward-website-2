@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const SOCIALS = [
   {
     icon: "FB",
-    link: "https://www.instagram.com/awkward__studio/",
+    link: "https://www.facebook.com/people/Awkward-Studio/61574307417056/#",
   },
   {
     icon: "LI",
@@ -13,7 +13,7 @@ const SOCIALS = [
   },
   {
     icon: "IG",
-    link: "https://www.instagram.com/awkward__studio/",
+    link: "https://www.instagram.com/awkwardstudio.in/",
   },
 ];
 
