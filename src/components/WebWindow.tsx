@@ -1,8 +1,6 @@
-import { motion, useAnimation } from "motion/react";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import DeskTopPreLoaderAnimation from "./DeskTopPreLoaderAnimation";
 import MobilePreLoaderAnimation from "./MobilePreLoaderAnimation";
-import { MobileTabSelector } from "./TabSelector";
 
 const WebWindow = ({ children }: any) => {
   return (
