@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 
 const DesktopTabSelector = ({ tabs, selectedTab, setSelectedTab }: any) => {
   return (
-    <div className="fixed top-[9%] justify-center items-center min-h-14 lg:w-[98.7%] xl:w-[98.9%] 2xl:w-[99.1%] border-r-[0px] border-l-[0px] border-b-[8px] border-black bg-[#D9D9D9]/70 backdrop-blur-md z-50">
+    <div className="fixed top-[9%] justify-center items-center min-h-14 lg:w-[98.7%] xl:w-[98.9%] 2xl:w-[99.1%] border-r-[0px] border-l-[0px] border-t-[8px] border-b-[8px] border-black bg-[#D9D9D9]/70 backdrop-blur-md z-50">
       <div className="flex justify-between items-center h-14 divide-x-4 divide-black relative">
         {tabs.map((tab: any, index: number) => {
           const isSelected = selectedTab === index;
@@ -57,7 +57,7 @@ export const MobileTabSelector = ({
   setSelectedTab,
 }: any) => {
   return (
-    <div className="flex fixed bottom-[3%] justify-center items-center border-r-[0px] border-l-[0px] border-t-[8px] border-black bg-[#D9D9D9]/70 backdrop-blur-md h-12 w-[95.8%] sm:w-[98.5%] md:w-[99.5%] z-50 text-[10px]">
+    <div className="flex fixed bottom-[3%] justify-center items-center border-r-[0px] border-l-[0px] border-t-[8px] border-b-[8px] border-black bg-[#D9D9D9]/70 backdrop-blur-md h-12 w-[95.8%] sm:w-[98.5%] md:w-[99.5%] z-50 text-[10px]">
       <div className="flex justify-between items-center h-12 divide-x-4 divide-black w-full relative">
         {tabs.map((tab: any, index: number) => {
           const isSelected = selectedTab === index;
