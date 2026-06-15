@@ -6,8 +6,8 @@ import Image from "next/image";
 const Team = () => {
   return (
     <motion.div
-      className="relative flex justify-center items-center w-[90%] lg:w-[80%] h-screen"
-      initial={{ opacity: 0, scale: 0.7 }}
+      className="relative flex justify-center items-center w-[90%] lg:w-[80%] h-fit py-8 lg:py-16"
+      initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, type: "spring" }}
     >
@@ -118,24 +118,20 @@ const Team = () => {
           />
         </motion.div>
       </motion.div>
-      <div className="flex flex-col justify-center items-center h-full w-full lg:space-y-16 lg:mt-[10%]">
+      <div className="flex flex-col justify-center items-center h-full w-full lg:mt-[5%]">
         <div className="flex flex-col justify-center text-3xl lg:text-5xl font-extrabold w-full text-left lg:mt-0">
           <div>
-            <div className="text-center lg:text-left">
-              Meet the Awkward Geniuses
+            <div className="text-center lg:text-left text-black tracking-tight leading-tight">
+              Meet the <span className="font-serif-display italic font-black text-black border-b-[4px] border-[#F8C419]">Awkward Geniuses</span>
             </div>
           </div>
-          <div className="text-lg lg:text-2xl mt-4 font-semibold w-full text-justify lg:text-left">
+          <div className="text-lg lg:text-2xl mt-4 font-normal text-slate-700 text-justify lg:text-left leading-relaxed">
             Great ideas are born from a little chaos, a lot of creativity, and
             just the right amount of awkward. Our team thrives on turning
             unconventional thinking into extraordinary solutions.
           </div>
         </div>
-        <div
-          className="elementScroll w-full h-[55svh] lg:h-[50svh] overflow-y-scroll snap-y snap-mandatory pr-1 lg:pr-5 mb-24 lg:mb-0"
-          // Add this CSS property
-          style={{ overscrollBehaviorY: "auto" }} // Explicitly setting it, though it's often the default
-        >
+        <div className="w-full mt-4 overflow-visible">
           <ScrollTriggered />
         </div>
       </div>

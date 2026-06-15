@@ -2,7 +2,6 @@
 import About from "@/components/PageSections/about";
 import Home from "@/components/PageSections/awkard"; // Assuming this is your "AWKWARD STUDIO" section
 import Contact from "@/components/PageSections/contact";
-import Team from "@/components/PageSections/team";
 import Services from "@/components/PageSections/services";
 import Portfolio from "@/components/PageSections/portfolio";
 import React, { useEffect, useState, useRef } from "react";
@@ -13,9 +12,8 @@ import DesktopTabSelector, {
 const tabs = [
   { tabName: "AWKWARD STUDIO", tabUrl: "/home#awkward", id: "awkward" },
   { tabName: "ABOUT US", tabUrl: "/home#about", id: "about" },
-  { tabName: "TEAM", tabUrl: "/home#team", id: "team" },
   { tabName: "SERVICES", tabUrl: "/home#services", id: "services" },
-  { tabName: "PORTFOLIO", tabUrl: "/home#portfolio", id: "portfolio" },
+  { tabName: "CLIENTS", tabUrl: "/home#portfolio", id: "portfolio" },
   { tabName: "CONTACT US", tabUrl: "/home#contact", id: "contact" },
 ];
 
@@ -33,54 +31,77 @@ const HomePage = () => {
 
     if (initialIndex !== -1) {
       setSelectedTab(initialIndex);
-      // Use requestAnimationFrame to ensure DOM is ready for scroll
       requestAnimationFrame(() => {
-        sectionRefs.current[initialIndex]?.scrollIntoView({
-          behavior: "instant",
-        }); // Use instant for initial load
+        const lenis = (window as any).lenis;
+        if (lenis) {
+          lenis.scrollTo(sectionRefs.current[initialIndex], {
+            immediate: true,
+            offset: -120,
+          });
+        } else {
+          sectionRefs.current[initialIndex]?.scrollIntoView({
+            behavior: "instant",
+          });
+        }
       });
     } else {
-      // If no valid hash, or hash corresponds to "awkward", ensure "awkward" is selected and scrolled to.
-      // This implicitly handles the case where the URL is just /home.
       setSelectedTab(0);
       requestAnimationFrame(() => {
-        sectionRefs.current[0]?.scrollIntoView({ behavior: "instant" });
+        const lenis = (window as any).lenis;
+        if (lenis) {
+          lenis.scrollTo(sectionRefs.current[0], {
+            immediate: true,
+            offset: -120,
+          });
+        } else {
+          sectionRefs.current[0]?.scrollIntoView({ behavior: "instant" });
+        }
       });
     }
-  }, []); // Run only once on component mount
+  }, []);
 
-  // Update URL without triggering navigation when selectedTab changes (after scroll or click)
+  // Update URL without triggering navigation when selectedTab changes
   useEffect(() => {
     if (!isScrolling) {
       window.history.replaceState(null, "", tabs[selectedTab].tabUrl);
     }
   }, [selectedTab, isScrolling]);
 
-  // Handle tab clicking
+  // Handle tab clicking via Lenis scroll target
   const handleTabClick = (index: number) => {
     setSelectedTab(index);
     setIsScrolling(true);
 
-    // Smooth scroll to the section
-    sectionRefs.current[index]?.scrollIntoView({ behavior: "smooth" });
+    const targetEl = sectionRefs.current[index];
+    const lenis = (window as any).lenis;
 
-    // Reset scrolling flag after animation completes
-    // The duration here should ideally match your scroll-behavior: smooth duration
+    if (lenis && targetEl) {
+      lenis.scrollTo(targetEl, {
+        offset: -120, // Offset to sit perfectly below the fixed header
+        duration: 1.2,
+        immediate: false,
+      });
+    } else {
+      targetEl?.scrollIntoView({ behavior: "smooth" });
+    }
+
     setTimeout(() => {
       setIsScrolling(false);
-    }, 1000);
+    }, 1200);
   };
 
-  // Set up intersection observer to update selected tab on scroll
+  // Set up intersection observer relative to the web-window-scroll container
   useEffect(() => {
+    const scrollContainer = document.querySelector(".web-window-scroll");
+    
     const observerOptions = {
-      root: null, // use viewport
-      rootMargin: "0px",
-      threshold: 0.5, // trigger when 50% of element is visible
+      root: scrollContainer || null, // Observes intersection relative to our scroll container
+      rootMargin: "-30% 0px -40% 0px", // Trigger when a section enters the central 30% viewport band
+      threshold: 0.05,
     };
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      if (isScrolling) return; // Prevent observer from updating tab while a smooth scroll is in progress
+      if (isScrolling) return;
 
       for (const entry of entries) {
         if (entry.isIntersecting) {
@@ -90,7 +111,7 @@ const HomePage = () => {
           if (index !== -1 && selectedTab !== index) {
             setSelectedTab(index);
           }
-          break; // Only update for the first intersecting entry
+          break; // Stop at first intersecting item
         }
       }
     };
@@ -107,10 +128,11 @@ const HomePage = () => {
     return () => {
       observer.disconnect();
     };
-  }, [selectedTab, isScrolling]); // Dependencies: selectedTab and isScrolling for observer re-creation
+  }, [selectedTab, isScrolling]);
 
   return (
-    <div className="flex flex-col-reverse lg:flex-col h-full w-full justify-center">
+    <div className="flex flex-col h-full w-full relative">
+      {/* Header Tab Selector */}
       <div className="hidden lg:flex">
         <DesktopTabSelector
           tabs={tabs}
@@ -125,78 +147,48 @@ const HomePage = () => {
           setSelectedTab={handleTabClick}
         />
       </div>
-      <div className="flex flex-col w-full h-screen overflow-y-scroll scroll-smooth snap-y snap-mandatory">
+
+      {/* Main Single Scroll Container View (no internal scrolls, scroll flows into WebWindow wrapper) */}
+      <div className="flex flex-col w-full pt-16 pb-24 lg:pt-28 lg:pb-16 select-none">
         <div
           ref={(el) => {
             sectionRefs.current[0] = el;
           }}
-          className="flex justify-center h-screen w-full snap-start lg:snap-center"
+          className="flex justify-center min-h-fit lg:min-h-[90vh] w-full py-12 lg:py-20 items-center"
         >
-          <div className="flex justify-center items-start h-full lg:h-screen w-full overflow-hidden">
-            <div className="w-full max-h-screen overflow-y-auto flex justify-center items-center">
-              <Home setSelectedTab={handleTabClick} />{" "}
-            </div>
-          </div>
+          <Home setSelectedTab={handleTabClick} />
         </div>
         <div
           ref={(el) => {
             sectionRefs.current[1] = el;
           }}
-          className="flex justify-center h-screen w-full snap-start lg:snap-center"
+          className="flex justify-center min-h-fit lg:min-h-[90vh] w-full py-12 lg:py-20 items-center"
         >
-          <div className="flex justify-center items-start h-full lg:h-screen w-full overflow-hidden">
-            <div className="w-full max-h-screen overflow-y-auto flex justify-center items-start">
-              <About />
-            </div>
-          </div>
+          <About />
         </div>
         <div
           ref={(el) => {
             sectionRefs.current[2] = el;
           }}
-          className="flex justify-center h-screen w-full snap-start lg:snap-center"
+          className="flex justify-center min-h-fit lg:min-h-[90vh] w-full py-12 lg:py-20 items-center"
         >
-          <div className="flex justify-center items-start h-full lg:h-screen w-full overflow-hidden">
-            <div className="w-full max-h-screen overflow-y-auto flex justify-center items-center">
-              <Team />
-            </div>
-          </div>
+          <Services />
         </div>
         <div
           ref={(el) => {
             sectionRefs.current[3] = el;
           }}
-          className="flex justify-center h-screen w-full snap-start lg:snap-center"
+          className="flex justify-center min-h-fit lg:min-h-[90vh] w-full py-12 lg:py-20 items-center"
         >
-          <div className="flex justify-center items-start h-full lg:h-screen w-full overflow-hidden">
-            <div className="w-full max-h-screen overflow-y-auto flex justify-center items-start">
-              <Services />
-            </div>
-          </div>
+          <Portfolio />
         </div>
         <div
           ref={(el) => {
             sectionRefs.current[4] = el;
           }}
-          className="flex justify-center h-screen w-full snap-start lg:snap-center"
+          className="flex justify-center min-h-fit lg:min-h-[90vh] w-full py-12 lg:py-20 items-center"
         >
-          <div className="flex justify-center items-start h-full lg:h-screen w-full overflow-hidden">
-            <div className="w-full max-h-screen overflow-y-auto flex justify-center items-start">
-              <Portfolio />
-            </div>
-          </div>
-        </div>
-        <div
-          ref={(el) => {
-            sectionRefs.current[5] = el;
-          }}
-          className="flex justify-center h-screen w-full snap-start lg:snap-center"
-        >
-          <div className="flex justify-center items-start h-full lg:h-screen w-full overflow-hidden">
-            <div className="w-full max-h-screen overflow-y-auto flex justify-center items-start">
-              <Contact />
-            </div>
-          </div>
+          <Contact />
         </div>
       </div>
     </div>

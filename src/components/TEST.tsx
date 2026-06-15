@@ -1,93 +1,138 @@
-import * as motion from "motion/react-client";
-import type { Variants } from "motion/react";
+"use client";
+import React, { useState, useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import Image from "next/image";
 
 export default function ScrollTriggered() {
   return (
-    <div className="flex flex-col w-full items-center space-y-32 lg:space-y-16 py-[25%] lg:py-[5%]">
+    <div className="grid grid-cols-1 md:grid-cols-2 border-[3px] border-black bg-[#D9D9D9] divide-y-[3px] md:divide-y-0 md:divide-x-[3px] divide-black w-full select-none overflow-hidden rounded-2xl shadow-[8px_8px_0px_#000000]">
       {Team.map((member: any, i: number) => (
-        <Card i={i} member={member} key={i} />
+        <Card member={member} index={i} key={i} />
       ))}
     </div>
   );
 }
 
-function Card({ member }: any) {
+function Card({ member, index }: any) {
+  const [isHovered, setIsHovered] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  // Mouse tracking inside the cell
+  const x = useMotionValue(150);
+  const y = useMotionValue(150);
+
+  const springConfig = { damping: 40, stiffness: 280 };
+  const mouseX = useSpring(x, springConfig);
+  const mouseY = useSpring(y, springConfig);
+
+  // Spotlight radial gradient follow trigger
+  const spotlightBG = useTransform(
+    [mouseX, mouseY],
+    ([mx, my]) => `radial-gradient(circle 220px at ${mx}px ${my}px, rgba(248, 196, 25, 0.45) 0%, rgba(255, 255, 255, 0) 80%)`
+  );
+
+  // Portrait spring offsets
+  const portraitX = useSpring(useTransform(x, [0, 400], [-10, 10]), springConfig);
+  const portraitY = useSpring(useTransform(y, [0, 400], [-10, 10]), springConfig);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (cardRef.current) {
+      const rect = cardRef.current.getBoundingClientRect();
+      x.set(e.clientX - rect.left);
+      y.set(e.clientY - rect.top);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    // Reset spring to center
+    if (cardRef.current) {
+      const rect = cardRef.current.getBoundingClientRect();
+      x.set(rect.width / 2);
+      y.set(rect.height / 2);
+    }
+  };
+
   return (
-    <motion.div
-      className="relative flex flex-col lg:flex-row items-center w-full snap-center h-fit lg:overflow-hidden bg-[#F8C419] rounded-2xl p-4 lg:p-10 border-4 border-black scroll-mt-32 lg:scroll-mt-0 snap-mandatory"
-      initial="offscreen"
-      whileInView="onscreen"
-      viewport={{ amount: 0.2 }}
+    <div
+      ref={cardRef}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={handleMouseLeave}
+      onMouseMove={handleMouseMove}
+      className="relative flex flex-col md:flex-row justify-between items-center w-full min-h-[350px] bg-white p-8 overflow-hidden group transition-colors duration-500 cursor-magnetic"
+      data-cursor-text="HELLO"
     >
-      <div>
+      {/* Spotlight Canvas overlay (follows cursor) */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        style={{ background: spotlightBG }}
+      />
+
+      {/* Left Details */}
+      <div className="relative z-10 flex flex-col justify-between h-full w-full md:w-[55%] text-left space-y-4">
+        <div className="flex items-center space-x-2">
+          <span className="text-sm font-black text-slate-400 group-hover:text-black transition-colors">
+            0{index + 1}
+          </span>
+          <span className="h-[2px] w-6 bg-black/10 group-hover:bg-black/30 transition-colors" />
+          <span className="text-[10px] font-black text-slate-500 tracking-wider uppercase border border-slate-200 rounded px-2 py-0.5 bg-slate-50 group-hover:bg-black group-hover:text-[#F8C419] group-hover:border-black transition-all">
+            TEAM
+          </span>
+        </div>
+
+        <div className="space-y-1">
+          <h3 className="text-2xl lg:text-3xl font-black text-black tracking-tight leading-none">
+            {member.firstName} <span className="font-serif-display italic font-black text-black group-hover:text-[#F8C419] transition-colors">{member.lastName}</span>
+          </h3>
+          <p className="text-xs lg:text-sm font-bold tracking-wide uppercase text-slate-800 pt-1">
+            {member.designation}
+          </p>
+        </div>
+
+        <div className="h-[1px] bg-black/10 w-full" />
+
+        {/* Info expands on hover */}
         <motion.div
-          variants={cardVariants}
-          className="flex justify-center items-center pb-0 pt-2 px-2 rounded-[20px] bg-white shadow-[0_0_1px_rgba(0,0,0,0.075),0_0_2px_rgba(0,0,0,0.075),0_0_4px_rgba(0,0,0,0.075),0_0_8px_rgba(0,0,0,0.075),0_0_16px_rgba(0,0,0,0.075)] origin-[10%_60%] -mt-[50%] lg:-mt-0"
+          animate={{
+            height: isHovered ? "auto" : "0px",
+            opacity: isHovered ? 1 : 0.1,
+          }}
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="overflow-hidden space-y-2"
         >
-          <Image
-            src={member.memoji}
-            width={128}
-            height={400}
-            alt={member.firstName}
-            className="inline lg:hidden"
-          />
-          <Image
-            src={member.memoji}
-            width={350}
-            height={400}
-            alt={member.firstName}
-            className="hidden lg:inline"
-          />
+          <span className="font-serif-display italic font-bold text-xs lg:text-sm leading-none text-slate-700 block">
+            "{member.tagline}"
+          </span>
+          <p className="text-[11px] lg:text-xs font-semibold text-slate-800 leading-relaxed">
+            {member.description}
+          </p>
         </motion.div>
       </div>
 
-      <div className="flex flex-col justify-center text-lg lg:text-3xl font-bold lg:font-extrabold w-full text-left lg:ml-10 mt-3 lg:mt-0">
-        <div>
-          <div>
-            {member.firstName} {member.lastName}, {member.designation} |{" "}
-            <span className="italic font-semibold lg:font-bold">
-              {member.tagline}
-            </span>
-          </div>
-        </div>
-        <div className="text-base lg:text-2xl mt-2 lg:mt-8 font-normal w-full">
-          {member.description}
-        </div>
+      {/* Portrait Box on the Right */}
+      <div className="relative z-10 w-full md:w-[40%] aspect-square flex justify-center items-center mt-6 md:mt-0">
+        {/* Soft yellow circles background */}
+        <div className="absolute inset-0 bg-slate-50 border-2 border-black rounded-full scale-90 group-hover:scale-100 group-hover:bg-[#F8C419]/20 transition-all duration-500 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.05)]" />
+        
+        {/* Floating spring portrait */}
+        <motion.div
+          style={{ x: portraitX, y: portraitY }}
+          className="relative w-full h-full p-4 flex justify-center items-center"
+        >
+          <Image
+            src={member.memoji}
+            width={180}
+            height={180}
+            alt={member.firstName}
+            className="object-contain hover:scale-105 transition-transform duration-300 pointer-events-none"
+          />
+        </motion.div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
-const cardVariants: Variants = {
-  offscreen: {
-    y: 100,
-  },
-  onscreen: {
-    y: -10,
-    // rotate: -10,
-    transition: {
-      type: "spring",
-      bounce: 0.4,
-      duration: 0.8,
-    },
-  },
-};
-
-/**
- * ==============   Data   ================
- */
-
 const Team: any[] = [
-  // {
-  //   memoji: "/rajan_sir_1.png",
-  //   firstName: "Rajan",
-  //   lastName: "Sharma",
-  //   designation: "Director and Founder",
-  //   tagline: "The Foundation of Awkward",
-  //   description:
-  //     "With over 27 years in the automotive retail industry, Rajan has built and led successful ventures across multiple brands, including General Motors, Maruti, Volvo Eicher, and Hyundai. A strategic visionary with deep market expertise, he continues to drive business growth through exceptional leadership and industry insight.",
-  // },
   {
     memoji: "/rohit_1.png",
     firstName: "Rohit",
@@ -95,7 +140,7 @@ const Team: any[] = [
     designation: "Director",
     tagline: "The Backbone of Awkward",
     description:
-      "A tech enthusiast since childhood, Rohit’s journey spans software engineering, business development, and entrepreneurship. With experience at Google, Searce, and Workplace by Facebook, he brings a unique blend of technology and strategy to Awkward Studio. His entrepreneurial spirit also led to the success of Cinnamon Stick, a premium dessert brand. Now, he’s focused on pushing creative and technological boundaries at Awkward.",
+      "A tech enthusiast since childhood, Rohit’s journey spans software engineering, business development, and entrepreneurship. With experience at Google, Searce, and Workplace by Facebook, he brings a unique blend of technology and strategy to Awkward Studio. Now, he’s focused on pushing creative and technological boundaries.",
   },
   {
     memoji: "/omkar_1.png",
@@ -104,7 +149,7 @@ const Team: any[] = [
     designation: "Lead Software Engineer",
     tagline: "Turning Awkward Ideas into Seamless Code",
     description:
-      "The youngest innovator in the Awkward squad, Omkar specializes in high-performing websites, automation, and AI-powered solutions. He’s helped businesses worldwide create seamless, intelligent digital experiences that work smarter, not harder. Whether optimizing workflows or experimenting with AI/ML, he’s always pushing boundaries to make businesses run faster, smoother, and way cooler.",
+      "Specializes in high-performing websites, automation, and AI-powered solutions. He’s helped businesses worldwide create seamless, intelligent digital experiences that work smarter, not harder. Always pushing boundaries to make systems run faster, smoother, and way cooler.",
   },
   {
     memoji: "/jeanna_1.png",
@@ -122,6 +167,6 @@ const Team: any[] = [
     designation: "Software Engineer",
     tagline: "Turning Awkward Challenges into Elegant Solutions",
     description:
-      "From Backend magic to DevOps wizardry, he creates and transforms awkward workflows into streamlined systems that scale. With experience spanning healthcare, big data and automotive industries, he thrives on solving the unsolvable and optimizing the unoptimized. Hands-on at every stage of development, Fueled by curiosity and caffeine.",
+      "From Backend magic to DevOps wizardry, he creates and transforms awkward workflows into streamlined systems that scale. With experience spanning healthcare, big data and automotive industries, he thrives on solving the unsolvable and optimizing the unoptimized.",
   },
 ];

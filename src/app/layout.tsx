@@ -1,24 +1,28 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import WebWindow from "@/components/WebWindow";
 import Head from "next/head";
 import Script from "next/script";
+import SmoothScroll from "@/components/SmoothScroll";
+import CustomCursor from "@/components/CustomCursor";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  weight: ["400", "700", "900"],
+  style: ["normal", "italic"],
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
   title: "Awkward Studio",
-  description: "Awkward Studio",
+  description: "Awkwardingly Unique, and Brilliantly Effective. Crafting Digital Solutions that don’t just work, they Stand Out.",
 };
 
 export default function RootLayout({
@@ -37,27 +41,25 @@ export default function RootLayout({
         ></link>
         <meta
           name="description"
-          content="Awkwardly Uniqe, and Brilliantly Effective. Crafting Digital Solutions that don’t just work, they Stand Out."
+          content="Awkwardly Unique, and Brilliantly Effective. Crafting Digital Solutions that don’t just work, they Stand Out."
         />
         <meta property="og:title" content="Awkward Studio" />
         <meta
           property="og:description"
-          content="Awkwardly Uniqe, and Brilliantly Effective. Crafting Digital Solutions that don’t just work, they Stand Out."
+          content="Awkwardly Unique, and Brilliantly Effective. Crafting Digital Solutions that don’t just work, they Stand Out."
         />
         <meta property="og:image" content="./favicon.ico" />
         <meta property="og:url" content="https://www.awkwardstudio.in/" />
         <link rel="canonical" href="https://www.awkwardstudio.in/" />
       </Head>
       {/* Google Tag (gtag.js) scripts */}
-      {/* Script for loading the gtag.js library */}
       <Script
-        strategy="afterInteractive" // Recommended for analytics to not block rendering
+        strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=AW-17028454912"
       />
-      {/* Inline script for initializing gtag and sending page views */}
       <Script
-        id="google-analytics" // Unique ID for this script
-        strategy="afterInteractive" // Loads after the page is interactive
+        id="google-analytics"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
@@ -67,14 +69,10 @@ export default function RootLayout({
           `,
         }}
       />
-
-      {/* Load gtag.js script */}
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=AW-17193759007"
         strategy="afterInteractive"
       />
-
-      {/* Initialize Google Ads */}
       <Script
         id="google-ads-init"
         strategy="afterInteractive"
@@ -89,10 +87,15 @@ export default function RootLayout({
       />
       {/* End Google Tag (gtag.js) scripts */}
       <body
-        className={`bodyScroll ${geistSans.variable} ${geistMono.variable} antialiased bg-black overscroll-none`}
+        className={`bodyScroll ${playfair.variable} ${plusJakarta.variable} antialiased bg-black overscroll-none`}
       >
-        <WebWindow children={children} className="w-[80%]" />
+        <SmoothScroll>
+          <CustomCursor />
+          <div className="noise-overlay" />
+          <WebWindow children={children} className="w-[80%]" />
+        </SmoothScroll>
       </body>
     </html>
   );
 }
+

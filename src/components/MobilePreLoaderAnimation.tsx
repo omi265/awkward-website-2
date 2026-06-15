@@ -11,22 +11,43 @@ const MobilePreLoaderAnimation = (props: Props) => {
   const controls = useAnimation();
 
   useEffect(() => {
-    async function runEyeSequence() {
-      await controls.start("eyesEnter");
-      await controls.start("eyesOpenFirst");
-      await controls.start("eyesClose");
-      await controls.start("mouthEnter");
-      await controls.start("eyesOpenLast");
-      controls.start("mouthRotate");
-      controls.start("eyeSectionRotate");
+    let isMounted = true;
 
-      setTimeout(async () => {
-        await controls.start("exit");
-        setIsMaximized(false);
-      }, 1000);
-    }
-    runEyeSequence();
+    const runSequence = async () => {
+      // Defer trigger by 150ms to ensure all elements mount and register with controls
+      await new Promise((resolve) => setTimeout(resolve, 150));
+      if (!isMounted) return;
+
+      try {
+        await controls.start("eyesEnter");
+        await controls.start("eyesOpenFirst");
+        await controls.start("eyesClose");
+        await controls.start("mouthEnter");
+        await controls.start("eyesOpenLast");
+        controls.start("mouthRotate");
+        controls.start("eyeSectionRotate");
+
+        setTimeout(async () => {
+          if (!isMounted) return;
+          try {
+            await controls.start("exit");
+            setIsMaximized(false);
+          } catch (e) {
+            console.warn("Exit transition warning:", e);
+          }
+        }, 1000);
+      } catch (error) {
+        console.warn("Preloader animation failed to start:", error);
+      }
+    };
+
+    runSequence();
+
+    return () => {
+      isMounted = false;
+    };
   }, [controls]);
+
 
   const eyesPreLoaderAnimations = {
     initial: { opacity: 0, scale: 0 },
