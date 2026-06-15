@@ -12,8 +12,11 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     const wrapper = document.querySelector(".web-window-scroll");
     if (!wrapper) return;
 
+    const content = wrapper.querySelector(".web-window-content-inner") || wrapper;
+
     const lenis = new Lenis({
       wrapper: wrapper as HTMLElement,
+      content: content as HTMLElement,
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
@@ -22,6 +25,16 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       wheelMultiplier: 1.1,
       touchMultiplier: 1.8,
     });
+
+    // Observe preloader size changes (height shrinks from 100% to 9%) to trigger lenis resize
+    const preloader = wrapper.querySelector(".sticky.top-0") || wrapper.firstElementChild;
+    let resizeObserver: ResizeObserver | null = null;
+    if (preloader) {
+      resizeObserver = new ResizeObserver(() => {
+        lenis.resize();
+      });
+      resizeObserver.observe(preloader);
+    }
 
     function raf(time: number) {
       lenis.raf(time);
@@ -34,6 +47,9 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     (window as any).lenis = lenis;
 
     return () => {
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+      }
       lenis.destroy();
       (window as any).lenis = null;
     };
