@@ -365,18 +365,6 @@ export default function LandingPage() {
 
       {/* Content */}
       <div className={`${contentWidth} flex flex-col items-center justify-center z-10 h-full select-none`}>
-        {/* WE ARE Title with editorial line clip-up */}
-        <div className="overflow-hidden mb-6 lg:mb-8">
-          <motion.h1
-            initial={{ y: "100%", letterSpacing: "-0.05em" }}
-            animate={{ y: 0, letterSpacing: "-0.01em" }}
-            transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-            className="text-3xl lg:text-5xl font-black tracking-tight text-black"
-          >
-            WE ARE
-          </motion.h1>
-        </div>
-
         {/* Reimagined Logo with 3D entry and mouse tilt interaction */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8, y: 30 }}
