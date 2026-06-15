@@ -137,7 +137,7 @@ const DeskTopPreLoaderAnimation = (props: Props) => {
         stiffness: 50,
         delay: 3,
       }}
-      className="hidden sticky top-0 bg-[#F8C419] rounded-t-xl border-b-[10px] border-black z-30 lg:flex w-full justify-center items-center"
+      className="hidden sticky top-0 bg-[#F8C419] rounded-t-xl border-b-[10px] border-black z-[60] lg:flex w-full justify-center items-center"
     >
       {isMaximized && (
         <motion.div

@@ -2,7 +2,7 @@
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import logo_with_text from "../../public/Logo with text.svg";
+import AnimatedLogo from "./AnimatedLogo";
 import { ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 
@@ -390,16 +390,16 @@ export default function LandingPage() {
                 transform: "translateZ(-50px) translateY(12px) scale(0.95)",
               }}
             >
-              <Image src={logo_with_text} width={440} height={400} style={{ height: "auto" }} alt="Logo Shadow" priority className="filter brightness-0" />
+              <AnimatedLogo width={440} height={297} className="filter brightness-0" />
             </div>
 
             {/* Main Logo Image Layer */}
             <div className="relative" style={{ transform: "translateZ(30px)" }}>
               <div className="hidden lg:flex">
-                <Image src={logo_with_text} width={440} height={400} style={{ height: "auto" }} alt="Logo" priority />
+                <AnimatedLogo width={440} height={297} />
               </div>
               <div className="flex lg:hidden">
-                <Image src={logo_with_text} width={260} height={400} style={{ height: "auto" }} alt="Logo" priority />
+                <AnimatedLogo width={260} height={176} />
               </div>
             </div>
 
