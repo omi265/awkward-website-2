@@ -15,7 +15,7 @@ const DesktopTabSelector = ({ tabs, selectedTab, setSelectedTab }: any) => {
               selectedTab === index
                 ? "bg-white flex-1 w-[40%]"
                 : "bg-[#D9D9D9] flex-none w-[15%]"
-            } flex justify-center items-center text-2xl h-full font-black cursor-pointer ${
+            } flex justify-center items-center text-2xl h-full font-black cursor-pointer transition-all duration-500 ease-in-out ${
               tab.tabName === "CONTACT US" ? "border-r-[10PX] border-black" : ""
             }`}
             onClick={() => setSelectedTab(index)}
@@ -63,7 +63,7 @@ export const MobileTabSelector = ({
               selectedTab === index
                 ? "bg-white flex-1 w-[40%] justify-center"
                 : "bg-[#D9D9D9] flex-none w-[15%] justify-start pl-2"
-            } flex items-center h-full font-black cursor-pointer `}
+            } flex items-center h-full font-black cursor-pointer transition-all duration-500 ease-in-out `}
             onClick={() => setSelectedTab(index)}
           >
             {tab.tabName == "AWKWARD STUDIO" && selectedTab != 0 ? (
