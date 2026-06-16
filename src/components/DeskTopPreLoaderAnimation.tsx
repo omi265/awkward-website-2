@@ -3,6 +3,7 @@
 import { motion, useAnimation } from "motion/react";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   HoverCard,
   HoverCardContent,
@@ -186,7 +187,26 @@ const DeskTopPreLoaderAnimation = (props: Props) => {
           }}
           className="flex items-center space-x-6 w-full h-full pl-5"
         >
-          <div className="h-[5dvh] max-h-10 min-h-8 aspect-square border-[11px] rounded-full border-black"></div>
+          <HoverCard>
+            <Link href="/" className="h-[5dvh] max-h-10 min-h-8 aspect-square">
+              <HoverCardTrigger
+                className="w-full h-full border-[11px] rounded-full border-black cursor-pointer block hover:bg-black/10 transition-colors"
+              />
+            </Link>
+            <HoverCardContent className="flex bg-[#F5C802] text-black font-bold border-4 border-black rounded-2xl text-center cursor-pointer h-8 w-fit">
+              <div className="flex justify-center items-center">
+                <div className="relative -mt-4">
+                  <Image
+                    src={fullscreen_sad}
+                    width={100}
+                    height={100}
+                    alt="sad"
+                  />
+                </div>
+                <div>Go Back to Landing Page</div>
+              </div>
+            </HoverCardContent>
+          </HoverCard>
           <div className="h-[5dvh] max-h-10 min-h-8 aspect-square border-[11px] rounded-full border-black"></div>
           {/* <div
             className="h-10 w-10 border-[12px] rounded-full border-black"
