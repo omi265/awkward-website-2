@@ -17,6 +17,12 @@ const DeskTopPreLoaderAnimation = (props: Props) => {
   useEffect(() => {
     let isMounted = true;
 
+    const preloaderFinishedTimer = setTimeout(() => {
+      if (isMounted) {
+        setIsPreloaderFinished(true);
+      }
+    }, 3000);
+
     const runSequence = async () => {
       // Defer trigger by 150ms to ensure all elements mount and register with controls
       await new Promise((resolve) => setTimeout(resolve, 150));
@@ -49,6 +55,7 @@ const DeskTopPreLoaderAnimation = (props: Props) => {
 
     return () => {
       isMounted = false;
+      clearTimeout(preloaderFinishedTimer);
     };
   }, [controls]);
 
@@ -128,8 +135,8 @@ const DeskTopPreLoaderAnimation = (props: Props) => {
       animate={{ height: "9%" }}
       transition={{
         type: "spring",
-        visualDuration: 2,
-        stiffness: 50,
+        visualDuration: 0.8,
+        stiffness: 100,
         delay: 3,
       }}
       onAnimationComplete={() => {
