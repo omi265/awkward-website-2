@@ -86,7 +86,7 @@ const MobilePreLoaderAnimation = (props: Props) => {
       animate={{ height: "4%" }}
       transition={{
         type: "spring",
-        visualDuration: 0.8,
+        visualDuration: 1.2,
         stiffness: 100,
         delay: 3,
       }}

@@ -373,7 +373,7 @@ export default function LandingPage() {
         <motion.div
           initial={{ opacity: 0, scale: 0.8, y: 30 }}
           animate={isPreloaderFinished ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.8, y: 30 }}
-          transition={{ type: "spring", stiffness: 70, damping: 15, delay: 0 }}
+          transition={{ type: "spring", stiffness: 70, damping: 15, delay: 0.1 }}
           style={{ perspective: 1200 }}
           className="mb-8 select-none w-full flex justify-center items-center"
         >
@@ -420,7 +420,7 @@ export default function LandingPage() {
               <motion.div
                 initial={{ y: "100%" }}
                 animate={isPreloaderFinished ? { y: 0 } : { y: "100%" }}
-                transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+                transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
               >
                 <span className="italic font-bold transition-all duration-300 hover:text-[#F8C419]">Awkwardly</span> unique and
               </motion.div>
@@ -429,7 +429,7 @@ export default function LandingPage() {
               <motion.div
                 initial={{ y: "100%" }}
                 animate={isPreloaderFinished ? { y: 0 } : { y: "100%" }}
-                transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+                transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.45 }}
               >
                 <span className="italic font-bold transition-all duration-300 hover:text-[#F8C419]">Brilliantly</span> effective.
               </motion.div>
@@ -440,7 +440,7 @@ export default function LandingPage() {
             <motion.div
               initial={{ y: "100%", opacity: 0 }}
               animate={isPreloaderFinished ? { y: 0, opacity: 1 } : { y: "100%", opacity: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.65 }}
             >
               Digitizing Operations &amp; Scaling Custom B2B Software.
             </motion.div>
@@ -449,7 +449,7 @@ export default function LandingPage() {
             <motion.div
               initial={{ y: "100%", opacity: 0 }}
               animate={isPreloaderFinished ? { y: 0, opacity: 1 } : { y: "100%", opacity: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.85 }}
             >
               We build tools that don't just work, they{" "}
               <span className="font-black text-black border-b-[3px] lg:border-b-[4px] border-[#F8C419] hover:bg-[#F8C419]/25 transition-colors duration-200">Stand Out</span>.
@@ -461,7 +461,7 @@ export default function LandingPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isPreloaderFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 1.05 }}
           className="hidden lg:flex"
           onMouseMove={handleBtnMouseMove}
           onMouseLeave={handleBtnMouseLeave}
@@ -481,7 +481,7 @@ export default function LandingPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isPreloaderFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 1.05 }}
           className="flex lg:hidden mt-4"
         >
           <a href="/home" onClick={startTransition}>
