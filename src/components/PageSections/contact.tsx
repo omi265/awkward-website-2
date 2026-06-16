@@ -273,17 +273,17 @@ const Contact = () => {
           </div>
 
           {/* Restore original image placement for right half of the page with mouse movement jiggle */}
-          <div className="flex flex-col w-full h-full justify-between items-center">
+          <div className="w-full lg:w-[40%] flex justify-center items-center h-full">
             <motion.div
               style={{ x: transImgX, y: transImgY }}
-              className="flex relative w-[70%] lg:w-full justify-center items-center mb-6 lg:mb-0 pointer-events-none"
+              className="relative flex justify-center items-center w-[70%] lg:w-full pointer-events-none"
             >
               <Image
                 src={omkar_2}
                 width={500}
                 height={400}
                 alt="Logo"
-                className="object-cover"
+                className="w-full max-w-[500px] h-auto object-contain"
               />
             </motion.div>
           </div>
