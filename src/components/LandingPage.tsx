@@ -9,7 +9,6 @@ import { useTheme } from "@/lib/ThemeContext";
 
 export default function LandingPage() {
   const { isPreloaderFinished } = useTheme();
-  const baseDelay = isPreloaderFinished ? 0 : 4.5;
   const router = useRouter();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   
@@ -165,8 +164,10 @@ export default function LandingPage() {
   }, []);
 
   useEffect(() => {
+    if (!isPreloaderFinished) return;
+
     const timeouts: NodeJS.Timeout[] = [];
-    const initialDelay = 800;
+    const initialDelay = 100;
 
     for (let i = 0; i < totalElements; i++) {
       const timeout = setTimeout(() => {
@@ -175,7 +176,7 @@ export default function LandingPage() {
       timeouts.push(timeout);
     }
     return () => timeouts.forEach((timeout) => clearTimeout(timeout));
-  }, []);
+  }, [isPreloaderFinished]);
 
   // Global window mouse movement event listener for high precision 3D parallax
   useEffect(() => {
@@ -371,8 +372,8 @@ export default function LandingPage() {
         {/* Reimagined Logo with 3D entry and mouse tilt interaction */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8, y: 30 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ type: "spring", stiffness: 70, damping: 15, delay: baseDelay + 0.35 }}
+          animate={isPreloaderFinished ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.8, y: 30 }}
+          transition={{ type: "spring", stiffness: 70, damping: 15, delay: 0.15 }}
           style={{ perspective: 1200 }}
           className="mb-8 select-none w-full flex justify-center items-center"
         >
@@ -393,16 +394,16 @@ export default function LandingPage() {
                 transform: "translateZ(-50px) translateY(12px) scale(0.95)",
               }}
             >
-              <AnimatedLogo width={440} height={297} className="filter brightness-0" />
+              <AnimatedLogo width={440} height={297} className="filter brightness-0" startAnimation={isPreloaderFinished} />
             </div>
 
             {/* Main Logo Image Layer */}
             <div className="relative" style={{ transform: "translateZ(30px)" }}>
               <div className="hidden lg:flex">
-                <AnimatedLogo width={440} height={297} />
+                <AnimatedLogo width={440} height={297} startAnimation={isPreloaderFinished} />
               </div>
               <div className="flex lg:hidden">
-                <AnimatedLogo width={260} height={176} />
+                <AnimatedLogo width={260} height={176} startAnimation={isPreloaderFinished} />
               </div>
             </div>
 
@@ -418,8 +419,8 @@ export default function LandingPage() {
             <div className="overflow-hidden py-1 w-full flex justify-center">
               <motion.div
                 initial={{ y: "100%" }}
-                animate={{ y: 0 }}
-                transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: baseDelay + 0.55 }}
+                animate={isPreloaderFinished ? { y: 0 } : { y: "100%" }}
+                transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
               >
                 <span className="italic font-bold transition-all duration-300 hover:text-[#F8C419]">Awkwardly</span> unique and
               </motion.div>
@@ -427,8 +428,8 @@ export default function LandingPage() {
             <div className="overflow-hidden py-1 w-full flex justify-center">
               <motion.div
                 initial={{ y: "100%" }}
-                animate={{ y: 0 }}
-                transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: baseDelay + 0.7 }}
+                animate={isPreloaderFinished ? { y: 0 } : { y: "100%" }}
+                transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
               >
                 <span className="italic font-bold transition-all duration-300 hover:text-[#F8C419]">Brilliantly</span> effective.
               </motion.div>
@@ -438,8 +439,8 @@ export default function LandingPage() {
           <div className="overflow-hidden py-0.5 w-full flex justify-center">
             <motion.div
               initial={{ y: "100%", opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: baseDelay + 0.85 }}
+              animate={isPreloaderFinished ? { y: 0, opacity: 1 } : { y: "100%", opacity: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.65 }}
             >
               Digitizing Operations &amp; Scaling Custom B2B Software.
             </motion.div>
@@ -447,8 +448,8 @@ export default function LandingPage() {
           <div className="overflow-hidden py-0.5 mt-2 w-full flex justify-center">
             <motion.div
               initial={{ y: "100%", opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: baseDelay + 1.0 }}
+              animate={isPreloaderFinished ? { y: 0, opacity: 1 } : { y: "100%", opacity: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
             >
               We build tools that don't just work, they{" "}
               <span className="font-black text-black border-b-[3px] lg:border-b-[4px] border-[#F8C419] hover:bg-[#F8C419]/25 transition-colors duration-200">Stand Out</span>.
@@ -459,8 +460,8 @@ export default function LandingPage() {
         {/* Magnetic CTA Button with Circle-Wipe Transition trigger */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: baseDelay + 1.2 }}
+          animate={isPreloaderFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.95 }}
           className="hidden lg:flex"
           onMouseMove={handleBtnMouseMove}
           onMouseLeave={handleBtnMouseLeave}
@@ -479,8 +480,8 @@ export default function LandingPage() {
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: baseDelay + 1.2 }}
+          animate={isPreloaderFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.95 }}
           className="flex lg:hidden mt-4"
         >
           <a href="/home" onClick={startTransition}>
