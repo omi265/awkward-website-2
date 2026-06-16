@@ -49,6 +49,10 @@
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
+.font-geist {
+  font-family: var(--font-geist-sans), var(--font-sans), system-ui, sans-serif;
+}
+
 /* Smooth custom selections */
 ::selection {
   background: #F8C419;

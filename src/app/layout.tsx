@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import WebWindow from "@/components/WebWindow";
 import Head from "next/head";
 import Script from "next/script";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
+
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+});
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -87,7 +94,7 @@ export default function RootLayout({
       />
       {/* End Google Tag (gtag.js) scripts */}
       <body
-        className={`bodyScroll ${playfair.variable} ${plusJakarta.variable} antialiased bg-black overscroll-none`}
+        className={`bodyScroll ${playfair.variable} ${plusJakarta.variable} ${geistSans.variable} antialiased bg-black overscroll-none`}
       >
         <SmoothScroll>
           <CustomCursor />
