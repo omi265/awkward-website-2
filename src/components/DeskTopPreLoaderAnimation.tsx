@@ -135,7 +135,7 @@ const DeskTopPreLoaderAnimation = (props: Props) => {
       animate={{ height: "9%" }}
       transition={{
         type: "spring",
-        visualDuration: 1.2,
+        visualDuration: 1.4,
         stiffness: 100,
         delay: 3,
       }}
