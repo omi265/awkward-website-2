@@ -54,7 +54,7 @@ export const MobileTabSelector = ({
   setSelectedTab,
 }: any) => {
   return (
-    <div className="flex fixed bottom-[5%] justify-center items-center border-solid border-r-[0px] border-l-[0px] border-t-[10px] border-b-[10px] border-black bg-[#D9D9D9] h-12 w-[95.8%] sm:w-[98.5%] md:w-[99.5%] z-50 text-xs box-content">
+    <div className="flex fixed bottom-[calc(4%+0.5rem)] justify-center items-center border-solid border-r-[0px] border-l-[0px] border-t-[10px] border-b-[10px] border-black bg-[#D9D9D9] h-12 w-[95.8%] sm:w-[98.5%] md:w-[99.5%] z-50 text-xs box-content">
       <div className="flex justify-between items-center h-full divide-x-8 divide-black w-full">
         {tabs.map((tab: any, index: number) => (
           <div
