@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import WebWindow from "@/components/WebWindow";
 import Head from "next/head";
+import { ThemeProvider } from "@/lib/ThemeContext";
 import Script from "next/script";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
@@ -96,11 +97,13 @@ export default function RootLayout({
       <body
         className={`bodyScroll ${playfair.variable} ${plusJakarta.variable} ${geistSans.variable} antialiased bg-black overscroll-none`}
       >
-        <SmoothScroll>
-          <CustomCursor />
-          <div className="noise-overlay" />
-          <WebWindow children={children} className="w-[80%]" />
-        </SmoothScroll>
+        <ThemeProvider>
+          <SmoothScroll>
+            <CustomCursor />
+            <div className="noise-overlay" />
+            <WebWindow children={children} className="w-[80%]" />
+          </SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   );

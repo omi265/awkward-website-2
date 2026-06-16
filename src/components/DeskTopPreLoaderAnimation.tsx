@@ -3,10 +3,12 @@
 import { motion, useAnimation } from "motion/react";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { useTheme } from "@/lib/ThemeContext";
 
 type Props = {};
 
 const DeskTopPreLoaderAnimation = (props: Props) => {
+  const { setIsPreloaderFinished } = useTheme();
   const [isMaximized, setIsMaximized] = useState(true);
   const [isFullScreen, setIsFullScreen] = useState(false);
 
@@ -129,6 +131,9 @@ const DeskTopPreLoaderAnimation = (props: Props) => {
         visualDuration: 2,
         stiffness: 50,
         delay: 3,
+      }}
+      onAnimationComplete={() => {
+        setIsPreloaderFinished(true);
       }}
       className="hidden sticky top-0 bg-[#F8C419] rounded-t-xl border-b-[10px] border-black z-[60] lg:flex w-full justify-center items-center"
     >

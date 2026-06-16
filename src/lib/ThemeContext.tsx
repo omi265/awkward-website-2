@@ -9,6 +9,8 @@ type ThemeContextType = {
   setSelectedOption: (val: number) => void;
   popStyle: "1A" | "1B" | "1C" | "1D" | "1E";
   setPopStyle: (val: "1A" | "1B" | "1C" | "1D" | "1E") => void;
+  isPreloaderFinished: boolean;
+  setIsPreloaderFinished: (val: boolean) => void;
 };
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -17,6 +19,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [selectedOption, setSelectedOption] = useState(1);
   const [popStyle, setPopStyle] = useState<"1A" | "1B" | "1C" | "1D" | "1E">("1A");
+  const [isPreloaderFinished, setIsPreloaderFinished] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -62,6 +65,8 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
         setSelectedOption: changeOption,
         popStyle,
         setPopStyle: changePopStyle,
+        isPreloaderFinished,
+        setIsPreloaderFinished,
       }}
     >
       {children}

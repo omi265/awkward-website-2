@@ -2,10 +2,12 @@
 
 import { motion, useAnimation } from "motion/react";
 import React, { useEffect, useState } from "react";
+import { useTheme } from "@/lib/ThemeContext";
 
 type Props = {};
 
 const MobilePreLoaderAnimation = (props: Props) => {
+  const { setIsPreloaderFinished } = useTheme();
   const [isMaximized, setIsMaximized] = useState(true);
 
   const controls = useAnimation();
@@ -80,6 +82,9 @@ const MobilePreLoaderAnimation = (props: Props) => {
         visualDuration: 2,
         stiffness: 50,
         delay: 3,
+      }}
+      onAnimationComplete={() => {
+        setIsPreloaderFinished(true);
       }}
       className="flex fixed bottom-2 left-2 right-2 bg-[#F8C419] rounded-b-xl border-t-[10px] border-black z-[60] lg:hidden justify-center items-center"
     >
