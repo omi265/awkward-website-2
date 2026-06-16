@@ -90,43 +90,46 @@ const HomePage = () => {
     }, 1200);
   };
 
-  // Set up intersection observer relative to the web-window-scroll container
+  // Set up scroll listener scroll-spy relative to the web-window-scroll container
   useEffect(() => {
     const scrollContainer = document.querySelector(".web-window-scroll");
-    
-    const observerOptions = {
-      root: scrollContainer || null, // Observes intersection relative to our scroll container
-      rootMargin: "-30% 0px -40% 0px", // Trigger when a section enters the central 30% viewport band
-      threshold: 0.05,
-    };
+    if (!scrollContainer) return;
 
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+    const handleScroll = () => {
       if (isScrolling) return;
 
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          const index = sectionRefs.current.findIndex(
-            (ref) => ref === entry.target
-          );
-          if (index !== -1 && selectedTab !== index) {
-            setSelectedTab(index);
+      const scrollPos = scrollContainer.scrollTop;
+      const threshold = 150; // Offset threshold matching header/tab selector height
+
+      // Check if we are at the bottom of the scroll container
+      const isAtBottom =
+        scrollPos + scrollContainer.clientHeight >=
+        scrollContainer.scrollHeight - 20;
+
+      let activeIndex = 0;
+
+      if (isAtBottom) {
+        activeIndex = sectionRefs.current.length - 1;
+      } else {
+        for (let i = 0; i < sectionRefs.current.length; i++) {
+          const ref = sectionRefs.current[i];
+          if (ref) {
+            const sectionTop = ref.offsetTop;
+            if (scrollPos >= sectionTop - threshold) {
+              activeIndex = i;
+            }
           }
-          break; // Stop at first intersecting item
         }
+      }
+
+      if (selectedTab !== activeIndex) {
+        setSelectedTab(activeIndex);
       }
     };
 
-    const observer = new IntersectionObserver(
-      observerCallback,
-      observerOptions
-    );
-
-    sectionRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
+    scrollContainer.addEventListener("scroll", handleScroll);
     return () => {
-      observer.disconnect();
+      scrollContainer.removeEventListener("scroll", handleScroll);
     };
   }, [selectedTab, isScrolling]);
 
