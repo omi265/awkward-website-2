@@ -154,7 +154,7 @@ const Home = ({ setSelectedTab }: any) => {
               onMouseLeave={() => setBtn1Offset({ x: 0, y: 0 })}
               style={{ x: btn1Offset.x, y: btn1Offset.y }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => setSelectedTab(5)}
+              onClick={() => setSelectedTab(4)}
             >
               Get Started
             </motion.div>
@@ -228,7 +228,7 @@ const Home = ({ setSelectedTab }: any) => {
           <motion.div
             className="text-lg font-black px-8 py-3 border-[4px] rounded-full border-black bg-[#F8C419] shadow-[4px_4px_0px_#000] text-center w-48"
             whileTap={{ scale: 0.95 }}
-            onClick={() => setSelectedTab(5)}
+            onClick={() => setSelectedTab(4)}
           >
             Get Started
           </motion.div>
