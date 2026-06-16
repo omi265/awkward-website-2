@@ -2,15 +2,7 @@
 
 import { motion, useAnimation } from "motion/react";
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card";
-import fullscreen_sad from "../../public/fullscreen_sad.png";
-import fullscreen_happy from "../../public/fullscreen_happy.png";
 
 type Props = {};
 
@@ -187,53 +179,29 @@ const DeskTopPreLoaderAnimation = (props: Props) => {
           }}
           className="flex items-center space-x-6 w-full h-full pl-5"
         >
-          <HoverCard>
+          {/* Exit / Go Back Button */}
+          <div className="relative group flex items-center justify-center">
             <Link href="/" className="h-[5dvh] max-h-10 min-h-8 aspect-square">
-              <HoverCardTrigger
-                className="w-full h-full border-[11px] rounded-full border-black cursor-pointer block hover:bg-black/10 transition-colors"
-              />
+              <div className="w-full h-full border-[11px] rounded-full border-black cursor-pointer hover:bg-black/10 transition-colors" />
             </Link>
-            <HoverCardContent className="flex bg-[#F5C802] text-black font-bold border-4 border-black rounded-2xl text-center cursor-pointer h-8 w-fit">
-              <div className="flex justify-center items-center">
-                <div className="relative -mt-4">
-                  <Image
-                    src={fullscreen_sad}
-                    width={100}
-                    height={100}
-                    alt="sad"
-                  />
-                </div>
-                <div>Go Back to Landing Page</div>
-              </div>
-            </HoverCardContent>
-          </HoverCard>
+            <div className="absolute top-12 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform duration-150 origin-top bg-[#F5C802] text-black font-black text-[10px] py-1.5 px-3 rounded-xl border-[3px] border-black shadow-[3px_3px_0px_#000] w-max z-[99] pointer-events-none">
+              Go Back to Landing Page
+            </div>
+          </div>
+
+          {/* Static Middle Button */}
           <div className="h-[5dvh] max-h-10 min-h-8 aspect-square border-[11px] rounded-full border-black"></div>
-          {/* <div
-            className="h-10 w-10 border-[12px] rounded-full border-black"
-            onClick={isFullScreen ? handleExitFullScreen : handleFullScreen}
-          ></div> */}
-          <HoverCard>
-            <HoverCardTrigger
-              className="h-[5dvh] max-h-10 min-h-8 aspect-square border-[11px] rounded-full border-black"
+
+          {/* Fullscreen Button */}
+          <div className="relative group flex items-center justify-center">
+            <div
+              className="h-[5dvh] max-h-10 min-h-8 aspect-square border-[11px] rounded-full border-black cursor-pointer hover:bg-black/10 transition-colors"
               onClick={isFullScreen ? handleExitFullScreen : handleFullScreen}
-            ></HoverCardTrigger>
-            <HoverCardContent className="flex bg-[#F5C802] text-black font-bold border-4 border-black rounded-2xl text-center cursor-pointer h-8 w-fit">
-              <div className="flex justify-center items-center">
-                <div className="relative -mt-4">
-                  <Image
-                    src={isFullScreen ? fullscreen_sad : fullscreen_happy}
-                    width={100}
-                    height={100}
-                    alt="fullscreen"
-                  />
-                </div>
-                <div>
-                  {" "}
-                  {isFullScreen ? "No! Okay." : "Fullscreen Mode, Baby!"}
-                </div>
-              </div>
-            </HoverCardContent>
-          </HoverCard>
+            />
+            <div className="absolute top-12 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform duration-150 origin-top bg-[#F5C802] text-black font-black text-[10px] py-1.5 px-3 rounded-xl border-[3px] border-black shadow-[3px_3px_0px_#000] w-max z-[99] pointer-events-none">
+              {isFullScreen ? "Exit Fullscreen" : "Fullscreen Mode"}
+            </div>
+          </div>
         </motion.div>
       )}
     </motion.div>
