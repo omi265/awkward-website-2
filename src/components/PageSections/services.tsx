@@ -359,6 +359,9 @@ function ServiceRow({ service, index, isExpanded, isHovered, onHover, onLeave, o
             <p className="text-sm lg:text-base font-normal text-slate-600 leading-relaxed pt-2">
               {service.description}
             </p>
+            <div className="block lg:hidden mt-5 w-full pr-2 pb-2 aspect-[1.35] max-w-[320px] mx-auto">
+              <BrowserScreen type={service.type} />
+            </div>
           </motion.div>
         </motion.div>
       </div>
