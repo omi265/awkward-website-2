@@ -81,7 +81,7 @@ const MobilePreLoaderAnimation = (props: Props) => {
         stiffness: 50,
         delay: 3,
       }}
-      className="flex sticky bottom-2 bg-[#F8C419] rounded-b-xl border-t-[10px] border-black z-[60] lg:hidden w-full justify-center items-center"
+      className="flex fixed bottom-2 left-2 right-2 bg-[#F8C419] rounded-b-xl border-t-[10px] border-black z-[60] lg:hidden justify-center items-center"
     >
       {isMaximized && (
         <motion.div

@@ -6,7 +6,7 @@ import logo_wo_text from "../../public/AS_logo_wo_text.svg";
 
 const DesktopTabSelector = ({ tabs, selectedTab, setSelectedTab }: any) => {
   return (
-    <div className="fixed top-[9%] justify-center items-center min-h-14 lg:w-[98.7%] xl:w-[98.9%] 2xl:w-[99.1%] border-solid border-r-[0px] border-l-[0px] border-t-[10px] border-b-[10px] border-black bg-[#D9D9D9] z-50">
+    <div className="fixed top-[9%] left-2 right-2 justify-center items-center min-h-14 border-solid border-r-[0px] border-l-[0px] border-t-[10px] border-b-[10px] border-black bg-[#D9D9D9] z-50">
       <div className="flex justify-between items-center h-14 divide-x-8 divide-black">
         {tabs.map((tab: any, index: number) => (
           <div
@@ -54,7 +54,7 @@ export const MobileTabSelector = ({
   setSelectedTab,
 }: any) => {
   return (
-    <div className="flex fixed bottom-[calc(4%+0.5rem)] justify-center items-center border-solid border-r-[0px] border-l-[0px] border-t-[10px] border-b-[10px] border-black bg-[#D9D9D9] h-12 w-[95.8%] sm:w-[98.5%] md:w-[99.5%] z-50 text-xs box-content">
+    <div className="flex fixed bottom-[calc(4%+0.5rem)] left-2 right-2 justify-center items-center border-solid border-r-[0px] border-l-[0px] border-t-[10px] border-b-[10px] border-black bg-[#D9D9D9] h-12 z-50 text-xs box-content">
       <div className="flex justify-between items-center h-full divide-x-8 divide-black w-full">
         {tabs.map((tab: any, index: number) => (
           <div
