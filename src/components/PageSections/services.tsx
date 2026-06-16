@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 
 // Interactive Browser Screen Mockup component (completely vector & tech-themed)
-function BrowserScreen({ type }: { type: "dashboard" | "saas" | "ai" }) {
+function BrowserScreen({ type }: { type: "dashboard" | "saas" | "ai" | "fintech" }) {
   return (
     <div className="w-full h-full bg-white border-[4px] border-black rounded-[24px] shadow-[8px_8px_0px_#000000] overflow-hidden flex flex-col select-none">
       {/* Browser Header Bar */}
@@ -15,6 +15,7 @@ function BrowserScreen({ type }: { type: "dashboard" | "saas" | "ai" }) {
         </div>
         <div className="bg-white border-[2px] border-black rounded-lg px-4 py-0.5 text-[8px] lg:text-[10px] font-mono text-slate-500 w-44 truncate text-center font-bold">
           {type === "dashboard" && "localhost:3000/ops"}
+          {type === "fintech" && "localhost:3000/underwrite"}
           {type === "saas" && "secure.awkward.studio"}
           {type === "ai" && "local-rag.ai/chat"}
         </div>
@@ -116,6 +117,31 @@ function BrowserScreen({ type }: { type: "dashboard" | "saas" | "ai" }) {
             </div>
           </div>
         )}
+
+        {type === "fintech" && (
+          <div className="flex-1 flex flex-col justify-between h-full">
+            {/* Portal header */}
+            <div className="flex justify-between items-center border-b-[2px] border-black/10 pb-2">
+              <span className="text-[10px] lg:text-[12px] font-black text-black">FIN_UNDERWRITE</span>
+              <span className="text-[8px] text-[#27C93F] bg-[#27C93F]/10 px-1.5 py-0.5 rounded border border-[#27C93F]/25 font-bold font-mono">VERIFIED</span>
+            </div>
+            {/* Underwriting stats */}
+            <div className="space-y-2 py-1 mt-2">
+              <div className="flex justify-between items-center bg-white border-[2px] border-black rounded-lg p-1.5 shadow-[1.5px_1.5px_0px_#000]">
+                <span className="text-[6.5px] font-bold text-slate-400">RISK SCORE</span>
+                <span className="text-[8.5px] font-black text-[#27C93F]">LOW (92/100)</span>
+              </div>
+              <div className="flex justify-between items-center bg-white border-[2px] border-black rounded-lg p-1.5 shadow-[1.5px_1.5px_0px_#000]">
+                <span className="text-[6.5px] font-bold text-slate-400">CREDIT LIMIT</span>
+                <span className="text-[8.5px] font-black text-black">$75,000</span>
+              </div>
+            </div>
+            {/* Disburse funds action */}
+            <div className="h-6 bg-[#F8C419] border-[2px] border-black rounded-lg flex items-center justify-center shadow-[2px_2px_0px_#000] mt-2">
+              <span className="text-[7.5px] font-black text-black">DISBURSE FUNDS</span>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -158,9 +184,16 @@ const Services = () => {
       tag: "SME OPS",
     },
     {
-      title: "Custom SaaS & Secure Portals",
+      title: "Fintech Portals & Secure Underwriting",
       description:
-        "We engineer scalable customer portals, subscription billing engines, and secure investor dashboards. Perfect for private equity firms, financial institutions, and digital enterprises requiring high data security.",
+        "We build custom loan underwriting systems, client insurance portals, automated checkouts, and secure ledger dashboards. Engineered to handle secure transactions and automate complex client onboarding flows.",
+      type: "fintech" as const,
+      tag: "FINTECH",
+    },
+    {
+      title: "Custom SaaS & Enterprise Platforms",
+      description:
+        "We engineer scalable customer portals, subscription billing engines, and secure partner dashboards. Perfect for private equity firms, financial institutions, and digital enterprises requiring high data security.",
       type: "saas" as const,
       tag: "ENTERPRISE",
     },
@@ -181,7 +214,7 @@ const Services = () => {
       viewport={{ once: true }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative flex justify-center items-center w-[90%] lg:w-[85%] h-fit lg:py-12"
+      className="relative flex justify-center items-center w-[90%] lg:w-[80%] h-fit py-8 lg:py-12"
     >
       <div className="flex flex-col lg:flex-row w-full gap-12 lg:gap-16 z-10 text-black">
         
