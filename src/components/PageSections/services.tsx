@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 
 // Interactive Browser Screen Mockup component (completely vector & tech-themed)
-function BrowserScreen({ type }: { type: "dashboard" | "saas" | "ai" | "fintech" }) {
+function BrowserScreen({ type }: { type: "dashboard" | "saas" | "ai" | "fintech" | "design" | "marketing" }) {
   return (
     <div className="w-full h-full bg-white border-[4px] border-black rounded-[24px] shadow-[8px_8px_0px_#000000] overflow-hidden flex flex-col select-none">
       {/* Browser Header Bar */}
@@ -18,6 +18,8 @@ function BrowserScreen({ type }: { type: "dashboard" | "saas" | "ai" | "fintech"
           {type === "fintech" && "localhost:3000/underwrite"}
           {type === "saas" && "secure.awkward.studio"}
           {type === "ai" && "local-rag.ai/chat"}
+          {type === "design" && "canvas.awkward.studio"}
+          {type === "marketing" && "growth.awkward.studio"}
         </div>
         <div className="w-10" />
       </div>
@@ -142,6 +144,108 @@ function BrowserScreen({ type }: { type: "dashboard" | "saas" | "ai" | "fintech"
             </div>
           </div>
         )}
+
+        {type === "design" && (
+          <div className="flex-1 flex h-full w-full relative">
+            {/* Sidebar tool panel */}
+            <div className="w-8 border-r-[2px] border-black/10 flex flex-col items-center py-2 space-y-2 shrink-0 bg-white">
+              <div className="w-4 h-4 rounded bg-[#F8C419]/20 border border-black flex items-center justify-center">
+                <svg className="w-2.5 h-2.5 text-black" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M7 2l12 11.2-5.8.8 3.5 6-2 1.2-3.5-6-4.2 3.8z"/>
+                </svg>
+              </div>
+              <div className="w-4 h-4 rounded hover:bg-slate-100 flex items-center justify-center">
+                <svg className="w-2.5 h-2.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                  <path d="M12 2l9 9-9 9-9-9z"/>
+                </svg>
+              </div>
+              <div className="w-4 h-4 rounded hover:bg-slate-100 flex items-center justify-center">
+                <span className="text-[9px] font-black text-slate-500">T</span>
+              </div>
+              <div className="w-4 h-4 rounded hover:bg-slate-100 flex items-center justify-center">
+                <div className="w-2.5 h-2.5 border-2 border-slate-500 rounded-sm" />
+              </div>
+            </div>
+            
+            {/* Central Canvas */}
+            <div 
+              className="flex-1 bg-[#FAF9F6] relative overflow-hidden flex flex-col justify-between p-3" 
+              style={{ 
+                backgroundImage: "radial-gradient(#000000 1.2px, transparent 1.2px)", 
+                backgroundSize: "10px 10px",
+                opacity: 0.95
+              }}
+            >
+              <div className="flex justify-between items-center w-full">
+                <span className="text-[7px] font-bold text-slate-400">VECTOR_v1.0</span>
+                <span className="text-[7px] text-[#F8C419] font-black">EDITING</span>
+              </div>
+              {/* Central Vector shape */}
+              <div className="flex-1 flex justify-center items-center relative">
+                <div className="w-16 h-16 border-[3px] border-black rounded-full flex justify-center items-center relative">
+                  <div className="absolute inset-0 border-t border-dashed border-slate-400 transform rotate-45" />
+                  <div className="absolute inset-0 border-t border-dashed border-slate-400 transform -rotate-45" />
+                  <div className="w-10 h-10 border-[2px] border-[#F8C419] transform rotate-45 flex items-center justify-center">
+                    <span className="text-[12px] font-bold text-black font-serif transform -rotate-45 font-black">A</span>
+                  </div>
+                  <div className="absolute -top-1.5 -left-1.5 w-3 h-3 bg-white border-[2.5px] border-black" />
+                  <div className="absolute -top-1.5 -right-1.5 w-3 h-3 bg-white border-[2.5px] border-black" />
+                  <div className="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-white border-[2.5px] border-black" />
+                  <div className="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-white border-[2.5px] border-black" />
+                </div>
+              </div>
+              {/* Swatch indicators */}
+              <div className="flex justify-center space-x-1.5 pt-1 border-t border-black/10">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#F8C419] border border-black" />
+                <span className="w-2.5 h-2.5 rounded-full bg-black border border-black" />
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-400 border border-black" />
+                <span className="w-2.5 h-2.5 rounded-full bg-white border border-black" />
+              </div>
+            </div>
+          </div>
+        )}
+
+        {type === "marketing" && (
+          <div className="flex-1 flex flex-col justify-between h-full">
+            {/* Header / Meta */}
+            <div className="flex justify-between items-center border-b-[2px] border-black/10 pb-2">
+              <span className="text-[10px] lg:text-[12px] font-black text-black">MARKETING_FUNNEL</span>
+              <span className="text-[8px] text-[#27C93F] bg-[#27C93F]/10 px-1.5 py-0.5 rounded border border-[#27C93F]/25 font-bold">LIVE</span>
+            </div>
+            {/* Analytics Stats Grid */}
+            <div className="grid grid-cols-2 gap-2 mt-2">
+              <div className="border-[2px] border-black rounded-xl p-1.5 bg-white shadow-[2px_2px_0px_#000]">
+                <span className="text-[6.5px] text-slate-400 block font-bold">CTR</span>
+                <span className="text-[10px] lg:text-[11px] font-black text-black">5.4%</span>
+              </div>
+              <div className="border-[2px] border-black rounded-xl p-1.5 bg-white shadow-[2px_2px_0px_#000]">
+                <span className="text-[6.5px] text-slate-400 block font-bold">ROAS</span>
+                <span className="text-[10px] lg:text-[11px] font-black text-black">4.2x</span>
+              </div>
+            </div>
+            {/* Funnel Graph */}
+            <div className="flex-1 flex flex-col justify-center space-y-1.5 mt-2.5 px-0.5">
+              <div className="flex items-center justify-between">
+                <span className="text-[6px] text-slate-400 font-bold w-10">REACH</span>
+                <div className="flex-1 h-3.5 bg-[#F8C419] border-[2px] border-black rounded-md flex items-center justify-center">
+                  <span className="text-[6.5px] font-black text-black">100% (250K)</span>
+                </div>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-[6px] text-slate-400 font-bold w-10">ENGAGE</span>
+                <div className="w-[70%] h-3.5 bg-[#F8C419]/60 border-[2px] border-black rounded-md flex items-center justify-center">
+                  <span className="text-[6.5px] font-black text-black">55%</span>
+                </div>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-[6px] text-slate-400 font-bold w-10">CONVERT</span>
+                <div className="w-[40%] h-3.5 bg-[#F8C419]/25 border-[2px] border-black rounded-md flex items-center justify-center">
+                  <span className="text-[6.5px] font-black text-black">15%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -153,7 +257,7 @@ const Services = () => {
 
   const currentIdx = hoveredIdx !== null ? hoveredIdx : activeIdx;
 
-  // Parallax mouse variables
+  // Track mouse coordinates for parallax
   const rawX = useMotionValue(0);
   const rawY = useMotionValue(0);
   const springConfig = { damping: 50, stiffness: 200 };
@@ -196,6 +300,20 @@ const Services = () => {
         "We engineer scalable customer portals, subscription billing engines, and secure partner dashboards. Perfect for private equity firms, financial institutions, and digital enterprises requiring high data security.",
       type: "saas" as const,
       tag: "ENTERPRISE",
+    },
+    {
+      title: "Graphic Design & Brand Identity",
+      description:
+        "We offer comprehensive branding solutions that seamlessly integrate across both online and offline platforms. Whether you need a striking logo or a complete brand identity, our design expertise ensures your brand stands out with clarity and impact.",
+      type: "design" as const,
+      tag: "BRANDING",
+    },
+    {
+      title: "Digital Marketing & Brand Positioning",
+      description:
+        "We help businesses build a strong digital presence through strategic brand positioning and targeted marketing. Our approach focuses on enhancing brand awareness, driving lead generation, and boosting sales. By fostering customer engagement, we turn audiences into loyal communities.",
+      type: "marketing" as const,
+      tag: "GROWTH",
     },
     {
       title: "Local AI & Cognitive Solutions (RAG)",
